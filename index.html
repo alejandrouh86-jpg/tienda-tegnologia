@@ -1,0 +1,816 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Tech Colombia | Tecnología e Informática</title>
+
+<style>
+* {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+
+body {
+font-family: Arial, Helvetica, sans-serif;
+background: #f4f6f8;
+color: #222;
+
+}
+
+header {
+background: #111827;
+color: white;
+padding: 18px 6%;
+display: flex;
+justify-content: space-between;
+align-items: center;
+gap: 20px;
+flex-wrap: wrap;
+position: sticky;
+top: 0;
+z-index: 10;
+}
+
+.logo {
+font-size: 24px;
+font-weight: bold;
+}
+
+.logo span {
+color: #38bdf8;
+}
+
+nav a {
+color: white;
+text-decoration: none;
+margin: 0 10px;
+font-size: 15px;
+}
+
+nav a:hover {
+color: #38bdf8;
+}
+
+.cart {
+background: #2563eb;
+border: none;
+color: white;
+padding: 10px 15px;
+border-radius: 8px;
+
+cursor: pointer;
+font-weight: bold;
+}
+
+.hero {
+min-height: 420px;
+padding: 70px 6%;
+display: flex;
+align-items: center;
+background:
+linear-gradient(rgba(17,24,39,.88), rgba(17,24,39,.88)),
+linear-gradient(135deg, #2563eb, #111827);
+color: white;
+}
+
+.hero-content {
+max-width: 750px;
+}
+
+.hero h1 {
+
+font-size: clamp(36px, 6vw, 64px);
+margin-bottom: 20px;
+}
+
+.hero h1 span {
+color: #38bdf8;
+}
+
+.hero p {
+font-size: 18px;
+line-height: 1.6;
+margin-bottom: 28px;
+color: #dbeafe;
+}
+
+.btn {
+display: inline-block;
+text-decoration: none;
+border: none;
+background: #2563eb;
+color: white;
+
+padding: 13px 22px;
+border-radius: 8px;
+cursor: pointer;
+font-weight: bold;
+}
+
+.btn:hover {
+background: #1d4ed8;
+}
+
+.section {
+padding: 55px 6%;
+}
+
+.section h2 {
+text-align: center;
+margin-bottom: 30px;
+font-size: 32px;
+}
+
+.categories {
+display: grid;
+
+grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+gap: 18px;
+}
+
+.category {
+background: white;
+padding: 25px;
+border-radius: 12px;
+text-align: center;
+box-shadow: 0 3px 15px rgba(0,0,0,.08);
+cursor: pointer;
+transition: .2s;
+}
+
+.category:hover {
+transform: translateY(-4px);
+}
+
+.category-icon {
+font-size: 38px;
+
+margin-bottom: 10px;
+}
+
+.category h3 {
+margin-bottom: 8px;
+}
+
+.category p {
+color: #666;
+font-size: 14px;
+}
+
+.search-box {
+max-width: 600px;
+margin: 0 auto 35px;
+display: flex;
+gap: 10px;
+}
+
+.search-box input {
+flex: 1;
+
+padding: 14px;
+border: 1px solid #ddd;
+border-radius: 8px;
+font-size: 16px;
+}
+
+.products {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+gap: 22px;
+}
+
+.product {
+background: white;
+border-radius: 12px;
+overflow: hidden;
+box-shadow: 0 3px 15px rgba(0,0,0,.08);
+transition: .2s;
+}
+
+.product:hover {
+transform: translateY(-5px);
+}
+
+.product-image {
+height: 190px;
+display: flex;
+align-items: center;
+justify-content: center;
+background: #e5e7eb;
+font-size: 70px;
+}
+
+.product-info {
+padding: 18px;
+}
+
+.product-info h3 {
+margin-bottom: 8px;
+}
+
+.product-info p {
+
+color: #666;
+font-size: 14px;
+min-height: 42px;
+}
+
+.price {
+color: #2563eb;
+font-size: 21px;
+font-weight: bold;
+margin: 15px 0;
+}
+
+.product-buttons {
+display: flex;
+gap: 8px;
+}
+
+.product-buttons button {
+flex: 1;
+}
+
+.whatsapp {
+background: #16a34a;
+}
+
+.whatsapp:hover {
+background: #15803d;
+}
+
+.services {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+gap: 20px;
+}
+
+.service {
+background: white;
+padding: 25px;
+border-radius: 12px;
+text-align: center;
+box-shadow: 0 3px 15px rgba(0,0,0,.08);
+
+}
+
+.service-icon {
+font-size: 40px;
+margin-bottom: 15px;
+}
+
+.service h3 {
+margin-bottom: 10px;
+}
+
+.service p {
+color: #666;
+line-height: 1.5;
+}
+
+.contact {
+background: #111827;
+color: white;
+padding: 55px 6%;
+text-align: center;
+
+}
+
+.contact h2 {
+margin-bottom: 15px;
+}
+
+.contact p {
+margin: 8px 0;
+color: #d1d5db;
+}
+
+footer {
+background: #030712;
+color: #9ca3af;
+text-align: center;
+padding: 20px;
+font-size: 14px;
+}
+
+.empty {
+text-align: center;
+
+padding: 30px;
+color: #777;
+display: none;
+}
+
+@media (max-width: 600px) {
+header {
+justify-content: center;
+}
+
+nav {
+width: 100%;
+text-align: center;
+}
+
+nav a {
+margin: 0 5px;
+}
+
+.hero {
+padding: 55px 6%;
+}
+
+
+.search-box {
+flex-direction: column;
+}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">
+Tech<span>Colombia</span>
+</div>
+
+<nav>
+<a href="#inicio">Inicio</a>
+<a href="#productos">Productos</a>
+<a href="#servicios">Servicios</a>
+<a href="#contacto">Contacto</a>
+</nav>
+
+
+<button class="cart" onclick="verCarrito()">
+🛒 Carrito (<span id="contador">0</span>)
+</button>
+</header>
+
+<section class="hero" id="inicio">
+<div class="hero-content">
+<h1>Tu tienda de <span>tecnología</span></h1>
+
+<p>
+Computadores, accesorios, impresoras, componentes,
+software y servicios informáticos.
+</p>
+
+<a href="#productos" class="btn">
+Ver productos
+</a>
+</div>
+
+</section>
+
+<section class="section">
+<h2>Categorías</h2>
+
+<div class="categories">
+
+<div class="category" onclick="filtrarCategoria('computadores')">
+<div class="category-icon">💻</div>
+<h3>Computadores</h3>
+<p>Laptops y equipos de escritorio</p>
+</div>
+
+<div class="category" onclick="filtrarCategoria('accesorios')">
+<div class="category-icon">🖱️</div>
+<h3>Accesorios</h3>
+<p>Mouse, teclados y periféricos</p>
+</div>
+
+<div class="category" onclick="filtrarCategoria('impresoras')">
+<div class="category-icon">🖨️</div>
+<h3>Impresoras</h3>
+<p>Impresoras, tintas y repuestos</p>
+</div>
+
+<div class="category" onclick="filtrarCategoria('software')">
+<div class="category-icon">📱</div>
+<h3>Software y Apps</h3>
+<p>Soluciones y servicios digitales</p>
+</div>
+
+</div>
+</section>
+
+<section class="section" id="productos">
+
+<h2>Productos destacados</h2>
+
+<div class="search-box">
+<input
+type="text"
+id="buscador"
+placeholder="Buscar producto..."
+onkeyup="buscarProducto()"
+>
+</div>
+
+<div class="products" id="listaProductos">
+
+<div class="product" data-name="Laptop Lenovo" data-category="computadores">
+<div class="product-image">💻</div>
+
+<div class="product-info">
+<h3>Laptop Lenovo</h3>
+
+<p>
+Equipo portátil para trabajo, estudio y uso diario.
+</p>
+
+<div class="price">$1.500.000 COP</div>
+
+<div class="product-buttons">
+<button class="btn" onclick="agregarCarrito('Laptop Lenovo',1500000)">
+🛒 Comprar
+</button>
+
+<button class="btn whatsapp"
+onclick="comprarWhatsApp('Laptop Lenovo',1500000)">
+WhatsApp
+</button>
+</div>
+</div>
+</div>
+
+
+<div class="product" data-name="Mouse inalámbrico" data-category="accesorios">
+
+<div class="product-image">🖱️</div>
+
+<div class="product-info">
+<h3>Mouse inalámbrico</h3>
+
+<p>
+Mouse inalámbrico para computador portátil o escritorio.
+</p>
+
+<div class="price">$35.000 COP</div>
+
+<div class="product-buttons">
+<button class="btn"
+onclick="agregarCarrito('Mouse inalámbrico',35000)">
+🛒 Comprar
+</button>
+
+<button class="btn whatsapp"
+onclick="comprarWhatsApp('Mouse 
+
+inalámbrico',35000)">
+WhatsApp
+</button>
+</div>
+</div>
+</div>
+
+
+<div class="product" data-name="Teclado USB" data-category="accesorios">
+<div class="product-image">⌨️</div>
+
+<div class="product-info">
+<h3>Teclado USB</h3>
+
+<p>
+Teclado USB para computador de escritorio.
+</p>
+
+<div class="price">$45.000 COP</div>
+
+<div class="product-buttons">
+
+<button class="btn"
+onclick="agregarCarrito('Teclado USB',45000)">
+🛒 Comprar
+</button>
+
+<button class="btn whatsapp"
+onclick="comprarWhatsApp('Teclado USB',45000)">
+WhatsApp
+</button>
+</div>
+</div>
+</div>
+
+
+<div class="product" data-name="Impresora Epson" data-category="impresoras">
+<div class="product-image">🖨️</div>
+
+<div class="product-info">
+<h3>Impresora Epson</h3>
+
+
+<p>
+Impresora multifuncional para hogar y oficina.
+</p>
+
+<div class="price">$650.000 COP</div>
+
+<div class="product-buttons">
+<button class="btn"
+onclick="agregarCarrito('Impresora Epson',650000)">
+🛒 Comprar
+</button>
+
+<button class="btn whatsapp"
+onclick="comprarWhatsApp('Impresora Epson',650000)">
+WhatsApp
+</button>
+</div>
+</div>
+
+</div>
+
+
+<div class="product" data-name="Tinta Epson" data-category="impresoras">
+<div class="product-image">🧴</div>
+
+<div class="product-info">
+<h3>Tinta Epson</h3>
+
+<p>
+Botella de tinta para impresoras Epson.
+</p>
+
+<div class="price">$25.000 COP</div>
+
+<div class="product-buttons">
+<button class="btn"
+onclick="agregarCarrito('Tinta Epson',25000)">
+🛒 Comprar
+</button>
+
+
+<button class="btn whatsapp"
+onclick="comprarWhatsApp('Tinta Epson',25000)">
+WhatsApp
+</button>
+</div>
+</div>
+</div>
+
+
+<div class="product" data-name="Servicio informático" data-category="software">
+<div class="product-image">🔧</div>
+
+<div class="product-info">
+<h3>Servicio informático</h3>
+
+<p>
+Mantenimiento, instalación y configuración de equipos.
+</p>
+
+
+<div class="price">Desde $50.000 COP</div>
+
+<div class="product-buttons">
+<button class="btn"
+onclick="comprarWhatsApp('Servicio informático',50000)">
+Solicitar
+</button>
+</div>
+</div>
+</div>
+
+</div>
+
+<div class="empty" id="sinResultados">
+No encontramos productos con esa búsqueda.
+</div>
+
+</section>
+
+<section class="section" id="servicios">
+
+<h2>Servicios informáticos</h2>
+
+<div class="services">
+
+<div class="service">
+<div class="service-icon">🔧</div>
+<h3>Reparación</h3>
+<p>
+Diagnóstico y reparación de computadores,
+impresoras y equipos tecnológicos.
+</p>
+</div>
+
+<div class="service">
+<div class="service-icon">🖨️</div>
+<h3>Impresoras Epson</h3>
+<p>
+Mantenimiento y reparación de impresoras Epson.
+
+</p>
+</div>
+
+<div class="service">
+<div class="service-icon">💻</div>
+<h3>Mantenimiento</h3>
+<p>
+Limpieza, optimización y configuración
+de computadores.
+</p>
+</div>
+
+<div class="service">
+<div class="service-icon">📱</div>
+<h3>Software y Apps</h3>
+<p>
+Instalación y configuración de soluciones
+y aplicaciones informáticas.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="contact" id="contacto">
+
+<h2>¿Necesitas tecnología o soporte?</h2>
+
+<p>
+Escríbenos directamente por WhatsApp.
+</p>
+
+<br>
+
+<a
+class="btn whatsapp"
+href="https://wa.me/5732036674703?text=Hola,%20quiero%20información%20sobre%20sus%20productos%20y%20servicios"
+target="_blank">
+📲 Contactar por WhatsApp
+</a>
+
+
+</section>
+
+<footer>
+© 2026 TechColombia — Tecnología e Informática
+</footer>
+
+
+<script>
+
+let carrito = [];
+
+function agregarCarrito(nombre, precio) {
+
+carrito.push({
+nombre: nombre,
+precio: precio
+});
+
+document.getElementById("contador").textConte
+
+nt =
+carrito.length;
+
+alert("Producto agregado al carrito.");
+}
+
+
+function verCarrito() {
+
+if (carrito.length === 0) {
+alert("Tu carrito está vacío.");
+return;
+}
+
+let mensaje = "Productos seleccionados:%0A%0A";
+let total = 0;
+
+carrito.forEach((producto, index) => {
+
+mensaje +=
+
+(index + 1) + ". " +
+producto.nombre +
+" - $`" +
+producto.precio.toLocaleString("es-CO") +
+" COP%0A";
+
+total += producto.precio;
+});
+
+mensaje +=
+"%0ATotal: `$" +
+total.toLocaleString("es-CO") +
+" COP";
+
+mensaje +=
+"%0A%0AQuiero realizar este pedido.";
+
+const telefono = "5732036674703";
+
+window.open(
+"https://wa.me/" +
+telefono +
+
+"?text=" +
+mensaje,
+"_blank"
+);
+}
+
+
+function comprarWhatsApp(nombre, precio) {
+
+const telefono = "5732036674703";
+
+const mensaje =
+"Hola, estoy interesado en comprar: " +
+nombre +
+". Precio: $" +
+precio.toLocaleString("es-CO") +
+" COP.";
+
+window.open(
+"https://wa.me/" +
+telefono +
+
+"?text=" +
+encodeURIComponent(mensaje),
+"_blank"
+);
+}
+
+
+function buscarProducto() {
+
+const texto =
+document.getElementById("buscador")
+.value
+.toLowerCase();
+
+const productos =
+document.querySelectorAll(".product");
+
+let encontrados = 0;
+
+productos.forEach(producto => {
+
+const nombre =
+producto.dataset.name.toLowerCase();
+
+if (nombre.includes(texto)) {
+
+producto.style.display = "block";
+encontrados++;
+
+} else {
+
+producto.style.display = "none";
+
+}
+
+});
+
+document.getElementById("sinResultados")
+.style.display =
+encontrados === 0 ? "block" : "none";
+}
+
+function filtrarCategoria(categoria) {
+
+const productos =
+document.querySelectorAll(".product");
+
+let encontrados = 0;
+
+productos.forEach(producto => {
+
+if (producto.dataset.category === categoria) {
+
+producto.style.display = "block";
+encontrados++;
+
+} else {
+
+producto.style.display = "none";
+
+}
+
+});
+
+
+document.getElementById("productos")
+.scrollIntoView({
+behavior: "smooth"
+});
+
+document.getElementById("sinResultados")
+.style.display =
+encontrados === 0 ? "block" : "none";
+}
+
+</script>
+
+</body>
+</html>
