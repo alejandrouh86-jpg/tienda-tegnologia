@@ -1,816 +1,285 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Tech Colombia | Tecnología e Informática</title>
-
+<title>Tech Colombia | TecnologÃ­a e InformÃ¡tica</title>
+<meta name="description" content="Tech Colombia - tecnologÃ­a, impresoras Epson, tintas, reparaciÃ³n y servicios informÃ¡ticos.">
 <style>
-* {
-box-sizing: border-box;
-margin: 0;
-padding: 0;
-}
-
-body {
-font-family: Arial, Helvetica, sans-serif;
-background: #f4f6f8;
-color: #222;
-
-}
-
-header {
-background: #111827;
-color: white;
-padding: 18px 6%;
-display: flex;
-justify-content: space-between;
-align-items: center;
-gap: 20px;
-flex-wrap: wrap;
-position: sticky;
-top: 0;
-z-index: 10;
-}
-
-.logo {
-font-size: 24px;
-font-weight: bold;
-}
-
-.logo span {
-color: #38bdf8;
-}
-
-nav a {
-color: white;
-text-decoration: none;
-margin: 0 10px;
-font-size: 15px;
-}
-
-nav a:hover {
-color: #38bdf8;
-}
-
-.cart {
-background: #2563eb;
-border: none;
-color: white;
-padding: 10px 15px;
-border-radius: 8px;
-
-cursor: pointer;
-font-weight: bold;
-}
-
-.hero {
-min-height: 420px;
-padding: 70px 6%;
-display: flex;
-align-items: center;
-background:
-linear-gradient(rgba(17,24,39,.88), rgba(17,24,39,.88)),
-linear-gradient(135deg, #2563eb, #111827);
-color: white;
-}
-
-.hero-content {
-max-width: 750px;
-}
-
-.hero h1 {
-
-font-size: clamp(36px, 6vw, 64px);
-margin-bottom: 20px;
-}
-
-.hero h1 span {
-color: #38bdf8;
-}
-
-.hero p {
-font-size: 18px;
-line-height: 1.6;
-margin-bottom: 28px;
-color: #dbeafe;
-}
-
-.btn {
-display: inline-block;
-text-decoration: none;
-border: none;
-background: #2563eb;
-color: white;
-
-padding: 13px 22px;
-border-radius: 8px;
-cursor: pointer;
-font-weight: bold;
-}
-
-.btn:hover {
-background: #1d4ed8;
-}
-
-.section {
-padding: 55px 6%;
-}
-
-.section h2 {
-text-align: center;
-margin-bottom: 30px;
-font-size: 32px;
-}
-
-.categories {
-display: grid;
-
-grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-gap: 18px;
-}
-
-.category {
-background: white;
-padding: 25px;
-border-radius: 12px;
-text-align: center;
-box-shadow: 0 3px 15px rgba(0,0,0,.08);
-cursor: pointer;
-transition: .2s;
-}
-
-.category:hover {
-transform: translateY(-4px);
-}
-
-.category-icon {
-font-size: 38px;
-
-margin-bottom: 10px;
-}
-
-.category h3 {
-margin-bottom: 8px;
-}
-
-.category p {
-color: #666;
-font-size: 14px;
-}
-
-.search-box {
-max-width: 600px;
-margin: 0 auto 35px;
-display: flex;
-gap: 10px;
-}
-
-.search-box input {
-flex: 1;
-
-padding: 14px;
-border: 1px solid #ddd;
-border-radius: 8px;
-font-size: 16px;
-}
-
-.products {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-gap: 22px;
-}
-
-.product {
-background: white;
-border-radius: 12px;
-overflow: hidden;
-box-shadow: 0 3px 15px rgba(0,0,0,.08);
-transition: .2s;
-}
-
-.product:hover {
-transform: translateY(-5px);
-}
-
-.product-image {
-height: 190px;
-display: flex;
-align-items: center;
-justify-content: center;
-background: #e5e7eb;
-font-size: 70px;
-}
-
-.product-info {
-padding: 18px;
-}
-
-.product-info h3 {
-margin-bottom: 8px;
-}
-
-.product-info p {
-
-color: #666;
-font-size: 14px;
-min-height: 42px;
-}
-
-.price {
-color: #2563eb;
-font-size: 21px;
-font-weight: bold;
-margin: 15px 0;
-}
-
-.product-buttons {
-display: flex;
-gap: 8px;
-}
-
-.product-buttons button {
-flex: 1;
-}
-
-.whatsapp {
-background: #16a34a;
-}
-
-.whatsapp:hover {
-background: #15803d;
-}
-
-.services {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-gap: 20px;
-}
-
-.service {
-background: white;
-padding: 25px;
-border-radius: 12px;
-text-align: center;
-box-shadow: 0 3px 15px rgba(0,0,0,.08);
-
-}
-
-.service-icon {
-font-size: 40px;
-margin-bottom: 15px;
-}
-
-.service h3 {
-margin-bottom: 10px;
-}
-
-.service p {
-color: #666;
-line-height: 1.5;
-}
-
-.contact {
-background: #111827;
-color: white;
-padding: 55px 6%;
-text-align: center;
-
-}
-
-.contact h2 {
-margin-bottom: 15px;
-}
-
-.contact p {
-margin: 8px 0;
-color: #d1d5db;
-}
-
-footer {
-background: #030712;
-color: #9ca3af;
-text-align: center;
-padding: 20px;
-font-size: 14px;
-}
-
-.empty {
-text-align: center;
-
-padding: 30px;
-color: #777;
-display: none;
-}
-
-@media (max-width: 600px) {
-header {
-justify-content: center;
-}
-
-nav {
-width: 100%;
-text-align: center;
-}
-
-nav a {
-margin: 0 5px;
-}
-
-.hero {
-padding: 55px 6%;
-}
-
-
-.search-box {
-flex-direction: column;
-}
-}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;background:#f4f6f8;color:#222}
+header{background:#111827;color:#fff;padding:15px 6%;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;position:sticky;top:0;z-index:20}
+.logo{font-size:24px;font-weight:700}.logo span{color:#38bdf8}
+nav a{color:#fff;text-decoration:none;margin:0 8px;font-size:15px}nav a:hover{color:#38bdf8}
+.header-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.action-btn{border:0;background:#2563eb;color:#fff;padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:700}
+.action-btn.secondary{background:#374151}.action-btn:hover{filter:brightness(.92)}
+.user-name{font-size:14px;color:#dbeafe}
+.hero{min-height:420px;padding:70px 6%;display:flex;align-items:center;background:linear-gradient(rgba(17,24,39,.9),rgba(17,24,39,.9)),linear-gradient(135deg,#2563eb,#111827);color:#fff}
+.hero-content{max-width:780px}.hero h1{font-size:clamp(36px,6vw,64px);margin-bottom:20px}.hero h1 span{color:#38bdf8}
+.hero p{font-size:18px;line-height:1.6;margin-bottom:28px;color:#dbeafe}
+.btn{display:inline-block;text-decoration:none;border:0;background:#2563eb;color:#fff;padding:13px 22px;border-radius:8px;cursor:pointer;font-weight:700}
+.btn:hover{background:#1d4ed8}.btn.green{background:#16a34a}.btn.dark{background:#374151}
+.section{padding:55px 6%}.section h2{text-align:center;margin-bottom:30px;font-size:32px}
+.categories{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px}
+.category{background:#fff;padding:25px;border-radius:12px;text-align:center;box-shadow:0 3px 15px rgba(0,0,0,.08);cursor:pointer;transition:.2s}
+.category:hover{transform:translateY(-4px)}.category-icon{font-size:38px;margin-bottom:10px}.category h3{margin-bottom:8px}.category p{color:#666;font-size:14px}
+.search-box{max-width:600px;margin:0 auto 35px;display:flex;gap:10px}.search-box input{flex:1;padding:14px;border:1px solid #ddd;border-radius:8px;font-size:16px}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px}
+.product{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 3px 15px rgba(0,0,0,.08);transition:.2s}.product:hover{transform:translateY(-5px)}
+.product-image{height:190px;display:flex;align-items:center;justify-content:center;background:#e5e7eb;font-size:70px}
+.product-info{padding:18px}.product-info h3{margin-bottom:8px}.product-info p{color:#666;font-size:14px;min-height:42px}
+.price{color:#2563eb;font-size:21px;font-weight:700;margin:15px 0}.product-buttons{display:flex;gap:8px}.product-buttons button{flex:1}
+.whatsapp{background:#16a34a!important}.whatsapp:hover{background:#15803d!important}
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}.service{background:#fff;padding:25px;border-radius:12px;text-align:center;box-shadow:0 3px 15px rgba(0,0,0,.08)}
+.service-icon{font-size:40px;margin-bottom:15px}.service h3{margin-bottom:10px}.service p{color:#666;line-height:1.5}
+.app-box{max-width:850px;margin:0 auto;background:#fff;border-radius:16px;padding:30px;box-shadow:0 3px 15px rgba(0,0,0,.08);text-align:center}.app-box p{color:#555;line-height:1.6;margin:10px 0 20px}
+.contact{background:#111827;color:#fff;padding:55px 6%;text-align:center}.contact h2{margin-bottom:15px}.contact p{margin:8px 0;color:#d1d5db}
+footer{background:#030712;color:#9ca3af;text-align:center;padding:20px;font-size:14px}
+.empty{text-align:center;padding:30px;color:#777;display:none}
+.notice{max-width:900px;margin:20px auto 0;background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;padding:12px 16px;border-radius:10px}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.62);z-index:100;align-items:center;justify-content:center;padding:20px}
+.modal.show{display:flex}.modal-card{background:#fff;width:min(440px,100%);border-radius:14px;padding:25px;position:relative;max-height:90vh;overflow:auto}
+.modal-card h2{margin-bottom:16px}.close{position:absolute;right:15px;top:12px;border:0;background:none;font-size:25px;cursor:pointer}
+.form-group{margin-bottom:13px}.form-group label{display:block;font-size:14px;font-weight:700;margin-bottom:5px}.form-group input{width:100%;padding:12px;border:1px solid #d1d5db;border-radius:8px}
+.form-actions{display:flex;gap:8px;margin-top:16px}.form-actions button{flex:1}
+.switch{text-align:center;margin-top:14px;font-size:14px}.switch button{border:0;background:none;color:#2563eb;cursor:pointer;font-weight:700}
+.msg{margin-top:12px;padding:10px;border-radius:8px;display:none}.msg.error{display:block;background:#fee2e2;color:#991b1b}.msg.ok{display:block;background:#dcfce7;color:#166534}
+.profile{background:#f8fafc;border-radius:10px;padding:15px;margin:10px 0}.profile strong{display:block;margin-bottom:5px}
+.cart-list{max-height:300px;overflow:auto;margin:10px 0}.cart-item{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid #eee;padding:10px 0;font-size:14px}
+.cart-total{text-align:right;font-size:18px;font-weight:700;margin:15px 0}
+.top-qr{background:#fff;padding:10px 6%;display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;border-bottom:1px solid #e5e7eb}.top-qr img{width:86px;height:86px;border-radius:8px}.top-qr-text{text-align:left}.top-qr-text strong{display:block;color:#111827}.top-qr-text span{display:block;color:#6b7280;font-size:13px;margin-top:3px}.qr-wrap{text-align:center}.qr-wrap img{max-width:260px;width:100%;margin:10px auto;display:block}.qr-url{font-size:12px;color:#666;word-break:break-all;background:#f3f4f6;padding:8px;border-radius:6px}
+@media(max-width:700px){header{justify-content:center}nav{width:100%;text-align:center}nav a{margin:0 4px}.header-actions{justify-content:center}.hero{padding:55px 6%}.search-box{flex-direction:column}.product-buttons{flex-direction:column}.logo{font-size:22px}}
 </style>
 </head>
-
 <body>
 
-<header>
-<div class="logo">
-Tech<span>Colombia</span>
+<!-- QR VISIBLE AL INICIAR LA WEB -->
+<div class="top-qr">
+<img id="qrInicio" src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https%3A%2F%2Ftienda-tegnologia-1.onrender.com%2F%3Fapp%3Dtechcolombia" alt="QR para vincular la APK">
+<div class="top-qr-text"><strong>ðŸ“± Vincula nuestra APK</strong><span>Escanea este cÃ³digo QR desde la aplicaciÃ³n.</span><button class="action-btn" onclick="abrirQR()" style="margin-top:6px">Ver QR grande</button></div>
 </div>
 
+<header>
+<div class="logo">Tech<span>Colombia</span></div>
 <nav>
-<a href="#inicio">Inicio</a>
-<a href="#productos">Productos</a>
-<a href="#servicios">Servicios</a>
-<a href="#contacto">Contacto</a>
+<a href="#inicio">Inicio</a><a href="#productos">Productos</a><a href="#servicios">Servicios</a><a href="#app">APK</a><a href="#contacto">Contacto</a>
 </nav>
-
-
-<button class="cart" onclick="verCarrito()">
-🛒 Carrito (<span id="contador">0</span>)
-</button>
+<div class="header-actions">
+<span id="usuarioActivo" class="user-name"></span>
+<button class="action-btn secondary" id="btnCuenta" onclick="abrirCuenta()">ðŸ‘¤ Iniciar sesiÃ³n</button>
+<button class="action-btn" onclick="verCarrito()">ðŸ›’ Carrito (<span id="contador">0</span>)</button>
+</div>
 </header>
 
 <section class="hero" id="inicio">
 <div class="hero-content">
-<h1>Tu tienda de <span>tecnología</span></h1>
-
-<p>
-Computadores, accesorios, impresoras, componentes,
-software y servicios informáticos.
-</p>
-
-<a href="#productos" class="btn">
-Ver productos
-</a>
+<h1>Tu tienda de <span>tecnologÃ­a</span></h1>
+<p>Computadores, accesorios, impresoras, componentes, software y servicios informÃ¡ticos.</p>
+<a href="#productos" class="btn">Ver productos</a>
+<button class="btn dark" onclick="abrirQR()" style="margin-left:8px">ðŸ“± Vincular APK</button>
 </div>
-
 </section>
 
+<div class="notice">ðŸ’¡ RegÃ­strate para guardar tu sesiÃ³n en este dispositivo y acceder rÃ¡pidamente a tu cuenta. La vinculaciÃ³n centralizada entre varios dispositivos se conectarÃ¡ en la siguiente fase con autenticaciÃ³n en servidor.</div>
+
 <section class="section">
-<h2>Categorías</h2>
-
+<h2>CategorÃ­as</h2>
 <div class="categories">
-
-<div class="category" onclick="filtrarCategoria('computadores')">
-<div class="category-icon">💻</div>
-<h3>Computadores</h3>
-<p>Laptops y equipos de escritorio</p>
-</div>
-
-<div class="category" onclick="filtrarCategoria('accesorios')">
-<div class="category-icon">🖱️</div>
-<h3>Accesorios</h3>
-<p>Mouse, teclados y periféricos</p>
-</div>
-
-<div class="category" onclick="filtrarCategoria('impresoras')">
-<div class="category-icon">🖨️</div>
-<h3>Impresoras</h3>
-<p>Impresoras, tintas y repuestos</p>
-</div>
-
-<div class="category" onclick="filtrarCategoria('software')">
-<div class="category-icon">📱</div>
-<h3>Software y Apps</h3>
-<p>Soluciones y servicios digitales</p>
-</div>
-
+<div class="category" onclick="filtrarCategoria('computadores')"><div class="category-icon">ðŸ’»</div><h3>Computadores</h3><p>Laptops y equipos de escritorio</p></div>
+<div class="category" onclick="filtrarCategoria('accesorios')"><div class="category-icon">ðŸ–±ï¸</div><h3>Accesorios</h3><p>Mouse, teclados y perifÃ©ricos</p></div>
+<div class="category" onclick="filtrarCategoria('impresoras')"><div class="category-icon">ðŸ–¨ï¸</div><h3>Impresoras</h3><p>Impresoras, tintas y repuestos</p></div>
+<div class="category" onclick="filtrarCategoria('software')"><div class="category-icon">ðŸ“±</div><h3>Software y Apps</h3><p>Soluciones y servicios digitales</p></div>
 </div>
 </section>
 
 <section class="section" id="productos">
-
 <h2>Productos destacados</h2>
-
-<div class="search-box">
-<input
-type="text"
-id="buscador"
-placeholder="Buscar producto..."
-onkeyup="buscarProducto()"
->
-</div>
-
+<div class="search-box"><input type="text" id="buscador" placeholder="Buscar producto..." onkeyup="buscarProducto()"></div>
 <div class="products" id="listaProductos">
 
-<div class="product" data-name="Laptop Lenovo" data-category="computadores">
-<div class="product-image">💻</div>
+<div class="product" data-name="Laptop Lenovo" data-category="computadores"><div class="product-image">ðŸ’»</div><div class="product-info"><h3>Laptop Lenovo</h3><p>Equipo portÃ¡til para trabajo, estudio y uso diario.</p><div class="price">$1.500.000 COP</div><div class="product-buttons"><button class="btn" onclick="agregarCarrito('Laptop Lenovo',1500000)">ðŸ›’ Comprar</button><button class="btn whatsapp" onclick="comprarWhatsApp('Laptop Lenovo',1500000)">WhatsApp</button></div></div></div>
 
-<div class="product-info">
-<h3>Laptop Lenovo</h3>
+<div class="product" data-name="Mouse inalÃ¡mbrico" data-category="accesorios"><div class="product-image">ðŸ–±ï¸</div><div class="product-info"><h3>Mouse inalÃ¡mbrico</h3><p>Mouse inalÃ¡mbrico para computador portÃ¡til o escritorio.</p><div class="price">$35.000 COP</div><div class="product-buttons"><button class="btn" onclick="agregarCarrito('Mouse inalÃ¡mbrico',35000)">ðŸ›’ Comprar</button><button class="btn whatsapp" onclick="comprarWhatsApp('Mouse inalÃ¡mbrico',35000)">WhatsApp</button></div></div></div>
 
-<p>
-Equipo portátil para trabajo, estudio y uso diario.
-</p>
+<div class="product" data-name="Teclado USB" data-category="accesorios"><div class="product-image">âŒ¨ï¸</div><div class="product-info"><h3>Teclado USB</h3><p>Teclado USB para computador de escritorio.</p><div class="price">$45.000 COP</div><div class="product-buttons"><button class="btn" onclick="agregarCarrito('Teclado USB',45000)">ðŸ›’ Comprar</button><button class="btn whatsapp" onclick="comprarWhatsApp('Teclado USB',45000)">WhatsApp</button></div></div></div>
 
-<div class="price">$1.500.000 COP</div>
+<div class="product" data-name="Impresora Epson" data-category="impresoras"><div class="product-image">ðŸ–¨ï¸</div><div class="product-info"><h3>Impresora Epson</h3><p>Impresora multifuncional para hogar y oficina.</p><div class="price">$1.150.000 COP</div><div class="product-buttons"><button class="btn" onclick="agregarCarrito('Impresora Epson',1150000)">ðŸ›’ Comprar</button><button class="btn whatsapp" onclick="comprarWhatsApp('Impresora Epson',1150000)">WhatsApp</button></div></div></div>
 
-<div class="product-buttons">
-<button class="btn" onclick="agregarCarrito('Laptop Lenovo',1500000)">
-🛒 Comprar
-</button>
+<div class="product" data-name="Tinta Epson" data-category="impresoras"><div class="product-image">ðŸ§´</div><div class="product-info"><h3>Tinta Epson</h3><p>Botella de tinta para impresoras Epson.</p><div class="price">$25.000 COP</div><div class="product-buttons"><button class="btn" onclick="agregarCarrito('Tinta Epson',25000)">ðŸ›’ Comprar</button><button class="btn whatsapp" onclick="comprarWhatsApp('Tinta Epson',25000)">WhatsApp</button></div></div></div>
 
-<button class="btn whatsapp"
-onclick="comprarWhatsApp('Laptop Lenovo',1500000)">
-WhatsApp
-</button>
-</div>
-</div>
-</div>
-
-
-<div class="product" data-name="Mouse inalámbrico" data-category="accesorios">
-
-<div class="product-image">🖱️</div>
-
-<div class="product-info">
-<h3>Mouse inalámbrico</h3>
-
-<p>
-Mouse inalámbrico para computador portátil o escritorio.
-</p>
-
-<div class="price">$35.000 COP</div>
-
-<div class="product-buttons">
-<button class="btn"
-onclick="agregarCarrito('Mouse inalámbrico',35000)">
-🛒 Comprar
-</button>
-
-<button class="btn whatsapp"
-onclick="comprarWhatsApp('Mouse 
-
-inalámbrico',35000)">
-WhatsApp
-</button>
-</div>
-</div>
-</div>
-
-
-<div class="product" data-name="Teclado USB" data-category="accesorios">
-<div class="product-image">⌨️</div>
-
-<div class="product-info">
-<h3>Teclado USB</h3>
-
-<p>
-Teclado USB para computador de escritorio.
-</p>
-
-<div class="price">$45.000 COP</div>
-
-<div class="product-buttons">
-
-<button class="btn"
-onclick="agregarCarrito('Teclado USB',45000)">
-🛒 Comprar
-</button>
-
-<button class="btn whatsapp"
-onclick="comprarWhatsApp('Teclado USB',45000)">
-WhatsApp
-</button>
-</div>
-</div>
-</div>
-
-
-<div class="product" data-name="Impresora Epson" data-category="impresoras">
-<div class="product-image">🖨️</div>
-
-<div class="product-info">
-<h3>Impresora Epson</h3>
-
-
-<p>
-Impresora multifuncional para hogar y oficina.
-</p>
-
-<div class="price">$1 150.000 COP</div>
-
-<div class="product-buttons">
-<button class="btn"
-onclick="agregarCarrito('Impresora Epson',650000)">
-🛒 Comprar
-</button>
-
-<button class="btn whatsapp"
-onclick="comprarWhatsApp('Impresora Epson',1150000)">
-WhatsApp
-</button>
-</div>
-</div>
+<div class="product" data-name="Servicio informÃ¡tico" data-category="software"><div class="product-image">ðŸ”§</div><div class="product-info"><h3>Servicio informÃ¡tico</h3><p>Mantenimiento, instalaciÃ³n y configuraciÃ³n de equipos.</p><div class="price">Desde $50.000 COP</div><div class="product-buttons"><button class="btn" onclick="comprarWhatsApp('Servicio informÃ¡tico',50000)">Solicitar</button></div></div></div>
 
 </div>
-
-
-<div class="product" data-name="Tinta Epson" data-category="impresoras">
-<div class="product-image">🧴</div>
-
-<div class="product-info">
-<h3>Tinta Epson</h3>
-
-<p>
-Botella de tinta para impresoras Epson.
-</p>
-
-<div class="price">$25.000 COP</div>
-
-<div class="product-buttons">
-<button class="btn"
-onclick="agregarCarrito('Tinta Epson',25000)">
-🛒 Comprar
-</button>
-
-
-<button class="btn whatsapp"
-onclick="comprarWhatsApp('Tinta Epson',25000)">
-WhatsApp
-</button>
-</div>
-</div>
-</div>
-
-
-<div class="product" data-name="Servicio informático" data-category="software">
-<div class="product-image">🔧</div>
-
-<div class="product-info">
-<h3>Servicio informático</h3>
-
-<p>
-Mantenimiento, instalación y configuración de equipos.
-</p>
-
-
-<div class="price">Desde $50.000 COP</div>
-
-<div class="product-buttons">
-<button class="btn"
-onclick="comprarWhatsApp('Servicio informático',50000)">
-Solicitar
-</button>
-</div>
-</div>
-</div>
-
-</div>
-
-<div class="empty" id="sinResultados">
-No encontramos productos con esa búsqueda.
-</div>
-
+<div class="empty" id="sinResultados">No encontramos productos con esa bÃºsqueda.</div>
 </section>
 
 <section class="section" id="servicios">
-
-<h2>Servicios informáticos</h2>
-
+<h2>Servicios informÃ¡ticos</h2>
 <div class="services">
-
-<div class="service">
-<div class="service-icon">🔧</div>
-<h3>Reparación</h3>
-<p>
-Diagnóstico y reparación de computadores,
-impresoras y equipos tecnológicos.
-</p>
+<div class="service"><div class="service-icon">ðŸ”§</div><h3>ReparaciÃ³n</h3><p>DiagnÃ³stico y reparaciÃ³n de computadores, impresoras y equipos tecnolÃ³gicos.</p></div>
+<div class="service"><div class="service-icon">ðŸ–¨ï¸</div><h3>Impresoras Epson</h3><p>Mantenimiento y reparaciÃ³n de impresoras Epson.</p></div>
+<div class="service"><div class="service-icon">ðŸ’»</div><h3>Mantenimiento</h3><p>Limpieza, optimizaciÃ³n y configuraciÃ³n de computadores.</p></div>
+<div class="service"><div class="service-icon">ðŸ“±</div><h3>Software y Apps</h3><p>InstalaciÃ³n y configuraciÃ³n de soluciones y aplicaciones informÃ¡ticas.</p></div>
 </div>
+</section>
 
-<div class="service">
-<div class="service-icon">🖨️</div>
-<h3>Impresoras Epson</h3>
-<p>
-Mantenimiento y reparación de impresoras Epson.
-
-</p>
+<section class="section" id="app">
+<div class="app-box">
+<h2>ðŸ“± Conecta Tech Colombia con tu APK</h2>
+<p>Escanea el cÃ³digo QR desde la aplicaciÃ³n que estamos desarrollando. El QR abre la direcciÃ³n oficial de la tienda y permite a la APK identificar que viene desde Tech Colombia.</p>
+<button class="btn" onclick="abrirQR()">ðŸ”³ Mostrar cÃ³digo QR</button>
+<a class="btn green" href="https://tienda-tegnologia-1.onrender.com/" target="_blank" style="margin-left:8px">ðŸŒ Abrir tienda</a>
 </div>
-
-<div class="service">
-<div class="service-icon">💻</div>
-<h3>Mantenimiento</h3>
-<p>
-Limpieza, optimización y configuración
-de computadores.
-</p>
-</div>
-
-<div class="service">
-<div class="service-icon">📱</div>
-<h3>Software y Apps</h3>
-<p>
-Instalación y configuración de soluciones
-y aplicaciones informáticas.
-</p>
-</div>
-
-</div>
-
 </section>
 
 <section class="contact" id="contacto">
-
-<h2>¿Necesitas tecnología o soporte?</h2>
-
-<p>
-Escríbenos directamente por WhatsApp.
-</p>
-
-<br>
-
-<a
-class="btn whatsapp"
-href="https://wa.me/573203664703?text=Hola,%20quiero%20información%20sobre%20sus%20productos%20y%20servicios"
-target="_blank">
-📲 Contactar por WhatsApp
-</a>
-
-
+<h2>Â¿Necesitas tecnologÃ­a o soporte?</h2><p>EscrÃ­benos directamente por WhatsApp.</p><br>
+<a class="btn whatsapp" href="https://wa.me/573203664703?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20productos%20y%20servicios" target="_blank">ðŸ“² Contactar por WhatsApp</a>
 </section>
 
-<footer>
-© 2026 TechColombia — Tecnología e Informática
-</footer>
+<footer>Â© 2026 TechColombia â€” TecnologÃ­a e InformÃ¡tica</footer>
 
+<!-- CUENTA -->
+<div class="modal" id="cuentaModal"><div class="modal-card">
+<button class="close" onclick="cerrarModal('cuentaModal')">Ã—</button>
+<h2 id="tituloCuenta">ðŸ‘¤ Iniciar sesiÃ³n</h2>
+<div id="formLogin">
+<div class="form-group"><label>Correo electrÃ³nico</label><input id="loginEmail" type="email" autocomplete="email"></div>
+<div class="form-group"><label>ContraseÃ±a</label><input id="loginPass" type="password" autocomplete="current-password"></div>
+<button class="btn" style="width:100%" onclick="iniciarSesion()">Entrar</button>
+<div class="switch">Â¿No tienes cuenta? <button onclick="mostrarRegistro()">Crear cuenta</button></div>
+</div>
+<div id="formRegistro" style="display:none">
+<div class="form-group"><label>Nombre</label><input id="regNombre" type="text" autocomplete="name"></div>
+<div class="form-group"><label>Correo electrÃ³nico</label><input id="regEmail" type="email" autocomplete="email"></div>
+<div class="form-group"><label>ContraseÃ±a</label><input id="regPass" type="password" autocomplete="new-password"></div>
+<div class="form-group"><label>Confirmar contraseÃ±a</label><input id="regPass2" type="password" autocomplete="new-password"></div>
+<button class="btn" style="width:100%" onclick="registrarUsuario()">Crear cuenta</button>
+<div class="switch">Â¿Ya tienes cuenta? <button onclick="mostrarLogin()">Iniciar sesiÃ³n</button></div>
+</div>
+<div id="cuentaMsg" class="msg"></div>
+</div></div>
+
+<!-- PERFIL -->
+<div class="modal" id="perfilModal"><div class="modal-card">
+<button class="close" onclick="cerrarModal('perfilModal')">Ã—</button>
+<h2>ðŸ‘¤ Mi cuenta</h2>
+<div class="profile"><strong id="perfilNombre"></strong><span id="perfilEmail"></span></div>
+<button class="btn" style="width:100%;margin-top:8px" onclick="cerrarSesion()">Cerrar sesiÃ³n</button>
+</div></div>
+
+<!-- QR -->
+<div class="modal" id="qrModal"><div class="modal-card">
+<button class="close" onclick="cerrarModal('qrModal')">Ã—</button>
+<h2>ðŸ“± Vincular APK</h2>
+<div class="qr-wrap"><img id="qrImagen" alt="CÃ³digo QR Tech Colombia"><div class="qr-url" id="qrUrl"></div></div>
+<p style="margin-top:12px;color:#555;text-align:center">Escanea este QR desde la APK para abrir/vincular la tienda.</p>
+</div></div>
+
+<!-- CARRITO -->
+<div class="modal" id="cartModal"><div class="modal-card">
+<button class="close" onclick="cerrarModal('cartModal')">Ã—</button>
+<h2>ðŸ›’ Tu carrito</h2><div id="cartList" class="cart-list"></div><div id="cartTotal" class="cart-total"></div>
+<button class="btn whatsapp" style="width:100%" onclick="enviarCarritoWhatsApp()">ðŸ“² Pedir por WhatsApp</button>
+</div></div>
 
 <script>
+const TELEFONO_WHATSAPP="573203664703";
+const TIENDA_URL="https://tienda-tegnologia-1.onrender.com/?app=techcolombia";
+let carrito=JSON.parse(localStorage.getItem("techCarrito")||"[]");
 
-let carrito = [];
+function guardarCarrito(){localStorage.setItem("techCarrito",JSON.stringify(carrito));actualizarContador()}
+function actualizarContador(){document.getElementById("contador").textContent=carrito.length}
+function agregarCarrito(nombre,precio){carrito.push({nombre,precio});guardarCarrito();alert("Producto agregado al carrito.")}
 
-function agregarCarrito(nombre, precio) {
+function abrirCuenta(){
+ const u=JSON.parse(localStorage.getItem("techUsuarioActivo")||"null");
+ if(u){document.getElementById("perfilNombre").textContent=u.nombre;document.getElementById("perfilEmail").textContent=u.email;abrirModal("perfilModal")}
+ else{mostrarLogin();abrirModal("cuentaModal")}
+}
+function abrirModal(id){document.getElementById(id).classList.add("show")}
+function cerrarModal(id){document.getElementById(id).classList.remove("show")}
+function mostrarRegistro(){document.getElementById("formLogin").style.display="none";document.getElementById("formRegistro").style.display="block";document.getElementById("tituloCuenta").textContent="ðŸ“ Crear cuenta";limpiarMsg()}
+function mostrarLogin(){document.getElementById("formLogin").style.display="block";document.getElementById("formRegistro").style.display="none";document.getElementById("tituloCuenta").textContent="ðŸ‘¤ Iniciar sesiÃ³n";abrirModal("cuentaModal");limpiarMsg()}
+function limpiarMsg(){const m=document.getElementById("cuentaMsg");m.className="msg";m.textContent=""}
+function mensajeCuenta(txt,tipo){const m=document.getElementById("cuentaMsg");m.textContent=txt;m.className="msg "+tipo}
 
-carrito.push({
-nombre: nombre,
-precio: precio
-});
-
-document.getElementById("contador").textConte
-
-nt =
-carrito.length;
-
-alert("Producto agregado al carrito.");
+function registrarUsuario(){
+ const nombre=document.getElementById("regNombre").value.trim();
+ const email=document.getElementById("regEmail").value.trim().toLowerCase();
+ const pass=document.getElementById("regPass").value;
+ const pass2=document.getElementById("regPass2").value;
+ if(!nombre||!email||!pass){mensajeCuenta("Completa todos los campos.","error");return}
+ if(pass.length<6){mensajeCuenta("La contraseÃ±a debe tener al menos 6 caracteres.","error");return}
+ if(pass!==pass2){mensajeCuenta("Las contraseÃ±as no coinciden.","error");return}
+ let usuarios=JSON.parse(localStorage.getItem("techUsuarios")||"[]");
+ if(usuarios.some(u=>u.email===email)){mensajeCuenta("Ese correo ya estÃ¡ registrado en este dispositivo.","error");return}
+ usuarios.push({nombre,email,pass});
+ localStorage.setItem("techUsuarios",JSON.stringify(usuarios));
+ localStorage.setItem("techUsuarioActivo",JSON.stringify({nombre,email}));
+ actualizarUsuarioUI();
+ mensajeCuenta("Cuenta creada correctamente.","ok");
+ setTimeout(()=>cerrarModal("cuentaModal"),800);
 }
 
-
-function verCarrito() {
-
-if (carrito.length === 0) {
-alert("Tu carrito está vacío.");
-return;
+function iniciarSesion(){
+ const email=document.getElementById("loginEmail").value.trim().toLowerCase();
+ const pass=document.getElementById("loginPass").value;
+ const usuarios=JSON.parse(localStorage.getItem("techUsuarios")||"[]");
+ const u=usuarios.find(x=>x.email===email&&x.pass===pass);
+ if(!u){mensajeCuenta("Correo o contraseÃ±a incorrectos.","error");return}
+ localStorage.setItem("techUsuarioActivo",JSON.stringify({nombre:u.nombre,email:u.email}));
+ actualizarUsuarioUI();mensajeCuenta("Inicio de sesiÃ³n correcto.","ok");setTimeout(()=>cerrarModal("cuentaModal"),500);
+}
+function cerrarSesion(){localStorage.removeItem("techUsuarioActivo");actualizarUsuarioUI();cerrarModal("perfilModal")}
+function actualizarUsuarioUI(){
+ const u=JSON.parse(localStorage.getItem("techUsuarioActivo")||"null");
+ const span=document.getElementById("usuarioActivo"),btn=document.getElementById("btnCuenta");
+ if(u){span.textContent="Hola, "+u.nombre;btn.textContent="ðŸ‘¤ Mi cuenta"}else{span.textContent="";btn.textContent="ðŸ‘¤ Iniciar sesiÃ³n"}
 }
 
-let mensaje = "Productos seleccionados:%0A%0A";
-let total = 0;
-
-carrito.forEach((producto, index) => {
-
-mensaje +=
-
-(index + 1) + ". " +
-producto.nombre +
-" - $`" +
-producto.precio.toLocaleString("es-CO") +
-" COP%0A";
-
-total += producto.precio;
-});
-
-mensaje +=
-"%0ATotal: `$" +
-total.toLocaleString("es-CO") +
-" COP";
-
-mensaje +=
-"%0A%0AQuiero realizar este pedido.";
-
-const telefono = "573203664703";
-
-window.open(
-"https://wa.me/" +
-telefono +
-
-"?text=" +
-mensaje,
-"_blank"
-);
+function abrirQR(){
+ const url=TIENDA_URL+"?from=apk&v=1";
+ document.getElementById("qrUrl").textContent=url;
+ document.getElementById("qrImagen").src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data="+encodeURIComponent(url);
+ abrirModal("qrModal");
 }
 
-
-function comprarWhatsApp(nombre, precio) {
-
-const telefono = "573203664703";
-
-const mensaje =
-"Hola, estoy interesado en comprar: " +
-nombre +
-". Precio: $" +
-precio.toLocaleString("es-CO") +
-" COP.";
-
-window.open(
-"https://wa.me/" +
-telefono +
-
-"?text=" +
-encodeURIComponent(mensaje),
-"_blank"
-);
+function comprarWhatsApp(nombre,precio){
+ const mensaje="Hola, estoy interesado en comprar: "+nombre+". Precio: $"+precio.toLocaleString("es-CO")+" COP.";
+ window.open("https://wa.me/"+TELEFONO_WHATSAPP+"?text="+encodeURIComponent(mensaje),"_blank");
+}
+function verCarrito(){
+ const list=document.getElementById("cartList");list.innerHTML="";
+ if(!carrito.length){list.innerHTML='<p style="text-align:center;padding:20px">Tu carrito estÃ¡ vacÃ­o.</p>';document.getElementById("cartTotal").textContent="";abrirModal("cartModal");return}
+ let total=0;
+ carrito.forEach((p,i)=>{total+=p.precio;const div=document.createElement("div");div.className="cart-item";div.innerHTML="<span>"+(i+1)+". "+p.nombre+"</span><span>$"+p.precio.toLocaleString("es-CO")+" <button onclick='quitarCarrito("+i+")' style='border:0;background:none;color:#dc2626;cursor:pointer'>âœ•</button></span>";list.appendChild(div)});
+ document.getElementById("cartTotal").textContent="Total: $"+total.toLocaleString("es-CO")+" COP";
+ abrirModal("cartModal");
+}
+function quitarCarrito(i){carrito.splice(i,1);guardarCarrito();verCarrito()}
+function enviarCarritoWhatsApp(){
+ if(!carrito.length)return;
+ let mensaje="Hola, quiero realizar este pedido:%0A%0A",total=0;
+ carrito.forEach((p,i)=>{mensaje+=(i+1)+". "+p.nombre+" - $"+p.precio.toLocaleString("es-CO")+" COP%0A";total+=p.precio});
+ mensaje+="%0ATotal: $"+total.toLocaleString("es-CO")+" COP";
+ window.open("https://wa.me/"+TELEFONO_WHATSAPP+"?text="+mensaje,"_blank");
 }
 
-
-function buscarProducto() {
-
-const texto =
-document.getElementById("buscador")
-.value
-.toLowerCase();
-
-const productos =
-document.querySelectorAll(".product");
-
-let encontrados = 0;
-
-productos.forEach(producto => {
-
-const nombre =
-producto.dataset.name.toLowerCase();
-
-if (nombre.includes(texto)) {
-
-producto.style.display = "block";
-encontrados++;
-
-} else {
-
-producto.style.display = "none";
-
+function buscarProducto(){
+ const texto=document.getElementById("buscador").value.toLowerCase();
+ const productos=document.querySelectorAll(".product");let encontrados=0;
+ productos.forEach(p=>{const n=p.dataset.name.toLowerCase();const ok=n.includes(texto);p.style.display=ok?"block":"none";if(ok)encontrados++});
+ document.getElementById("sinResultados").style.display=encontrados===0?"block":"none";
 }
-
-});
-
-document.getElementById("sinResultados")
-.style.display =
-encontrados === 0 ? "block" : "none";
+function filtrarCategoria(categoria){
+ const productos=document.querySelectorAll(".product");let encontrados=0;
+ productos.forEach(p=>{const ok=p.dataset.category===categoria;p.style.display=ok?"block":"none";if(ok)encontrados++});
+ document.getElementById("productos").scrollIntoView({behavior:"smooth"});
+ document.getElementById("sinResultados").style.display=encontrados===0?"block":"none";
 }
-
-function filtrarCategoria(categoria) {
-
-const productos =
-document.querySelectorAll(".product");
-
-let encontrados = 0;
-
-productos.forEach(producto => {
-
-if (producto.dataset.category === categoria) {
-
-producto.style.display = "block";
-encontrados++;
-
-} else {
-
-producto.style.display = "none";
-
-}
-
-});
-
-
-document.getElementById("productos")
-.scrollIntoView({
-behavior: "smooth"
-});
-
-document.getElementById("sinResultados")
-.style.display =
-encontrados === 0 ? "block" : "none";
-}
-
+actualizarContador();actualizarUsuarioUI();
 </script>
-
 </body>
 </html>
