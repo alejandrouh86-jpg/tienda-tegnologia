@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tech Colombia | TecnologÃ­a e InformÃ¡tica</title>
-<meta name="description" content="Tech Colombia - tecnologÃ­a, impresoras Epson, tintas, reparaciÃ³n y servicios informÃ¡ticos.">
+<title>Tech Colombia | Tecnología e Informática</title>
+<meta name="description" content="Tech Colombia - tecnología, impresoras Epson, tintas, reparación y servicios informáticos.">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Arial,Helvetica,sans-serif;background:#f4f6f8;color:#222}
@@ -57,7 +57,7 @@ footer{background:#030712;color:#9ca3af;text-align:center;padding:20px;font-size
 <!-- QR VISIBLE AL INICIAR LA WEB -->
 <div class="top-qr">
 <img id="qrInicio" src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https%3A%2F%2Ftienda-tegnologia-1.onrender.com%2F%3Fapp%3Dtechcolombia" alt="QR para vincular la APK">
-<div class="top-qr-text"><strong>ðŸ“± Vincula nuestra APK</strong><span>Escanea este cÃ³digo QR desde la aplicaciÃ³n.</span><button class="action-btn" onclick="abrirQR()" style="margin-top:6px">Ver QR grande</button></div>
+<div class="top-qr-text"><strong>📱 Vincula nuestra APK</strong><span>Escanea este código QR desde la aplicación.</span><button class="action-btn" onclick="abrirQR()" style="margin-top:6px">Ver QR grande</button></div>
 </div>
 
 <header>
@@ -67,29 +67,29 @@ footer{background:#030712;color:#9ca3af;text-align:center;padding:20px;font-size
 </nav>
 <div class="header-actions">
 <span id="usuarioActivo" class="user-name"></span>
-<button class="action-btn secondary" id="btnCuenta" onclick="abrirCuenta()">ðŸ‘¤ Iniciar sesiÃ³n</button>
-<button class="action-btn" onclick="verCarrito()">ðŸ›’ Carrito (<span id="contador">0</span>)</button>
+<button class="action-btn secondary" id="btnCuenta" onclick="abrirCuenta()">👤 Iniciar sesión</button>
+<button class="action-btn" onclick="verCarrito()">🛒 Carrito (<span id="contador">0</span>)</button>
 </div>
 </header>
 
 <section class="hero" id="inicio">
 <div class="hero-content">
-<h1>Tu tienda de <span>tecnologÃ­a</span></h1>
-<p>Computadores, accesorios, impresoras, componentes, software y servicios informÃ¡ticos.</p>
+<h1>Tu tienda de <span>tecnología</span></h1>
+<p>Computadores, accesorios, impresoras, componentes, software y servicios informáticos.</p>
 <a href="#productos" class="btn">Ver productos</a>
-<button class="btn dark" onclick="abrirQR()" style="margin-left:8px">ðŸ“± Vincular APK</button>
+<button class="btn dark" onclick="abrirQR()" style="margin-left:8px">📱 Vincular APK</button>
 </div>
 </section>
 
-<div class="notice">ðŸ’¡ RegÃ­strate para guardar tu sesiÃ³n en este dispositivo y acceder rÃ¡pidamente a tu cuenta. La vinculaciÃ³n centralizada entre varios dispositivos se conectarÃ¡ en la siguiente fase con autenticaciÃ³n en servidor.</div>
+<div class="notice">💡 Regístrate para guardar tu sesión en este dispositivo y acceder rápidamente a tu cuenta. La vinculación centralizada entre varios dispositivos se conectará en la siguiente fase con autenticación en servidor.</div>
 
 <section class="section">
-<h2>CategorÃ­as</h2>
+<h2>Categorías</h2>
 <div class="categories">
-<div class="category" onclick="filtrarCategoria('computadores')"><div class="category-icon">ðŸ’»</div><h3>Computadores</h3><p>Laptops y equipos de escritorio</p></div>
-<div class="category" onclick="filtrarCategoria('accesorios')"><div class="category-icon">ðŸ–±ï¸</div><h3>Accesorios</h3><p>Mouse, teclados y perifÃ©ricos</p></div>
-<div class="category" onclick="filtrarCategoria('impresoras')"><div class="category-icon">ðŸ–¨ï¸</div><h3>Impresoras</h3><p>Impresoras, tintas y repuestos</p></div>
-<div class="category" onclick="filtrarCategoria('software')"><div class="category-icon">ðŸ“±</div><h3>Software y Apps</h3><p>Soluciones y servicios digitales</p></div>
+<div class="category" onclick="filtrarCategoria('computadores')"><div class="category-icon">💻</div><h3>Computadores</h3><p>Laptops y equipos de escritorio</p></div>
+<div class="category" onclick="filtrarCategoria('accesorios')"><div class="category-icon">🖱️</div><h3>Accesorios</h3><p>Mouse, teclados y periféricos</p></div>
+<div class="category" onclick="filtrarCategoria('impresoras')"><div class="category-icon">🖨️</div><h3>Impresoras</h3><p>Impresoras, tintas y repuestos</p></div>
+<div class="category" onclick="filtrarCategoria('software')"><div class="category-icon">📱</div><h3>Software y Apps</h3><p>Soluciones y servicios digitales</p></div>
 </div>
 </section>
 
@@ -98,90 +98,90 @@ footer{background:#030712;color:#9ca3af;text-align:center;padding:20px;font-size
 <div class="search-box"><input type="text" id="buscador" placeholder="Buscar producto..." onkeyup="buscarProducto()"></div>
 <div class="products" id="listaProductos">
 
-<div class="product" data-name="Laptop Lenovo" data-category="computadores"><div class="product-image">ðŸ’»</div><div class="product-info"><h3>Laptop Lenovo</h3><p>Equipo portÃ¡til para trabajo, estudio y uso diario.</p><div class="price">$1.500.000 COP</div><div class="product-buttons"><button class="btn" onclick="agregarCarrito('Laptop Lenovo',1500000)">ðŸ›’ Comprar</button><button class="btn whatsapp" onclick="comprarWhatsApp('Laptop Lenovo',1500000)">WhatsApp</button></div></div></div>
+<div class="product" data-name="Laptop Lenovo" data-category="computadores"><div class="product-image">💻</div><div class="product-info"><h3>Laptop Lenovo</h3><p>Equipo portátil para trabajo, estudio y uso diario.</p><div class="price">$1.500.000 COP</div><div class="product-buttons"><button class="btn" onclick="agregarCarrito('Laptop Lenovo',1500000)">🛒 Comprar</button><button class="btn whatsapp" onclick="comprarWhatsApp('Laptop Lenovo',1500000)">WhatsApp</button></div></div></div>
 
-<div class="product" data-name="Mouse inalÃ¡mbrico" data-category="accesorios"><div class="product-image">ðŸ–±ï¸</div><div class="product-info"><h3>Mouse inalÃ¡mbrico</h3><p>Mouse inalÃ¡mbrico para computador portÃ¡til o escritorio.</p><div class="price">$35.000 COP</div><div class="product-buttons"><button class="btn" onclick="agregarCarrito('Mouse inalÃ¡mbrico',35000)">ðŸ›’ Comprar</button><button class="btn whatsapp" onclick="comprarWhatsApp('Mouse inalÃ¡mbrico',35000)">WhatsApp</button></div></div></div>
+<div class="product" data-name="Mouse inalámbrico" data-category="accesorios"><div class="product-image">🖱️</div><div class="product-info"><h3>Mouse inalámbrico</h3><p>Mouse inalámbrico para computador portátil o escritorio.</p><div class="price">$35.000 COP</div><div class="product-buttons"><button class="btn" onclick="agregarCarrito('Mouse inalámbrico',35000)">🛒 Comprar</button><button class="btn whatsapp" onclick="comprarWhatsApp('Mouse inalámbrico',35000)">WhatsApp</button></div></div></div>
 
-<div class="product" data-name="Teclado USB" data-category="accesorios"><div class="product-image">âŒ¨ï¸</div><div class="product-info"><h3>Teclado USB</h3><p>Teclado USB para computador de escritorio.</p><div class="price">$45.000 COP</div><div class="product-buttons"><button class="btn" onclick="agregarCarrito('Teclado USB',45000)">ðŸ›’ Comprar</button><button class="btn whatsapp" onclick="comprarWhatsApp('Teclado USB',45000)">WhatsApp</button></div></div></div>
+<div class="product" data-name="Teclado USB" data-category="accesorios"><div class="product-image">⌨️</div><div class="product-info"><h3>Teclado USB</h3><p>Teclado USB para computador de escritorio.</p><div class="price">$45.000 COP</div><div class="product-buttons"><button class="btn" onclick="agregarCarrito('Teclado USB',45000)">🛒 Comprar</button><button class="btn whatsapp" onclick="comprarWhatsApp('Teclado USB',45000)">WhatsApp</button></div></div></div>
 
-<div class="product" data-name="Impresora Epson" data-category="impresoras"><div class="product-image">ðŸ–¨ï¸</div><div class="product-info"><h3>Impresora Epson</h3><p>Impresora multifuncional para hogar y oficina.</p><div class="price">$1.150.000 COP</div><div class="product-buttons"><button class="btn" onclick="agregarCarrito('Impresora Epson',1150000)">ðŸ›’ Comprar</button><button class="btn whatsapp" onclick="comprarWhatsApp('Impresora Epson',1150000)">WhatsApp</button></div></div></div>
+<div class="product" data-name="Impresora Epson" data-category="impresoras"><div class="product-image">🖨️</div><div class="product-info"><h3>Impresora Epson</h3><p>Impresora multifuncional para hogar y oficina.</p><div class="price">$1.150.000 COP</div><div class="product-buttons"><button class="btn" onclick="agregarCarrito('Impresora Epson',1150000)">🛒 Comprar</button><button class="btn whatsapp" onclick="comprarWhatsApp('Impresora Epson',1150000)">WhatsApp</button></div></div></div>
 
-<div class="product" data-name="Tinta Epson" data-category="impresoras"><div class="product-image">ðŸ§´</div><div class="product-info"><h3>Tinta Epson</h3><p>Botella de tinta para impresoras Epson.</p><div class="price">$25.000 COP</div><div class="product-buttons"><button class="btn" onclick="agregarCarrito('Tinta Epson',25000)">ðŸ›’ Comprar</button><button class="btn whatsapp" onclick="comprarWhatsApp('Tinta Epson',25000)">WhatsApp</button></div></div></div>
+<div class="product" data-name="Tinta Epson" data-category="impresoras"><div class="product-image">🧴</div><div class="product-info"><h3>Tinta Epson</h3><p>Botella de tinta para impresoras Epson.</p><div class="price">$25.000 COP</div><div class="product-buttons"><button class="btn" onclick="agregarCarrito('Tinta Epson',25000)">🛒 Comprar</button><button class="btn whatsapp" onclick="comprarWhatsApp('Tinta Epson',25000)">WhatsApp</button></div></div></div>
 
-<div class="product" data-name="Servicio informÃ¡tico" data-category="software"><div class="product-image">ðŸ”§</div><div class="product-info"><h3>Servicio informÃ¡tico</h3><p>Mantenimiento, instalaciÃ³n y configuraciÃ³n de equipos.</p><div class="price">Desde $50.000 COP</div><div class="product-buttons"><button class="btn" onclick="comprarWhatsApp('Servicio informÃ¡tico',50000)">Solicitar</button></div></div></div>
+<div class="product" data-name="Servicio informático" data-category="software"><div class="product-image">🔧</div><div class="product-info"><h3>Servicio informático</h3><p>Mantenimiento, instalación y configuración de equipos.</p><div class="price">Desde $50.000 COP</div><div class="product-buttons"><button class="btn" onclick="comprarWhatsApp('Servicio informático',50000)">Solicitar</button></div></div></div>
 
 </div>
-<div class="empty" id="sinResultados">No encontramos productos con esa bÃºsqueda.</div>
+<div class="empty" id="sinResultados">No encontramos productos con esa búsqueda.</div>
 </section>
 
 <section class="section" id="servicios">
-<h2>Servicios informÃ¡ticos</h2>
+<h2>Servicios informáticos</h2>
 <div class="services">
-<div class="service"><div class="service-icon">ðŸ”§</div><h3>ReparaciÃ³n</h3><p>DiagnÃ³stico y reparaciÃ³n de computadores, impresoras y equipos tecnolÃ³gicos.</p></div>
-<div class="service"><div class="service-icon">ðŸ–¨ï¸</div><h3>Impresoras Epson</h3><p>Mantenimiento y reparaciÃ³n de impresoras Epson.</p></div>
-<div class="service"><div class="service-icon">ðŸ’»</div><h3>Mantenimiento</h3><p>Limpieza, optimizaciÃ³n y configuraciÃ³n de computadores.</p></div>
-<div class="service"><div class="service-icon">ðŸ“±</div><h3>Software y Apps</h3><p>InstalaciÃ³n y configuraciÃ³n de soluciones y aplicaciones informÃ¡ticas.</p></div>
+<div class="service"><div class="service-icon">🔧</div><h3>Reparación</h3><p>Diagnóstico y reparación de computadores, impresoras y equipos tecnológicos.</p></div>
+<div class="service"><div class="service-icon">🖨️</div><h3>Impresoras Epson</h3><p>Mantenimiento y reparación de impresoras Epson.</p></div>
+<div class="service"><div class="service-icon">💻</div><h3>Mantenimiento</h3><p>Limpieza, optimización y configuración de computadores.</p></div>
+<div class="service"><div class="service-icon">📱</div><h3>Software y Apps</h3><p>Instalación y configuración de soluciones y aplicaciones informáticas.</p></div>
 </div>
 </section>
 
 <section class="section" id="app">
 <div class="app-box">
-<h2>ðŸ“± Conecta Tech Colombia con tu APK</h2>
-<p>Escanea el cÃ³digo QR desde la aplicaciÃ³n que estamos desarrollando. El QR abre la direcciÃ³n oficial de la tienda y permite a la APK identificar que viene desde Tech Colombia.</p>
-<button class="btn" onclick="abrirQR()">ðŸ”³ Mostrar cÃ³digo QR</button>
-<a class="btn green" href="https://tienda-tegnologia-1.onrender.com/" target="_blank" style="margin-left:8px">ðŸŒ Abrir tienda</a>
+<h2>📱 Conecta Tech Colombia con tu APK</h2>
+<p>Escanea el código QR desde la aplicación que estamos desarrollando. El QR abre la dirección oficial de la tienda y permite a la APK identificar que viene desde Tech Colombia.</p>
+<button class="btn" onclick="abrirQR()">🔳 Mostrar código QR</button>
+<a class="btn green" href="https://tienda-tegnologia-1.onrender.com/" target="_blank" style="margin-left:8px">🌐 Abrir tienda</a>
 </div>
 </section>
 
 <section class="contact" id="contacto">
-<h2>Â¿Necesitas tecnologÃ­a o soporte?</h2><p>EscrÃ­benos directamente por WhatsApp.</p><br>
-<a class="btn whatsapp" href="https://wa.me/573203664703?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20productos%20y%20servicios" target="_blank">ðŸ“² Contactar por WhatsApp</a>
+<h2>¿Necesitas tecnología o soporte?</h2><p>Escríbenos directamente por WhatsApp.</p><br>
+<a class="btn whatsapp" href="https://wa.me/573203664703?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20productos%20y%20servicios" target="_blank">📲 Contactar por WhatsApp</a>
 </section>
 
-<footer>Â© 2026 TechColombia â€” TecnologÃ­a e InformÃ¡tica</footer>
+<footer>© 2026 TechColombia — Tecnología e Informática</footer>
 
 <!-- CUENTA -->
 <div class="modal" id="cuentaModal"><div class="modal-card">
-<button class="close" onclick="cerrarModal('cuentaModal')">Ã—</button>
-<h2 id="tituloCuenta">ðŸ‘¤ Iniciar sesiÃ³n</h2>
+<button class="close" onclick="cerrarModal('cuentaModal')">×</button>
+<h2 id="tituloCuenta">👤 Iniciar sesión</h2>
 <div id="formLogin">
-<div class="form-group"><label>Correo electrÃ³nico</label><input id="loginEmail" type="email" autocomplete="email"></div>
-<div class="form-group"><label>ContraseÃ±a</label><input id="loginPass" type="password" autocomplete="current-password"></div>
+<div class="form-group"><label>Correo electrónico</label><input id="loginEmail" type="email" autocomplete="email"></div>
+<div class="form-group"><label>Contraseña</label><input id="loginPass" type="password" autocomplete="current-password"></div>
 <button class="btn" style="width:100%" onclick="iniciarSesion()">Entrar</button>
-<div class="switch">Â¿No tienes cuenta? <button onclick="mostrarRegistro()">Crear cuenta</button></div>
+<div class="switch">¿No tienes cuenta? <button onclick="mostrarRegistro()">Crear cuenta</button></div>
 </div>
 <div id="formRegistro" style="display:none">
 <div class="form-group"><label>Nombre</label><input id="regNombre" type="text" autocomplete="name"></div>
-<div class="form-group"><label>Correo electrÃ³nico</label><input id="regEmail" type="email" autocomplete="email"></div>
-<div class="form-group"><label>ContraseÃ±a</label><input id="regPass" type="password" autocomplete="new-password"></div>
-<div class="form-group"><label>Confirmar contraseÃ±a</label><input id="regPass2" type="password" autocomplete="new-password"></div>
+<div class="form-group"><label>Correo electrónico</label><input id="regEmail" type="email" autocomplete="email"></div>
+<div class="form-group"><label>Contraseña</label><input id="regPass" type="password" autocomplete="new-password"></div>
+<div class="form-group"><label>Confirmar contraseña</label><input id="regPass2" type="password" autocomplete="new-password"></div>
 <button class="btn" style="width:100%" onclick="registrarUsuario()">Crear cuenta</button>
-<div class="switch">Â¿Ya tienes cuenta? <button onclick="mostrarLogin()">Iniciar sesiÃ³n</button></div>
+<div class="switch">¿Ya tienes cuenta? <button onclick="mostrarLogin()">Iniciar sesión</button></div>
 </div>
 <div id="cuentaMsg" class="msg"></div>
 </div></div>
 
 <!-- PERFIL -->
 <div class="modal" id="perfilModal"><div class="modal-card">
-<button class="close" onclick="cerrarModal('perfilModal')">Ã—</button>
-<h2>ðŸ‘¤ Mi cuenta</h2>
+<button class="close" onclick="cerrarModal('perfilModal')">×</button>
+<h2>👤 Mi cuenta</h2>
 <div class="profile"><strong id="perfilNombre"></strong><span id="perfilEmail"></span></div>
-<button class="btn" style="width:100%;margin-top:8px" onclick="cerrarSesion()">Cerrar sesiÃ³n</button>
+<button class="btn" style="width:100%;margin-top:8px" onclick="cerrarSesion()">Cerrar sesión</button>
 </div></div>
 
 <!-- QR -->
 <div class="modal" id="qrModal"><div class="modal-card">
-<button class="close" onclick="cerrarModal('qrModal')">Ã—</button>
-<h2>ðŸ“± Vincular APK</h2>
-<div class="qr-wrap"><img id="qrImagen" alt="CÃ³digo QR Tech Colombia"><div class="qr-url" id="qrUrl"></div></div>
+<button class="close" onclick="cerrarModal('qrModal')">×</button>
+<h2>📱 Vincular APK</h2>
+<div class="qr-wrap"><img id="qrImagen" alt="Código QR Tech Colombia"><div class="qr-url" id="qrUrl"></div></div>
 <p style="margin-top:12px;color:#555;text-align:center">Escanea este QR desde la APK para abrir/vincular la tienda.</p>
 </div></div>
 
 <!-- CARRITO -->
 <div class="modal" id="cartModal"><div class="modal-card">
-<button class="close" onclick="cerrarModal('cartModal')">Ã—</button>
-<h2>ðŸ›’ Tu carrito</h2><div id="cartList" class="cart-list"></div><div id="cartTotal" class="cart-total"></div>
-<button class="btn whatsapp" style="width:100%" onclick="enviarCarritoWhatsApp()">ðŸ“² Pedir por WhatsApp</button>
+<button class="close" onclick="cerrarModal('cartModal')">×</button>
+<h2>🛒 Tu carrito</h2><div id="cartList" class="cart-list"></div><div id="cartTotal" class="cart-total"></div>
+<button class="btn whatsapp" style="width:100%" onclick="enviarCarritoWhatsApp()">📲 Pedir por WhatsApp</button>
 </div></div>
 
 <script>
@@ -200,8 +200,8 @@ function abrirCuenta(){
 }
 function abrirModal(id){document.getElementById(id).classList.add("show")}
 function cerrarModal(id){document.getElementById(id).classList.remove("show")}
-function mostrarRegistro(){document.getElementById("formLogin").style.display="none";document.getElementById("formRegistro").style.display="block";document.getElementById("tituloCuenta").textContent="ðŸ“ Crear cuenta";limpiarMsg()}
-function mostrarLogin(){document.getElementById("formLogin").style.display="block";document.getElementById("formRegistro").style.display="none";document.getElementById("tituloCuenta").textContent="ðŸ‘¤ Iniciar sesiÃ³n";abrirModal("cuentaModal");limpiarMsg()}
+function mostrarRegistro(){document.getElementById("formLogin").style.display="none";document.getElementById("formRegistro").style.display="block";document.getElementById("tituloCuenta").textContent="📝 Crear cuenta";limpiarMsg()}
+function mostrarLogin(){document.getElementById("formLogin").style.display="block";document.getElementById("formRegistro").style.display="none";document.getElementById("tituloCuenta").textContent="👤 Iniciar sesión";abrirModal("cuentaModal");limpiarMsg()}
 function limpiarMsg(){const m=document.getElementById("cuentaMsg");m.className="msg";m.textContent=""}
 function mensajeCuenta(txt,tipo){const m=document.getElementById("cuentaMsg");m.textContent=txt;m.className="msg "+tipo}
 
@@ -211,10 +211,10 @@ function registrarUsuario(){
  const pass=document.getElementById("regPass").value;
  const pass2=document.getElementById("regPass2").value;
  if(!nombre||!email||!pass){mensajeCuenta("Completa todos los campos.","error");return}
- if(pass.length<6){mensajeCuenta("La contraseÃ±a debe tener al menos 6 caracteres.","error");return}
- if(pass!==pass2){mensajeCuenta("Las contraseÃ±as no coinciden.","error");return}
+ if(pass.length<6){mensajeCuenta("La contraseña debe tener al menos 6 caracteres.","error");return}
+ if(pass!==pass2){mensajeCuenta("Las contraseñas no coinciden.","error");return}
  let usuarios=JSON.parse(localStorage.getItem("techUsuarios")||"[]");
- if(usuarios.some(u=>u.email===email)){mensajeCuenta("Ese correo ya estÃ¡ registrado en este dispositivo.","error");return}
+ if(usuarios.some(u=>u.email===email)){mensajeCuenta("Ese correo ya está registrado en este dispositivo.","error");return}
  usuarios.push({nombre,email,pass});
  localStorage.setItem("techUsuarios",JSON.stringify(usuarios));
  localStorage.setItem("techUsuarioActivo",JSON.stringify({nombre,email}));
@@ -228,15 +228,15 @@ function iniciarSesion(){
  const pass=document.getElementById("loginPass").value;
  const usuarios=JSON.parse(localStorage.getItem("techUsuarios")||"[]");
  const u=usuarios.find(x=>x.email===email&&x.pass===pass);
- if(!u){mensajeCuenta("Correo o contraseÃ±a incorrectos.","error");return}
+ if(!u){mensajeCuenta("Correo o contraseña incorrectos.","error");return}
  localStorage.setItem("techUsuarioActivo",JSON.stringify({nombre:u.nombre,email:u.email}));
- actualizarUsuarioUI();mensajeCuenta("Inicio de sesiÃ³n correcto.","ok");setTimeout(()=>cerrarModal("cuentaModal"),500);
+ actualizarUsuarioUI();mensajeCuenta("Inicio de sesión correcto.","ok");setTimeout(()=>cerrarModal("cuentaModal"),500);
 }
 function cerrarSesion(){localStorage.removeItem("techUsuarioActivo");actualizarUsuarioUI();cerrarModal("perfilModal")}
 function actualizarUsuarioUI(){
  const u=JSON.parse(localStorage.getItem("techUsuarioActivo")||"null");
  const span=document.getElementById("usuarioActivo"),btn=document.getElementById("btnCuenta");
- if(u){span.textContent="Hola, "+u.nombre;btn.textContent="ðŸ‘¤ Mi cuenta"}else{span.textContent="";btn.textContent="ðŸ‘¤ Iniciar sesiÃ³n"}
+ if(u){span.textContent="Hola, "+u.nombre;btn.textContent="👤 Mi cuenta"}else{span.textContent="";btn.textContent="👤 Iniciar sesión"}
 }
 
 function abrirQR(){
@@ -252,9 +252,9 @@ function comprarWhatsApp(nombre,precio){
 }
 function verCarrito(){
  const list=document.getElementById("cartList");list.innerHTML="";
- if(!carrito.length){list.innerHTML='<p style="text-align:center;padding:20px">Tu carrito estÃ¡ vacÃ­o.</p>';document.getElementById("cartTotal").textContent="";abrirModal("cartModal");return}
+ if(!carrito.length){list.innerHTML='<p style="text-align:center;padding:20px">Tu carrito está vacío.</p>';document.getElementById("cartTotal").textContent="";abrirModal("cartModal");return}
  let total=0;
- carrito.forEach((p,i)=>{total+=p.precio;const div=document.createElement("div");div.className="cart-item";div.innerHTML="<span>"+(i+1)+". "+p.nombre+"</span><span>$"+p.precio.toLocaleString("es-CO")+" <button onclick='quitarCarrito("+i+")' style='border:0;background:none;color:#dc2626;cursor:pointer'>âœ•</button></span>";list.appendChild(div)});
+ carrito.forEach((p,i)=>{total+=p.precio;const div=document.createElement("div");div.className="cart-item";div.innerHTML="<span>"+(i+1)+". "+p.nombre+"</span><span>$"+p.precio.toLocaleString("es-CO")+" <button onclick='quitarCarrito("+i+")' style='border:0;background:none;color:#dc2626;cursor:pointer'>✕</button></span>";list.appendChild(div)});
  document.getElementById("cartTotal").textContent="Total: $"+total.toLocaleString("es-CO")+" COP";
  abrirModal("cartModal");
 }
