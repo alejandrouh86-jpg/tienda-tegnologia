@@ -4,282 +4,422 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tech Colombia | Tecnología e Informática</title>
-<meta name="description" content="Tech Colombia - tecnología, impresoras Epson, tintas, reparación y servicios informáticos.">
+<meta name="description" content="Tech Colombia - tecnología, informática, impresoras Epson, tintas y servicios informáticos.">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,Helvetica,sans-serif;background:#f4f6f8;color:#222}
-header{background:#111827;color:#fff;padding:15px 6%;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;position:sticky;top:0;z-index:20}
-.logo{font-size:24px;font-weight:700}.logo span{color:#38bdf8}
-nav a{color:#fff;text-decoration:none;margin:0 8px;font-size:15px}nav a:hover{color:#38bdf8}
-.header-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
-.action-btn{border:0;background:#2563eb;color:#fff;padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:700}
-.action-btn.secondary{background:#374151}.action-btn:hover{filter:brightness(.92)}
-.user-name{font-size:14px;color:#dbeafe}
-.hero{min-height:420px;padding:70px 6%;display:flex;align-items:center;background:linear-gradient(rgba(17,24,39,.9),rgba(17,24,39,.9)),linear-gradient(135deg,#2563eb,#111827);color:#fff}
-.hero-content{max-width:780px}.hero h1{font-size:clamp(36px,6vw,64px);margin-bottom:20px}.hero h1 span{color:#38bdf8}
-.hero p{font-size:18px;line-height:1.6;margin-bottom:28px;color:#dbeafe}
-.btn{display:inline-block;text-decoration:none;border:0;background:#2563eb;color:#fff;padding:13px 22px;border-radius:8px;cursor:pointer;font-weight:700}
-.btn:hover{background:#1d4ed8}.btn.green{background:#16a34a}.btn.dark{background:#374151}
-.section{padding:55px 6%}.section h2{text-align:center;margin-bottom:30px;font-size:32px}
-.categories{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px}
-.category{background:#fff;padding:25px;border-radius:12px;text-align:center;box-shadow:0 3px 15px rgba(0,0,0,.08);cursor:pointer;transition:.2s}
-.category:hover{transform:translateY(-4px)}.category-icon{font-size:38px;margin-bottom:10px}.category h3{margin-bottom:8px}.category p{color:#666;font-size:14px}
-.search-box{max-width:600px;margin:0 auto 35px;display:flex;gap:10px}.search-box input{flex:1;padding:14px;border:1px solid #ddd;border-radius:8px;font-size:16px}
-.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px}
-.product{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 3px 15px rgba(0,0,0,.08);transition:.2s}.product:hover{transform:translateY(-5px)}
-.product-image{height:190px;display:flex;align-items:center;justify-content:center;background:#e5e7eb;font-size:70px}
-.product-info{padding:18px}.product-info h3{margin-bottom:8px}.product-info p{color:#666;font-size:14px;min-height:42px}
-.price{color:#2563eb;font-size:21px;font-weight:700;margin:15px 0}.product-buttons{display:flex;gap:8px}.product-buttons button{flex:1}
-.whatsapp{background:#16a34a!important}.whatsapp:hover{background:#15803d!important}
-.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}.service{background:#fff;padding:25px;border-radius:12px;text-align:center;box-shadow:0 3px 15px rgba(0,0,0,.08)}
-.service-icon{font-size:40px;margin-bottom:15px}.service h3{margin-bottom:10px}.service p{color:#666;line-height:1.5}
-.app-box{max-width:850px;margin:0 auto;background:#fff;border-radius:16px;padding:30px;box-shadow:0 3px 15px rgba(0,0,0,.08);text-align:center}.app-box p{color:#555;line-height:1.6;margin:10px 0 20px}
-.contact{background:#111827;color:#fff;padding:55px 6%;text-align:center}.contact h2{margin-bottom:15px}.contact p{margin:8px 0;color:#d1d5db}
-footer{background:#030712;color:#9ca3af;text-align:center;padding:20px;font-size:14px}
-.empty{text-align:center;padding:30px;color:#777;display:none}
-.notice{max-width:900px;margin:20px auto 0;background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;padding:12px 16px;border-radius:10px}
-.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.62);z-index:100;align-items:center;justify-content:center;padding:20px}
-.modal.show{display:flex}.modal-card{background:#fff;width:min(440px,100%);border-radius:14px;padding:25px;position:relative;max-height:90vh;overflow:auto}
-.modal-card h2{margin-bottom:16px}.close{position:absolute;right:15px;top:12px;border:0;background:none;font-size:25px;cursor:pointer}
-.form-group{margin-bottom:13px}.form-group label{display:block;font-size:14px;font-weight:700;margin-bottom:5px}.form-group input{width:100%;padding:12px;border:1px solid #d1d5db;border-radius:8px}
-.form-actions{display:flex;gap:8px;margin-top:16px}.form-actions button{flex:1}
-.switch{text-align:center;margin-top:14px;font-size:14px}.switch button{border:0;background:none;color:#2563eb;cursor:pointer;font-weight:700}
-.msg{margin-top:12px;padding:10px;border-radius:8px;display:none}.msg.error{display:block;background:#fee2e2;color:#991b1b}.msg.ok{display:block;background:#dcfce7;color:#166534}
-.profile{background:#f8fafc;border-radius:10px;padding:15px;margin:10px 0}.profile strong{display:block;margin-bottom:5px}
-.cart-list{max-height:300px;overflow:auto;margin:10px 0}.cart-item{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid #eee;padding:10px 0;font-size:14px}
-.cart-total{text-align:right;font-size:18px;font-weight:700;margin:15px 0}
-.top-qr{background:#fff;padding:10px 6%;display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;border-bottom:1px solid #e5e7eb}.top-qr img{width:86px;height:86px;border-radius:8px}.top-qr-text{text-align:left}.top-qr-text strong{display:block;color:#111827}.top-qr-text span{display:block;color:#6b7280;font-size:13px;margin-top:3px}.qr-wrap{text-align:center}.qr-wrap img{max-width:260px;width:100%;margin:10px auto;display:block}.qr-url{font-size:12px;color:#666;word-break:break-all;background:#f3f4f6;padding:8px;border-radius:6px}
-@media(max-width:700px){header{justify-content:center}nav{width:100%;text-align:center}nav a{margin:0 4px}.header-actions{justify-content:center}.hero{padding:55px 6%}.search-box{flex-direction:column}.product-buttons{flex-direction:column}.logo{font-size:22px}}
+body{font-family:Arial,Helvetica,sans-serif;background:#f4f7fb;color:#172033;line-height:1.5}
+a{text-decoration:none;color:inherit}
+button,input,select,textarea{font:inherit}
+header{background:linear-gradient(135deg,#071b35,#0d5fa6);color:#fff;position:sticky;top:0;z-index:20;box-shadow:0 3px 12px #0003}
+.nav{max-width:1200px;margin:auto;padding:15px 20px;display:flex;align-items:center;justify-content:space-between;gap:15px}
+.logo{font-size:24px;font-weight:800;letter-spacing:.3px}.logo span{color:#48d7ff}
+nav{display:flex;gap:8px;flex-wrap:wrap}
+nav a,.nav button{border:0;background:transparent;color:#fff;padding:9px 12px;border-radius:8px;cursor:pointer}
+nav a:hover,.nav button:hover{background:#ffffff20}
+.container{max-width:1200px;margin:auto;padding:22px 18px}
+.hero{background:linear-gradient(135deg,#0b5cab,#16a4d8);color:#fff;border-radius:18px;padding:35px 25px;margin-bottom:22px;display:grid;grid-template-columns:1.5fr .8fr;gap:25px;align-items:center}
+.hero h1{font-size:38px;margin-bottom:10px}.hero p{font-size:17px;max-width:700px}
+.btn{display:inline-block;border:0;border-radius:9px;padding:11px 16px;font-weight:700;cursor:pointer;margin:6px 5px 0 0}
+.primary{background:#fff;color:#07599c}.dark{background:#0b5cab;color:#fff}.whatsapp{background:#168b45;color:#fff}
+.light{background:#e9f2fb;color:#0b5cab}
+.qrbox{background:#fff;color:#172033;border-radius:15px;padding:15px;text-align:center}
+.qrbox img{width:180px;max-width:100%;display:block;margin:auto}
+.section{background:#fff;border-radius:15px;padding:22px;margin:20px 0;box-shadow:0 3px 14px #17203312}
+.section h2{margin-bottom:14px;color:#0b5cab}
+.controls{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.controls input,.controls select,.form input,.form select,.form textarea{width:100%;padding:11px;border:1px solid #ccd6e2;border-radius:8px;background:#fff}
+.search{flex:1;min-width:220px}.category{width:220px!important}
+.products{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:#fff;border:1px solid #e3e8ef;border-radius:13px;overflow:hidden;box-shadow:0 3px 12px #1720330d}
+.card-img{height:185px;background:#edf4fa;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.card-img img{width:100%;height:100%;object-fit:cover}.placeholder{font-size:58px}
+.card-body{padding:15px}.card h3{margin-bottom:6px}.desc{font-size:14px;color:#66758a;min-height:42px}
+.price{font-size:21px;font-weight:800;color:#0b5cab;margin:10px 0}
+.badge{display:inline-block;font-size:12px;padding:4px 8px;border-radius:20px;background:#e8f3ff;color:#0b5cab}
+.cart-list{display:grid;gap:10px}.cart-item{display:flex;justify-content:space-between;align-items:center;gap:10px;border-bottom:1px solid #e5e9ef;padding:10px 0}
+.total{font-size:20px;font-weight:800;text-align:right;margin-top:15px}
+.auth{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.form{display:grid;gap:10px}.form h3{color:#0b5cab}.msg{padding:10px;border-radius:8px;background:#eef6ff;margin-top:8px}
+.admin{display:none}.admin.active{display:block}
+.admin-table{width:100%;overflow:auto}.admin-table table{width:100%;min-width:850px;border-collapse:collapse}
+.admin-table th,.admin-table td{border-bottom:1px solid #e2e7ee;padding:9px;text-align:left;vertical-align:top}
+.admin-table input,.admin-table select{width:100%;padding:7px;border:1px solid #ccd6e2;border-radius:6px}
+.small{font-size:12px;color:#69788c}
+footer{background:#071b35;color:#fff;text-align:center;padding:25px;margin-top:35px}
+.empty{text-align:center;padding:30px;color:#66758a}
+.hidden{display:none!important}
+.userbar{font-size:13px;color:#dceeff}
+@media(max-width:850px){.hero{grid-template-columns:1fr}.products{grid-template-columns:repeat(2,1fr)}.auth{grid-template-columns:1fr}}
+@media(max-width:560px){.nav{align-items:flex-start}.logo{font-size:20px}.hero h1{font-size:29px}.products{grid-template-columns:1fr}.container{padding:14px 12px}.section{padding:15px}.qrbox img{width:145px}}
 </style>
 </head>
 <body>
 
-<!-- QR VISIBLE AL INICIAR LA WEB -->
-<div class="top-qr">
-<img id="qrInicio" src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https%3A%2F%2Ftienda-tegnologia-1.onrender.com%2F%3Fapp%3Dtechcolombia" alt="QR para vincular la APK">
-<div class="top-qr-text"><strong>📱 Vincula nuestra APK</strong><span>Escanea este código QR desde la aplicación.</span><button class="action-btn" onclick="abrirQR()" style="margin-top:6px">Ver QR grande</button></div>
-</div>
-
 <header>
-<div class="logo">Tech<span>Colombia</span></div>
+<div class="nav">
+<div class="logo">Tech <span>Colombia</span></div>
+<div class="userbar" id="userBar">No has iniciado sesión</div>
 <nav>
-<a href="#inicio">Inicio</a><a href="#productos">Productos</a><a href="#servicios">Servicios</a><a href="#app">APK</a><a href="#contacto">Contacto</a>
+<a href="#inicio">Inicio</a>
+<a href="#productos">Productos</a>
+<a href="#servicios">Servicios</a>
+<a href="#cuenta">Cuenta</a>
+<a href="#contacto">Contacto</a>
+<button id="logoutBtn" class="hidden" onclick="cerrarSesion()">Salir</button>
 </nav>
-<div class="header-actions">
-<span id="usuarioActivo" class="user-name"></span>
-<button class="action-btn secondary" id="btnCuenta" onclick="abrirCuenta()">👤 Iniciar sesión</button>
-<button class="action-btn" onclick="verCarrito()">🛒 Carrito (<span id="contador">0</span>)</button>
 </div>
 </header>
 
-<section class="hero" id="inicio">
-<div class="hero-content">
-<h1>Tu tienda de <span>tecnología</span></h1>
-<p>Computadores, accesorios, impresoras, componentes, software y servicios informáticos.</p>
-<a href="#productos" class="btn">Ver productos</a>
-<button class="btn dark" onclick="abrirQR()" style="margin-left:8px">📱 Vincular APK</button>
+<main class="container">
+<section id="inicio" class="hero">
+<div>
+<h1>Tecnología e Informática</h1>
+<p>Productos tecnológicos, impresoras Epson, tintas y servicios informáticos en Colombia.</p>
+<a href="#productos" class="btn primary">Ver productos</a>
+<a href="#contacto" class="btn whatsapp">WhatsApp: +57 320 366 4703</a>
+</div>
+<div class="qrbox">
+<strong>📱 Conecta con Tech Colombia</strong>
+<img id="qrTop" alt="Código QR Tech Colombia">
+<p class="small">Escanea para abrir la tienda</p>
 </div>
 </section>
 
-<div class="notice">💡 Regístrate para guardar tu sesión en este dispositivo y acceder rápidamente a tu cuenta. La vinculación centralizada entre varios dispositivos se conectará en la siguiente fase con autenticación en servidor.</div>
+<section id="productos" class="section">
+<h2>🛒 Productos</h2>
+<div class="controls">
+<input id="buscador" class="search" type="search" placeholder="Buscar producto..." oninput="filtrarProductos()">
+<select id="categoria" class="category" onchange="filtrarProductos()">
+<option value="">Todas las categorías</option>
+<option value="computadores">Computadores</option>
+<option value="accesorios">Accesorios</option>
+<option value="impresoras">Impresoras</option>
+<option value="tintas">Tintas</option>
+<option value="software">Software</option>
+<option value="otros">Otros</option>
+</select>
+</div>
+<div id="productosGrid" class="products"></div>
+</section>
+
+<section id="carrito" class="section">
+<h2>🛍️ Carrito</h2>
+<div id="carritoLista" class="cart-list"></div>
+<div id="carritoTotal" class="total">$0 COP</div>
+<button class="btn whatsapp" onclick="comprarWhatsApp()">Comprar por WhatsApp</button>
+<button class="btn light" onclick="vaciarCarrito()">Vaciar carrito</button>
+</section>
+
+<section id="servicios" class="section">
+<h2>🛠️ Servicios informáticos</h2>
+<div class="products">
+<div class="card"><div class="card-body"><h3>💻 Servicio informático</h3><p class="desc">Mantenimiento, configuración y soporte de computadores.</p><div class="price">Desde $50.000 COP</div></div></div>
+<div class="card"><div class="card-body"><h3>🖨️ Impresoras Epson</h3><p class="desc">Reparación, mantenimiento, limpieza y revisión de impresoras Epson.</p><div class="price">Consultar</div></div></div>
+<div class="card"><div class="card-body"><h3>🏠 Servicio a domicilio</h3><p class="desc">Atención según disponibilidad y ubicación.</p><a class="btn whatsapp" href="https://wa.me/573203664703?text=Hola%20Tech%20Colombia%2C%20necesito%20un%20servicio." target="_blank">WhatsApp: +57 320 366 4703</a></div></div>
+</div>
+</section>
+
+<section id="cuenta" class="section">
+<h2>👤 Mi cuenta</h2>
+<div class="auth" id="authForms">
+<div class="form">
+<h3>Crear cuenta</h3>
+<input id="regEmail" type="email" placeholder="Correo electrónico">
+<input id="regPassword" type="password" placeholder="Contraseña (mín. 6 caracteres)">
+<button class="btn dark" onclick="registrarse()">Registrarme</button>
+</div>
+<div class="form">
+<h3>Iniciar sesión</h3>
+<input id="loginEmail" type="email" placeholder="Correo electrónico">
+<input id="loginPassword" type="password" placeholder="Contraseña">
+<button class="btn dark" onclick="iniciarSesion()">Entrar</button>
+</div>
+</div>
+<div id="cuentaActiva" class="hidden">
+<p>Sesión iniciada como <strong id="correoActivo"></strong>.</p>
+<p class="small">Tu cuenta está conectada con Tech Colombia.</p>
+</div>
+<div id="authMsg"></div>
+</section>
+
+<section id="admin" class="section admin">
+<h2>⚙️ Panel de administración</h2>
+<p class="small">Desde aquí puedes agregar, editar, activar/desactivar y eliminar productos sin modificar GitHub.</p>
+<div class="controls">
+<button class="btn dark" onclick="nuevoProducto()">➕ Agregar producto</button>
+<button class="btn light" onclick="cargarAdmin()">🔄 Actualizar</button>
+</div>
+<div id="adminMsg"></div>
+<div class="admin-table">
+<table>
+<thead><tr><th>Nombre</th><th>Precio</th><th>Categoría</th><th>Descripción</th><th>Imagen URL</th><th>Activo</th><th>Acciones</th></tr></thead>
+<tbody id="adminBody"></tbody>
+</table>
+</div>
+</section>
+
+<section id="contacto" class="section">
+<h2>📞 Contacto</h2>
+<p><strong>WhatsApp: +57 320 366 4703</strong></p>
+<a class="btn whatsapp" href="https://wa.me/573203664703?text=Hola%20Tech%20Colombia%2C%20quiero%20informaci%C3%B3n." target="_blank">📲 WhatsApp: +57 320 366 4703</a>
+<p class="small" style="margin-top:10px">Atención y cotizaciones por WhatsApp.</p>
+</section>
 
 <section class="section">
-<h2>Categorías</h2>
-<div class="categories">
-<div class="category" onclick="filtrarCategoria('computadores')"><div class="category-icon">💻</div><h3>Computadores</h3><p>Laptops y equipos de escritorio</p></div>
-<div class="category" onclick="filtrarCategoria('accesorios')"><div class="category-icon">🖱️</div><h3>Accesorios</h3><p>Mouse, teclados y periféricos</p></div>
-<div class="category" onclick="filtrarCategoria('impresoras')"><div class="category-icon">🖨️</div><h3>Impresoras</h3><p>Impresoras, tintas y repuestos</p></div>
-<div class="category" onclick="filtrarCategoria('software')"><div class="category-icon">📱</div><h3>Software y Apps</h3><p>Soluciones y servicios digitales</p></div>
-</div>
+<h2>📱 Aplicación Android</h2>
+<p>Abre la tienda desde tu aplicación Tech Colombia.</p>
+<button class="btn dark" onclick="abrirTienda()">Abrir tienda</button>
 </section>
+</main>
 
-<section class="section" id="productos">
-<h2>Productos destacados</h2>
-<div class="search-box"><input type="text" id="buscador" placeholder="Buscar producto..." onkeyup="buscarProducto()"></div>
-<div class="products" id="listaProductos">
-
-<div class="product" data-name="Laptop Lenovo" data-category="computadores"><div class="product-image">💻</div><div class="product-info"><h3>Laptop Lenovo</h3><p>Equipo portátil para trabajo, estudio y uso diario.</p><div class="price">$1.500.000 COP</div><div class="product-buttons"><button class="btn" onclick="agregarCarrito('Laptop Lenovo',1500000)">🛒 Comprar</button><button class="btn whatsapp" onclick="comprarWhatsApp('Laptop Lenovo',1500000)">WhatsApp</button></div></div></div>
-
-<div class="product" data-name="Mouse inalámbrico" data-category="accesorios"><div class="product-image">🖱️</div><div class="product-info"><h3>Mouse inalámbrico</h3><p>Mouse inalámbrico para computador portátil o escritorio.</p><div class="price">$35.000 COP</div><div class="product-buttons"><button class="btn" onclick="agregarCarrito('Mouse inalámbrico',35000)">🛒 Comprar</button><button class="btn whatsapp" onclick="comprarWhatsApp('Mouse inalámbrico',35000)">WhatsApp</button></div></div></div>
-
-<div class="product" data-name="Teclado USB" data-category="accesorios"><div class="product-image">⌨️</div><div class="product-info"><h3>Teclado USB</h3><p>Teclado USB para computador de escritorio.</p><div class="price">$45.000 COP</div><div class="product-buttons"><button class="btn" onclick="agregarCarrito('Teclado USB',45000)">🛒 Comprar</button><button class="btn whatsapp" onclick="comprarWhatsApp('Teclado USB',45000)">WhatsApp</button></div></div></div>
-
-<div class="product" data-name="Impresora Epson" data-category="impresoras"><div class="product-image">🖨️</div><div class="product-info"><h3>Impresora Epson</h3><p>Impresora multifuncional para hogar y oficina.</p><div class="price">$1.150.000 COP</div><div class="product-buttons"><button class="btn" onclick="agregarCarrito('Impresora Epson',1150000)">🛒 Comprar</button><button class="btn whatsapp" onclick="comprarWhatsApp('Impresora Epson',1150000)">WhatsApp</button></div></div></div>
-
-<div class="product" data-name="Tinta Epson" data-category="impresoras"><div class="product-image">🧴</div><div class="product-info"><h3>Tinta Epson</h3><p>Botella de tinta para impresoras Epson.</p><div class="price">$25.000 COP</div><div class="product-buttons"><button class="btn" onclick="agregarCarrito('Tinta Epson',25000)">🛒 Comprar</button><button class="btn whatsapp" onclick="comprarWhatsApp('Tinta Epson',25000)">WhatsApp</button></div></div></div>
-
-<div class="product" data-name="Servicio informático" data-category="software"><div class="product-image">🔧</div><div class="product-info"><h3>Servicio informático</h3><p>Mantenimiento, instalación y configuración de equipos.</p><div class="price">Desde $50.000 COP</div><div class="product-buttons"><button class="btn" onclick="comprarWhatsApp('Servicio informático',50000)">Solicitar</button></div></div></div>
-
-</div>
-<div class="empty" id="sinResultados">No encontramos productos con esa búsqueda.</div>
-</section>
-
-<section class="section" id="servicios">
-<h2>Servicios informáticos</h2>
-<div class="services">
-<div class="service"><div class="service-icon">🔧</div><h3>Reparación</h3><p>Diagnóstico y reparación de computadores, impresoras y equipos tecnológicos.</p></div>
-<div class="service"><div class="service-icon">🖨️</div><h3>Impresoras Epson</h3><p>Mantenimiento y reparación de impresoras Epson.</p></div>
-<div class="service"><div class="service-icon">💻</div><h3>Mantenimiento</h3><p>Limpieza, optimización y configuración de computadores.</p></div>
-<div class="service"><div class="service-icon">📱</div><h3>Software y Apps</h3><p>Instalación y configuración de soluciones y aplicaciones informáticas.</p></div>
-</div>
-</section>
-
-<section class="section" id="app">
-<div class="app-box">
-<h2>📱 Conecta Tech Colombia con tu APK</h2>
-<p>Escanea el código QR desde la aplicación que estamos desarrollando. El QR abre la dirección oficial de la tienda y permite a la APK identificar que viene desde Tech Colombia.</p>
-<button class="btn" onclick="abrirQR()">🔳 Mostrar código QR</button>
-<a class="btn green" href="https://tienda-tegnologia-1.onrender.com/" target="_blank" style="margin-left:8px">🌐 Abrir tienda</a>
-</div>
-</section>
-
-<section class="contact" id="contacto">
-<h2>¿Necesitas tecnología o soporte?</h2><p>Escríbenos directamente por WhatsApp.</p><br>
-<a class="btn whatsapp" href="https://wa.me/573203664703?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20productos%20y%20servicios" target="_blank">📲 Contactar por WhatsApp</a>
-</section>
-
-<footer>© 2026 TechColombia — Tecnología e Informática</footer>
-
-<!-- CUENTA -->
-<div class="modal" id="cuentaModal"><div class="modal-card">
-<button class="close" onclick="cerrarModal('cuentaModal')">×</button>
-<h2 id="tituloCuenta">👤 Iniciar sesión</h2>
-<div id="formLogin">
-<div class="form-group"><label>Correo electrónico</label><input id="loginEmail" type="email" autocomplete="email"></div>
-<div class="form-group"><label>Contraseña</label><input id="loginPass" type="password" autocomplete="current-password"></div>
-<button class="btn" style="width:100%" onclick="iniciarSesion()">Entrar</button>
-<div class="switch">¿No tienes cuenta? <button onclick="mostrarRegistro()">Crear cuenta</button></div>
-</div>
-<div id="formRegistro" style="display:none">
-<div class="form-group"><label>Nombre</label><input id="regNombre" type="text" autocomplete="name"></div>
-<div class="form-group"><label>Correo electrónico</label><input id="regEmail" type="email" autocomplete="email"></div>
-<div class="form-group"><label>Contraseña</label><input id="regPass" type="password" autocomplete="new-password"></div>
-<div class="form-group"><label>Confirmar contraseña</label><input id="regPass2" type="password" autocomplete="new-password"></div>
-<button class="btn" style="width:100%" onclick="registrarUsuario()">Crear cuenta</button>
-<div class="switch">¿Ya tienes cuenta? <button onclick="mostrarLogin()">Iniciar sesión</button></div>
-</div>
-<div id="cuentaMsg" class="msg"></div>
-</div></div>
-
-<!-- PERFIL -->
-<div class="modal" id="perfilModal"><div class="modal-card">
-<button class="close" onclick="cerrarModal('perfilModal')">×</button>
-<h2>👤 Mi cuenta</h2>
-<div class="profile"><strong id="perfilNombre"></strong><span id="perfilEmail"></span></div>
-<button class="btn" style="width:100%;margin-top:8px" onclick="cerrarSesion()">Cerrar sesión</button>
-</div></div>
-
-<!-- QR -->
-<div class="modal" id="qrModal"><div class="modal-card">
-<button class="close" onclick="cerrarModal('qrModal')">×</button>
-<h2>📱 Vincular APK</h2>
-<div class="qr-wrap"><img id="qrImagen" alt="Código QR Tech Colombia"><div class="qr-url" id="qrUrl"></div></div>
-<p style="margin-top:12px;color:#555;text-align:center">Escanea este QR desde la APK para abrir/vincular la tienda.</p>
-</div></div>
-
-<!-- CARRITO -->
-<div class="modal" id="cartModal"><div class="modal-card">
-<button class="close" onclick="cerrarModal('cartModal')">×</button>
-<h2>🛒 Tu carrito</h2><div id="cartList" class="cart-list"></div><div id="cartTotal" class="cart-total"></div>
-<button class="btn whatsapp" style="width:100%" onclick="enviarCarritoWhatsApp()">📲 Pedir por WhatsApp</button>
-</div></div>
+<footer>
+<p>© 2026 Tech Colombia | Tecnología e Informática</p>
+<p>WhatsApp: +57 320 366 4703</p>
+</footer>
 
 <script>
-const TELEFONO_WHATSAPP="573203664703";
-const TIENDA_URL="https://tienda-tegnologia-1.onrender.com/?app=techcolombia";
-let carrito=JSON.parse(localStorage.getItem("techCarrito")||"[]");
+const SUPABASE_URL = "https://ljmryxtbcgrtcsxhwnvl.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_5pkF_bmKNgvSaGs0ht6ZRw_3Nop9t-Z";
+const TELEFONO_WHATSAPP = "573203664703";
+const TELEFONO_VISIBLE = "+57 320 366 4703";
+const TIENDA_URL = "https://tienda-tegnologia-1.onrender.com/?app=techcolombia";
 
-function guardarCarrito(){localStorage.setItem("techCarrito",JSON.stringify(carrito));actualizarContador()}
-function actualizarContador(){document.getElementById("contador").textContent=carrito.length}
-function agregarCarrito(nombre,precio){carrito.push({nombre,precio});guardarCarrito();alert("Producto agregado al carrito.")}
+let supabaseClient = null;
+let productos = [];
+let carrito = JSON.parse(localStorage.getItem("techcolombia_carrito") || "[]");
+let usuarioActual = null;
+let esAdmin = false;
 
-function abrirCuenta(){
- const u=JSON.parse(localStorage.getItem("techUsuarioActivo")||"null");
- if(u){document.getElementById("perfilNombre").textContent=u.nombre;document.getElementById("perfilEmail").textContent=u.email;abrirModal("perfilModal")}
- else{mostrarLogin();abrirModal("cuentaModal")}
+function dinero(n){
+ return "$" + Number(n || 0).toLocaleString("es-CO") + " COP";
 }
-function abrirModal(id){document.getElementById(id).classList.add("show")}
-function cerrarModal(id){document.getElementById(id).classList.remove("show")}
-function mostrarRegistro(){document.getElementById("formLogin").style.display="none";document.getElementById("formRegistro").style.display="block";document.getElementById("tituloCuenta").textContent="📝 Crear cuenta";limpiarMsg()}
-function mostrarLogin(){document.getElementById("formLogin").style.display="block";document.getElementById("formRegistro").style.display="none";document.getElementById("tituloCuenta").textContent="👤 Iniciar sesión";abrirModal("cuentaModal");limpiarMsg()}
-function limpiarMsg(){const m=document.getElementById("cuentaMsg");m.className="msg";m.textContent=""}
-function mensajeCuenta(txt,tipo){const m=document.getElementById("cuentaMsg");m.textContent=txt;m.className="msg "+tipo}
+function normalizarCategoria(c){
+ return String(c || "").toLowerCase().trim();
+}
+function escapar(s){
+ return String(s ?? "").replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
+}
+function qrUrl(){
+ return "https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=" + encodeURIComponent(TIENDA_URL);
+}
+document.getElementById("qrTop").src = qrUrl();
 
-function registrarUsuario(){
- const nombre=document.getElementById("regNombre").value.trim();
- const email=document.getElementById("regEmail").value.trim().toLowerCase();
- const pass=document.getElementById("regPass").value;
- const pass2=document.getElementById("regPass2").value;
- if(!nombre||!email||!pass){mensajeCuenta("Completa todos los campos.","error");return}
- if(pass.length<6){mensajeCuenta("La contraseña debe tener al menos 6 caracteres.","error");return}
- if(pass!==pass2){mensajeCuenta("Las contraseñas no coinciden.","error");return}
- let usuarios=JSON.parse(localStorage.getItem("techUsuarios")||"[]");
- if(usuarios.some(u=>u.email===email)){mensajeCuenta("Ese correo ya está registrado en este dispositivo.","error");return}
- usuarios.push({nombre,email,pass});
- localStorage.setItem("techUsuarios",JSON.stringify(usuarios));
- localStorage.setItem("techUsuarioActivo",JSON.stringify({nombre,email}));
- actualizarUsuarioUI();
- mensajeCuenta("Cuenta creada correctamente.","ok");
- setTimeout(()=>cerrarModal("cuentaModal"),800);
+function inicializarSupabase(){
+ if(!SUPABASE_PUBLISHABLE_KEY || SUPABASE_PUBLISHABLE_KEY === "PEGA_AQUI_TU_PUBLISHABLE_KEY"){
+   mostrarProductosLocales();
+   document.getElementById("authMsg").innerHTML = '<div class="msg">⚠️ Falta colocar la Publishable Key de Supabase en este archivo.</div>';
+   return false;
+ }
+ supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+ return true;
 }
 
-function iniciarSesion(){
- const email=document.getElementById("loginEmail").value.trim().toLowerCase();
- const pass=document.getElementById("loginPass").value;
- const usuarios=JSON.parse(localStorage.getItem("techUsuarios")||"[]");
- const u=usuarios.find(x=>x.email===email&&x.pass===pass);
- if(!u){mensajeCuenta("Correo o contraseña incorrectos.","error");return}
- localStorage.setItem("techUsuarioActivo",JSON.stringify({nombre:u.nombre,email:u.email}));
- actualizarUsuarioUI();mensajeCuenta("Inicio de sesión correcto.","ok");setTimeout(()=>cerrarModal("cuentaModal"),500);
-}
-function cerrarSesion(){localStorage.removeItem("techUsuarioActivo");actualizarUsuarioUI();cerrarModal("perfilModal")}
-function actualizarUsuarioUI(){
- const u=JSON.parse(localStorage.getItem("techUsuarioActivo")||"null");
- const span=document.getElementById("usuarioActivo"),btn=document.getElementById("btnCuenta");
- if(u){span.textContent="Hola, "+u.nombre;btn.textContent="👤 Mi cuenta"}else{span.textContent="";btn.textContent="👤 Iniciar sesión"}
+const productosIniciales = [
+ {id:"demo1",Nombre:"Laptop Lenovo",Precio:1500000,"Categoría":"computadores",Descripción:"Laptop Lenovo para trabajo y estudio.",Activo:true},
+ {id:"demo2",Nombre:"Mouse inalámbrico",Precio:35000,"Categoría":"accesorios",Descripción:"Mouse inalámbrico para computador.",Activo:true},
+ {id:"demo3",Nombre:"Teclado USB",Precio:45000,"Categoría":"accesorios",Descripción:"Teclado USB de uso general.",Activo:true},
+ {id:"demo4",Nombre:"Impresora Epson",Precio:1150000,"Categoría":"impresoras",Descripción:"Impresora Epson. Precio de referencia.",Activo:true},
+ {id:"demo5",Nombre:"Tinta Epson",Precio:25000,"Categoría":"tintas",Descripción:"Botella de tinta Epson.",Activo:true},
+ {id:"demo6",Nombre:"Servicio informático",Precio:50000,"Categoría":"otros",Descripción:"Servicio informático desde $50.000 COP.",Activo:true}
+];
+
+function mostrarProductosLocales(){
+ productos = productosIniciales;
+ renderProductos(productos);
 }
 
-function abrirQR(){
- const url=TIENDA_URL+"?from=apk&v=1";
- document.getElementById("qrUrl").textContent=url;
- document.getElementById("qrImagen").src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data="+encodeURIComponent(url);
- abrirModal("qrModal");
+async function cargarProductos(){
+ if(!supabaseClient){mostrarProductosLocales();return;}
+ const {data,error} = await supabaseClient.from("Productos").select("*").eq("Activo",true).order("id",{ascending:false});
+ if(error){
+   console.error(error);
+   mostrarProductosLocales();
+   return;
+ }
+ productos = data || [];
+ renderProductos(productos);
 }
 
-function comprarWhatsApp(nombre,precio){
- const mensaje="Hola, estoy interesado en comprar: "+nombre+". Precio: $"+precio.toLocaleString("es-CO")+" COP.";
- window.open("https://wa.me/"+TELEFONO_WHATSAPP+"?text="+encodeURIComponent(mensaje),"_blank");
-}
-function verCarrito(){
- const list=document.getElementById("cartList");list.innerHTML="";
- if(!carrito.length){list.innerHTML='<p style="text-align:center;padding:20px">Tu carrito está vacío.</p>';document.getElementById("cartTotal").textContent="";abrirModal("cartModal");return}
- let total=0;
- carrito.forEach((p,i)=>{total+=p.precio;const div=document.createElement("div");div.className="cart-item";div.innerHTML="<span>"+(i+1)+". "+p.nombre+"</span><span>$"+p.precio.toLocaleString("es-CO")+" <button onclick='quitarCarrito("+i+")' style='border:0;background:none;color:#dc2626;cursor:pointer'>✕</button></span>";list.appendChild(div)});
- document.getElementById("cartTotal").textContent="Total: $"+total.toLocaleString("es-CO")+" COP";
- abrirModal("cartModal");
-}
-function quitarCarrito(i){carrito.splice(i,1);guardarCarrito();verCarrito()}
-function enviarCarritoWhatsApp(){
- if(!carrito.length)return;
- let mensaje="Hola, quiero realizar este pedido:%0A%0A",total=0;
- carrito.forEach((p,i)=>{mensaje+=(i+1)+". "+p.nombre+" - $"+p.precio.toLocaleString("es-CO")+" COP%0A";total+=p.precio});
- mensaje+="%0ATotal: $"+total.toLocaleString("es-CO")+" COP";
- window.open("https://wa.me/"+TELEFONO_WHATSAPP+"?text="+mensaje,"_blank");
+function renderProductos(lista){
+ const grid = document.getElementById("productosGrid");
+ if(!lista.length){grid.innerHTML='<div class="empty">No se encontraron productos.</div>';return;}
+ grid.innerHTML = lista.map(p => `
+ <div class="card">
+   <div class="card-img">${p["Web url"] ? `<img src="${escapar(p["Web url"])}" alt="${escapar(p.Nombre)}" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="placeholder" style="display:none">🛒</span>` : '<span class="placeholder">🛒</span>'}</div>
+   <div class="card-body">
+    <span class="badge">${escapar(p["Categoría"] || "otros")}</span>
+    <h3>${escapar(p.Nombre)}</h3>
+    <p class="desc">${escapar(p.Descripción || "Producto disponible en Tech Colombia.")}</p>
+    <div class="price">${dinero(p.Precio)}</div>
+    <button class="btn dark" onclick='agregarCarrito(${JSON.stringify(p)})'>🛒 Agregar</button>
+   </div>
+ </div>`).join("");
 }
 
-function buscarProducto(){
- const texto=document.getElementById("buscador").value.toLowerCase();
- const productos=document.querySelectorAll(".product");let encontrados=0;
- productos.forEach(p=>{const n=p.dataset.name.toLowerCase();const ok=n.includes(texto);p.style.display=ok?"block":"none";if(ok)encontrados++});
- document.getElementById("sinResultados").style.display=encontrados===0?"block":"none";
+function filtrarProductos(){
+ const q = document.getElementById("buscador").value.toLowerCase();
+ const cat = document.getElementById("categoria").value.toLowerCase();
+ renderProductos(productos.filter(p =>
+   String(p.Nombre||"").toLowerCase().includes(q) &&
+   (!cat || normalizarCategoria(p["Categoría"])===cat)
+ ));
 }
-function filtrarCategoria(categoria){
- const productos=document.querySelectorAll(".product");let encontrados=0;
- productos.forEach(p=>{const ok=p.dataset.category===categoria;p.style.display=ok?"block":"none";if(ok)encontrados++});
- document.getElementById("productos").scrollIntoView({behavior:"smooth"});
- document.getElementById("sinResultados").style.display=encontrados===0?"block":"none";
+
+function agregarCarrito(p){
+ const existente = carrito.find(x => String(x.id)===String(p.id));
+ if(existente) existente.cantidad++;
+ else carrito.push({id:p.id,Nombre:p.Nombre,Precio:Number(p.Precio),cantidad:1});
+ guardarCarrito();
+ renderCarrito();
+ alert("Producto agregado al carrito.");
 }
-actualizarContador();actualizarUsuarioUI();
+
+function guardarCarrito(){localStorage.setItem("techcolombia_carrito",JSON.stringify(carrito));}
+function renderCarrito(){
+ const el=document.getElementById("carritoLista");
+ if(!carrito.length){el.innerHTML='<div class="empty">Tu carrito está vacío.</div>';document.getElementById("carritoTotal").textContent="$0 COP";return;}
+ el.innerHTML=carrito.map((p,i)=>`
+ <div class="cart-item">
+  <div><strong>${escapar(p.Nombre)}</strong><br><span class="small">${dinero(p.Precio)} × ${p.cantidad}</span></div>
+  <div><strong>${dinero(p.Precio*p.cantidad)}</strong>
+  <button class="btn light" onclick="cambiarCantidad(${i},-1)">−</button>
+  <button class="btn light" onclick="cambiarCantidad(${i},1)">+</button>
+  </div>
+ </div>`).join("");
+ const total=carrito.reduce((s,p)=>s+p.Precio*p.cantidad,0);
+ document.getElementById("carritoTotal").textContent=dinero(total);
+}
+function cambiarCantidad(i,d){
+ carrito[i].cantidad += d;
+ if(carrito[i].cantidad<=0) carrito.splice(i,1);
+ guardarCarrito();renderCarrito();
+}
+function vaciarCarrito(){carrito=[];guardarCarrito();renderCarrito();}
+function comprarWhatsApp(){
+ if(!carrito.length){alert("El carrito está vacío.");return;}
+ let texto="Hola Tech Colombia, quiero comprar:%0A";
+ carrito.forEach(p=>texto += `- ${p.Nombre} x${p.cantidad}: ${dinero(p.Precio*p.cantidad)}%0A`);
+ const total=carrito.reduce((s,p)=>s+p.Precio*p.cantidad,0);
+ texto += `%0ATotal: ${dinero(total)}`;
+ window.open("https://wa.me/"+TELEFONO_WHATSAPP+"?text="+texto,"_blank");
+}
+function abrirTienda(){window.open(TIENDA_URL,"_blank");}
+
+async function registrarse(){
+ if(!supabaseClient){mensajeAuth("Primero coloca la Publishable Key de Supabase.");return;}
+ const email=document.getElementById("regEmail").value.trim();
+ const password=document.getElementById("regPassword").value;
+ if(!email || password.length<6){mensajeAuth("Escribe un correo válido y una contraseña de mínimo 6 caracteres.");return;}
+ const {data,error}=await supabaseClient.auth.signUp({email,password});
+ if(error){mensajeAuth("❌ "+error.message);return;}
+ if(data.user){
+   const {error:pError}=await supabaseClient.from("Perfiles").insert({id:data.user.id,Correo:email,Administrador:false});
+   if(pError) console.warn("No se pudo crear el perfil:",pError.message);
+ }
+ mensajeAuth(data.session ? "✅ Cuenta creada correctamente." : "✅ Cuenta creada. Si tienes confirmación por correo activada, revisa tu correo.");
+}
+async function iniciarSesion(){
+ if(!supabaseClient){mensajeAuth("Primero coloca la Publishable Key de Supabase.");return;}
+ const email=document.getElementById("loginEmail").value.trim();
+ const password=document.getElementById("loginPassword").value;
+ const {data,error}=await supabaseClient.auth.signInWithPassword({email,password});
+ if(error){mensajeAuth("❌ "+error.message);return;}
+ usuarioActual=data.user;
+ await cargarPerfil();
+ mensajeAuth("✅ Sesión iniciada.");
+}
+function mensajeAuth(t){document.getElementById("authMsg").innerHTML='<div class="msg">'+escapar(t)+'</div>';}
+
+async function cargarPerfil(){
+ if(!usuarioActual || !supabaseClient)return;
+ document.getElementById("userBar").textContent=usuarioActual.email;
+ document.getElementById("logoutBtn").classList.remove("hidden");
+ document.getElementById("authForms").classList.add("hidden");
+ document.getElementById("cuentaActiva").classList.remove("hidden");
+ document.getElementById("correoActivo").textContent=usuarioActual.email;
+ const {data,error}=await supabaseClient.from("Perfiles").select("Administrador").eq("id",usuarioActual.id).maybeSingle();
+ if(!error && data && data.Administrador===true){
+   esAdmin=true;
+   document.getElementById("admin").classList.add("active");
+   await cargarAdmin();
+ }
+}
+async function cerrarSesion(){
+ if(supabaseClient) await supabaseClient.auth.signOut();
+ usuarioActual=null;esAdmin=false;
+ document.getElementById("userBar").textContent="No has iniciado sesión";
+ document.getElementById("logoutBtn").classList.add("hidden");
+ document.getElementById("authForms").classList.remove("hidden");
+ document.getElementById("cuentaActiva").classList.add("hidden");
+ document.getElementById("admin").classList.remove("active");
+}
+
+async function cargarAdmin(){
+ if(!esAdmin)return;
+ const {data,error}=await supabaseClient.from("Productos").select("*").order("id",{ascending:false});
+ if(error){adminMsg("❌ "+error.message);return;}
+ const body=document.getElementById("adminBody");
+ body.innerHTML=(data||[]).map(p=>filaAdmin(p)).join("");
+}
+function filaAdmin(p){
+ return `<tr data-id="${escapar(p.id)}">
+ <td><input class="a-nombre" value="${escapar(p.Nombre)}"></td>
+ <td><input class="a-precio" type="number" min="0" value="${Number(p.Precio||0)}"></td>
+ <td><select class="a-cat">
+ ${["computadores","accesorios","impresoras","tintas","software","otros"].map(c=>`<option ${normalizarCategoria(p["Categoría"])===c?"selected":""} value="${c}">${c}</option>`).join("")}
+ </select></td>
+ <td><textarea class="a-desc" rows="2">${escapar(p.Descripción||"")}</textarea></td>
+ <td><input class="a-url" value="${escapar(p["Web url"]||"")}" placeholder="https://..."></td>
+ <td><input class="a-activo" type="checkbox" ${p.Activo?"checked":""}></td>
+ <td><button class="btn dark" onclick="guardarProducto('${escapar(p.id)}',this)">Guardar</button>
+ <button class="btn light" onclick="eliminarProducto('${escapar(p.id)}')">Eliminar</button></td>
+ </tr>`;
+}
+function adminMsg(t){document.getElementById("adminMsg").innerHTML='<div class="msg">'+escapar(t)+'</div>';}
+async function guardarProducto(id,btn){
+ const tr=btn.closest("tr");
+ const obj={
+  Nombre:tr.querySelector(".a-nombre").value.trim(),
+  Precio:Number(tr.querySelector(".a-precio").value||0),
+  "Categoría":tr.querySelector(".a-cat").value,
+  Descripción:tr.querySelector(".a-desc").value.trim(),
+  "Web url":tr.querySelector(".a-url").value.trim(),
+  Activo:tr.querySelector(".a-activo").checked
+ };
+ const {error}=await supabaseClient.from("Productos").update(obj).eq("id",id);
+ if(error)adminMsg("❌ "+error.message);else{adminMsg("✅ Producto actualizado.");await cargarProductos();await cargarAdmin();}
+}
+async function eliminarProducto(id){
+ if(!confirm("¿Eliminar este producto?"))return;
+ const {error}=await supabaseClient.from("Productos").delete().eq("id",id);
+ if(error)adminMsg("❌ "+error.message);else{adminMsg("✅ Producto eliminado.");await cargarProductos();await cargarAdmin();}
+}
+async function nuevoProducto(){
+ const obj={Nombre:"Nuevo producto",Precio:0,"Categoría":"otros",Descripción:"", "Web url":"",Activo:true};
+ const {data,error}=await supabaseClient.from("Productos").insert(obj).select().single();
+ if(error){adminMsg("❌ "+error.message);return;}
+ adminMsg("✅ Producto creado.");
+ await cargarProductos();await cargarAdmin();
+}
+
+async function arrancar(){
+ renderCarrito();
+ const conectado=inicializarSupabase();
+ if(conectado){
+   const {data}=await supabaseClient.auth.getSession();
+   if(data.session){usuarioActual=data.session.user;await cargarPerfil();}
+   await cargarProductos();
+ }
+ if(conectado){
+   supabaseClient.auth.onAuthStateChange((_event,session)=>{
+     setTimeout(async()=>{
+       if(session && !usuarioActual){usuarioActual=session.user;await cargarPerfil();}
+     },0);
+   });
+ }
+}
+arrancar();
 </script>
 </body>
 </html>
