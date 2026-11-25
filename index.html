@@ -3,423 +3,2830 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tech Colombia | Tecnología e Informática</title>
-<meta name="description" content="Tech Colombia - tecnología, informática, impresoras Epson, tintas y servicios informáticos.">
+
+<title>Tienda Yuri en Palermo | Tecnología e Informática</title>
+
+<meta name="description"
+content="Tienda Yuri en Palermo - tecnología, informática, impresoras Epson, tintas, accesorios y servicios informáticos.">
+
+<meta name="theme-color" content="#0b5cab">
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,Helvetica,sans-serif;background:#f4f7fb;color:#172033;line-height:1.5}
-a{text-decoration:none;color:inherit}
-button,input,select,textarea{font:inherit}
-header{background:linear-gradient(135deg,#071b35,#0d5fa6);color:#fff;position:sticky;top:0;z-index:20;box-shadow:0 3px 12px #0003}
-.nav{max-width:1200px;margin:auto;padding:15px 20px;display:flex;align-items:center;justify-content:space-between;gap:15px}
-.logo{font-size:24px;font-weight:800;letter-spacing:.3px}.logo span{color:#48d7ff}
-nav{display:flex;gap:8px;flex-wrap:wrap}
-nav a,.nav button{border:0;background:transparent;color:#fff;padding:9px 12px;border-radius:8px;cursor:pointer}
-nav a:hover,.nav button:hover{background:#ffffff20}
-.container{max-width:1200px;margin:auto;padding:22px 18px}
-.hero{background:linear-gradient(135deg,#0b5cab,#16a4d8);color:#fff;border-radius:18px;padding:35px 25px;margin-bottom:22px;display:grid;grid-template-columns:1.5fr .8fr;gap:25px;align-items:center}
-.hero h1{font-size:38px;margin-bottom:10px}.hero p{font-size:17px;max-width:700px}
-.btn{display:inline-block;border:0;border-radius:9px;padding:11px 16px;font-weight:700;cursor:pointer;margin:6px 5px 0 0}
-.primary{background:#fff;color:#07599c}.dark{background:#0b5cab;color:#fff}.whatsapp{background:#168b45;color:#fff}
-.light{background:#e9f2fb;color:#0b5cab}
-.qrbox{background:#fff;color:#172033;border-radius:15px;padding:15px;text-align:center}
-.qrbox img{width:180px;max-width:100%;display:block;margin:auto}
-.section{background:#fff;border-radius:15px;padding:22px;margin:20px 0;box-shadow:0 3px 14px #17203312}
-.section h2{margin-bottom:14px;color:#0b5cab}
-.controls{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
-.controls input,.controls select,.form input,.form select,.form textarea{width:100%;padding:11px;border:1px solid #ccd6e2;border-radius:8px;background:#fff}
-.search{flex:1;min-width:220px}.category{width:220px!important}
-.products{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.card{background:#fff;border:1px solid #e3e8ef;border-radius:13px;overflow:hidden;box-shadow:0 3px 12px #1720330d}
-.card-img{height:185px;background:#edf4fa;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.card-img img{width:100%;height:100%;object-fit:cover}.placeholder{font-size:58px}
-.card-body{padding:15px}.card h3{margin-bottom:6px}.desc{font-size:14px;color:#66758a;min-height:42px}
-.price{font-size:21px;font-weight:800;color:#0b5cab;margin:10px 0}
-.badge{display:inline-block;font-size:12px;padding:4px 8px;border-radius:20px;background:#e8f3ff;color:#0b5cab}
-.cart-list{display:grid;gap:10px}.cart-item{display:flex;justify-content:space-between;align-items:center;gap:10px;border-bottom:1px solid #e5e9ef;padding:10px 0}
-.total{font-size:20px;font-weight:800;text-align:right;margin-top:15px}
-.auth{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.form{display:grid;gap:10px}.form h3{color:#0b5cab}.msg{padding:10px;border-radius:8px;background:#eef6ff;margin-top:8px}
-.admin{display:none}.admin.active{display:block}
-.admin-table{width:100%;overflow:auto}.admin-table table{width:100%;min-width:850px;border-collapse:collapse}
-.admin-table th,.admin-table td{border-bottom:1px solid #e2e7ee;padding:9px;text-align:left;vertical-align:top}
-.admin-table input,.admin-table select{width:100%;padding:7px;border:1px solid #ccd6e2;border-radius:6px}
-.small{font-size:12px;color:#69788c}
-footer{background:#071b35;color:#fff;text-align:center;padding:25px;margin-top:35px}
-.empty{text-align:center;padding:30px;color:#66758a}
-.hidden{display:none!important}
-.userbar{font-size:13px;color:#dceeff}
-@media(max-width:850px){.hero{grid-template-columns:1fr}.products{grid-template-columns:repeat(2,1fr)}.auth{grid-template-columns:1fr}}
-@media(max-width:560px){.nav{align-items:flex-start}.logo{font-size:20px}.hero h1{font-size:29px}.products{grid-template-columns:1fr}.container{padding:14px 12px}.section{padding:15px}.qrbox img{width:145px}}
+*{
+box-sizing:border-box;
+margin:0;
+padding:0
+}
+
+html{
+scroll-behavior:smooth
+}
+
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:#f4f7fb;
+color:#172033;
+line-height:1.5
+}
+
+a{
+text-decoration:none;
+color:inherit
+}
+
+button,
+input,
+select,
+textarea{
+font:inherit
+}
+
+button{
+cursor:pointer
+}
+
+/* =========================
+   CABECERA
+========================= */
+
+header{
+background:linear-gradient(135deg,#071b35,#0b5cab 65%,#16a4d8);
+color:#fff;
+position:sticky;
+top:0;
+z-index:100;
+box-shadow:0 3px 14px #0004
+}
+
+.nav{
+max-width:1250px;
+margin:auto;
+padding:13px 18px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:14px
+}
+
+.logo{
+font-size:23px;
+font-weight:900;
+letter-spacing:.2px;
+white-space:nowrap
+}
+
+.logo span{
+color:#48d7ff
+}
+
+.logo small{
+display:block;
+font-size:10px;
+font-weight:500;
+opacity:.82;
+letter-spacing:.5px
+}
+
+nav{
+display:flex;
+gap:5px;
+flex-wrap:wrap;
+align-items:center
+}
+
+nav a,
+.nav button{
+border:0;
+background:transparent;
+color:#fff;
+padding:9px 11px;
+border-radius:8px;
+cursor:pointer
+}
+
+nav a:hover,
+.nav button:hover{
+background:#ffffff20
+}
+
+.userbar{
+font-size:12px;
+color:#dceeff;
+max-width:210px;
+overflow:hidden;
+text-overflow:ellipsis;
+white-space:nowrap
+}
+
+/* =========================
+   CONTENEDOR
+========================= */
+
+.container{
+max-width:1250px;
+margin:auto;
+padding:22px 18px
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+background:linear-gradient(135deg,#0b5cab,#16a4d8 70%,#20b9c9);
+color:#fff;
+border-radius:20px;
+padding:38px 28px;
+margin-bottom:22px;
+display:grid;
+grid-template-columns:1.55fr .75fr;
+gap:25px;
+align-items:center;
+position:relative;
+overflow:hidden
+}
+
+.hero:after{
+content:"";
+position:absolute;
+width:300px;
+height:300px;
+border-radius:50%;
+background:#ffffff12;
+right:-110px;
+top:-125px
+}
+
+.hero h1{
+font-size:40px;
+margin-bottom:10px;
+position:relative;
+z-index:1
+}
+
+.hero p{
+font-size:17px;
+max-width:720px;
+position:relative;
+z-index:1
+}
+
+.hero-actions{
+position:relative;
+z-index:1
+}
+
+/* =========================
+   BOTONES
+========================= */
+
+.btn{
+display:inline-block;
+border:0;
+border-radius:9px;
+padding:11px 16px;
+font-weight:700;
+cursor:pointer;
+margin:6px 5px 0 0;
+transition:.15s
+}
+
+.btn:hover{
+transform:translateY(-1px);
+filter:brightness(1.03)
+}
+
+.primary{
+background:#fff;
+color:#07599c
+}
+
+.dark{
+background:#0b5cab;
+color:#fff
+}
+
+.whatsapp{
+background:#168b45;
+color:#fff
+}
+
+.light{
+background:#e9f2fb;
+color:#0b5cab
+}
+
+.danger{
+background:#b42318;
+color:#fff
+}
+
+/* =========================
+   QR
+========================= */
+
+.qrbox{
+background:#fff;
+color:#172033;
+border-radius:15px;
+padding:15px;
+text-align:center;
+position:relative;
+z-index:2
+}
+
+.qrbox img{
+width:180px;
+max-width:100%;
+display:block;
+margin:auto
+}
+
+/* =========================
+   SECCIONES
+========================= */
+
+.section{
+background:#fff;
+border-radius:15px;
+padding:22px;
+margin:20px 0;
+box-shadow:0 3px 14px #17203312
+}
+
+.section h2{
+margin-bottom:14px;
+color:#0b5cab
+}
+
+.section-subtitle{
+color:#66758a;
+margin:-7px 0 16px;
+font-size:14px
+}
+
+.small{
+font-size:12px;
+color:#69788c
+}
+
+/* =========================
+   CARACTERÍSTICAS
+========================= */
+
+.feature-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:14px
+}
+
+.feature{
+padding:17px;
+border:1px solid #e5eaf1;
+border-radius:12px;
+background:#fbfdff
+}
+
+.feature strong{
+display:block;
+margin-bottom:5px;
+color:#0b5cab
+}
+
+.feature p{
+font-size:13px;
+color:#66758a
+}
+
+/* =========================
+   BÚSQUEDA
+========================= */
+
+.controls{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+margin-bottom:18px
+}
+
+.controls input,
+.controls select,
+.form input,
+.form select,
+.form textarea{
+width:100%;
+padding:11px;
+border:1px solid #ccd6e2;
+border-radius:8px;
+background:#fff
+}
+
+.search{
+flex:1;
+min-width:220px
+}
+
+.category{
+width:220px!important
+}
+
+/* =========================
+   PRODUCTOS
+========================= */
+
+.products{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px
+}
+
+.card{
+background:#fff;
+border:1px solid #e3e8ef;
+border-radius:13px;
+overflow:hidden;
+box-shadow:0 3px 12px #1720330d;
+transition:transform .18s,box-shadow .18s
+}
+
+.card:hover{
+transform:translateY(-3px);
+box-shadow:0 9px 25px #17203320
+}
+
+.card-img{
+height:195px;
+background:#edf4fa;
+display:flex;
+align-items:center;
+justify-content:center;
+overflow:hidden
+}
+
+.card-img img{
+width:100%;
+height:100%;
+object-fit:cover
+}
+
+.placeholder{
+font-size:58px
+}
+
+.card-body{
+padding:15px
+}
+
+.card h3{
+margin:7px 0 6px
+}
+
+.desc{
+font-size:14px;
+color:#66758a;
+min-height:42px
+}
+
+.price{
+font-size:21px;
+font-weight:800;
+color:#0b5cab;
+margin:10px 0
+}
+
+.badge{
+display:inline-block;
+font-size:12px;
+padding:4px 8px;
+border-radius:20px;
+background:#e8f3ff;
+color:#0b5cab
+}
+
+/* =========================
+   CARRITO
+========================= */
+
+.cart-list{
+display:grid;
+gap:10px
+}
+
+.cart-item{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:10px;
+border-bottom:1px solid #e5e9ef;
+padding:12px 0
+}
+
+.cart-controls{
+display:flex;
+align-items:center;
+gap:5px
+}
+
+.qty{
+min-width:28px;
+text-align:center;
+font-weight:700
+}
+
+.total{
+font-size:20px;
+font-weight:800;
+text-align:right;
+margin-top:15px
+}
+
+.cart-actions{
+text-align:right
+}
+
+/* =========================
+   CUENTA
+========================= */
+
+.auth{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px
+}
+
+.form{
+display:grid;
+gap:10px
+}
+
+.form h3{
+color:#0b5cab
+}
+
+.msg{
+padding:10px;
+border-radius:8px;
+background:#eef6ff;
+margin-top:8px
+}
+
+.success{
+background:#ecfdf3;
+color:#126b3a
+}
+
+.error{
+background:#fff1f0;
+color:#a11b12
+}
+
+/* =========================
+   ADMIN
+========================= */
+
+.admin{
+display:none
+}
+
+.admin.active{
+display:block
+}
+
+.admin-table{
+width:100%;
+overflow:auto
+}
+
+.admin-table table{
+width:100%;
+min-width:980px;
+border-collapse:collapse
+}
+
+.admin-table th,
+.admin-table td{
+border-bottom:1px solid #e2e7ee;
+padding:9px;
+text-align:left;
+vertical-align:top
+}
+
+.admin-table input,
+.admin-table select,
+.admin-table textarea{
+width:100%;
+padding:7px;
+border:1px solid #ccd6e2;
+border-radius:6px
+}
+
+.admin-table textarea{
+min-height:55px
+}
+
+.admin-actions{
+white-space:nowrap
+}
+
+/* =========================
+   UTILIDADES
+========================= */
+
+.empty{
+text-align:center;
+padding:30px;
+color:#66758a
+}
+
+.hidden{
+display:none!important
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+background:#071b35;
+color:#fff;
+text-align:center;
+padding:28px 18px;
+margin-top:35px
+}
+
+footer .small{
+color:#bfd4e8;
+margin-top:5px
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:950px){
+
+.hero{
+grid-template-columns:1fr
+}
+
+.products{
+grid-template-columns:repeat(2,1fr)
+}
+
+.feature-grid{
+grid-template-columns:repeat(2,1fr)
+}
+
+.auth{
+grid-template-columns:1fr
+}
+
+}
+
+@media(max-width:650px){
+
+.nav{
+align-items:flex-start;
+flex-direction:column
+}
+
+nav{
+width:100%;
+justify-content:flex-start
+}
+
+.userbar{
+max-width:100%
+}
+
+.logo{
+font-size:20px
+}
+
+.hero{
+padding:28px 20px
+}
+
+.hero h1{
+font-size:29px
+}
+
+.products{
+grid-template-columns:1fr
+}
+
+.feature-grid{
+grid-template-columns:1fr
+}
+
+.container{
+padding:14px 12px
+}
+
+.section{
+padding:15px
+}
+
+.qrbox img{
+width:145px
+}
+
+.cart-item{
+align-items:flex-start;
+flex-direction:column
+}
+
+.cart-actions{
+width:100%;
+text-align:left
+}
+
+}
 </style>
 </head>
+
 <body>
 
+<!-- =========================
+     CABECERA
+========================= -->
+
 <header>
+
 <div class="nav">
-<div class="logo">Tech <span>Colombia</span></div>
-<div class="userbar" id="userBar">No has iniciado sesión</div>
-<nav>
-<a href="#inicio">Inicio</a>
-<a href="#productos">Productos</a>
-<a href="#servicios">Servicios</a>
-<a href="#cuenta">Cuenta</a>
-<a href="#contacto">Contacto</a>
-<button id="logoutBtn" class="hidden" onclick="cerrarSesion()">Salir</button>
-</nav>
+
+<div>
+
+<div class="logo">
+🛍️ Tienda Yuri <span>en Palermo</span>
 </div>
+
+<small>
+TECNOLOGÍA · INFORMÁTICA · SERVICIOS
+</small>
+
+</div>
+
+<div class="userbar" id="userBar">
+No has iniciado sesión
+</div>
+
+<nav>
+
+<a href="#inicio">Inicio</a>
+
+<a href="#productos">
+Productos
+</a>
+
+<a href="#servicios">
+Servicios
+</a>
+
+<a href="#carrito">
+🛒 Carrito
+</a>
+
+<a href="#cuenta">
+Cuenta
+</a>
+
+<a href="#contacto">
+Contacto
+</a>
+
+<button
+id="logoutBtn"
+class="hidden"
+onclick="cerrarSesion()">
+Salir
+</button>
+
+</nav>
+
+</div>
+
 </header>
 
+
 <main class="container">
+
+
+<!-- =========================
+     INICIO
+========================= -->
+
 <section id="inicio" class="hero">
+
 <div>
-<h1>Tecnología e Informática</h1>
-<p>Productos tecnológicos, impresoras Epson, tintas y servicios informáticos en Colombia.</p>
-<a href="#productos" class="btn primary">Ver productos</a>
-<a href="#contacto" class="btn whatsapp">WhatsApp: +57 320 366 4703</a>
+
+<h1>
+Tienda Yuri en Palermo
+</h1>
+
+<p>
+Tu tienda de tecnología e informática en Palermo, Huila.
+Encuentra productos, accesorios, impresoras Epson, tintas
+y servicios informáticos.
+</p>
+
+<div class="hero-actions">
+
+<a href="#productos"
+class="btn primary">
+🛒 Ver productos
+</a>
+
+<a href="#servicios"
+class="btn light">
+🛠️ Ver servicios
+</a>
+
+<a
+href="https://wa.me/573203664703?text=Hola%20Tienda%20Yuri%20en%20Palermo%2C%20quiero%20informaci%C3%B3n."
+class="btn whatsapp"
+target="_blank">
+📲 WhatsApp
+</a>
+
 </div>
+
+</div>
+
+
 <div class="qrbox">
-<strong>📱 Conecta con Tech Colombia</strong>
-<img id="qrTop" alt="Código QR Tech Colombia">
-<p class="small">Escanea para abrir la tienda</p>
+
+<strong>
+📱 Conecta con Tienda Yuri
+</strong>
+
+<img
+id="qrTop"
+alt="Código QR Tienda Yuri en Palermo">
+
+<p class="small">
+Escanea para abrir la tienda
+</p>
+
 </div>
+
 </section>
 
-<section id="productos" class="section">
-<h2>🛒 Productos</h2>
-<div class="controls">
-<input id="buscador" class="search" type="search" placeholder="Buscar producto..." oninput="filtrarProductos()">
-<select id="categoria" class="category" onchange="filtrarProductos()">
-<option value="">Todas las categorías</option>
-<option value="computadores">Computadores</option>
-<option value="accesorios">Accesorios</option>
-<option value="impresoras">Impresoras</option>
-<option value="tintas">Tintas</option>
-<option value="software">Software</option>
-<option value="otros">Otros</option>
-</select>
-</div>
-<div id="productosGrid" class="products"></div>
-</section>
 
-<section id="carrito" class="section">
-<h2>🛍️ Carrito</h2>
-<div id="carritoLista" class="cart-list"></div>
-<div id="carritoTotal" class="total">$0 COP</div>
-<button class="btn whatsapp" onclick="comprarWhatsApp()">Comprar por WhatsApp</button>
-<button class="btn light" onclick="vaciarCarrito()">Vaciar carrito</button>
-</section>
-
-<section id="servicios" class="section">
-<h2>🛠️ Servicios informáticos</h2>
-<div class="products">
-<div class="card"><div class="card-body"><h3>💻 Servicio informático</h3><p class="desc">Mantenimiento, configuración y soporte de computadores.</p><div class="price">Desde $50.000 COP</div></div></div>
-<div class="card"><div class="card-body"><h3>🖨️ Impresoras Epson</h3><p class="desc">Reparación, mantenimiento, limpieza y revisión de impresoras Epson.</p><div class="price">Consultar</div></div></div>
-<div class="card"><div class="card-body"><h3>🏠 Servicio a domicilio</h3><p class="desc">Atención según disponibilidad y ubicación.</p><a class="btn whatsapp" href="https://wa.me/573203664703?text=Hola%20Tech%20Colombia%2C%20necesito%20un%20servicio." target="_blank">WhatsApp: +57 320 366 4703</a></div></div>
-</div>
-</section>
-
-<section id="cuenta" class="section">
-<h2>👤 Mi cuenta</h2>
-<div class="auth" id="authForms">
-<div class="form">
-<h3>Crear cuenta</h3>
-<input id="regEmail" type="email" placeholder="Correo electrónico">
-<input id="regPassword" type="password" placeholder="Contraseña (mín. 6 caracteres)">
-<button class="btn dark" onclick="registrarse()">Registrarme</button>
-</div>
-<div class="form">
-<h3>Iniciar sesión</h3>
-<input id="loginEmail" type="email" placeholder="Correo electrónico">
-<input id="loginPassword" type="password" placeholder="Contraseña">
-<button class="btn dark" onclick="iniciarSesion()">Entrar</button>
-</div>
-</div>
-<div id="cuentaActiva" class="hidden">
-<p>Sesión iniciada como <strong id="correoActivo"></strong>.</p>
-<p class="small">Tu cuenta está conectada con Tech Colombia.</p>
-</div>
-<div id="authMsg"></div>
-</section>
-
-<section id="admin" class="section admin">
-<h2>⚙️ Panel de administración</h2>
-<p class="small">Desde aquí puedes agregar, editar, activar/desactivar y eliminar productos sin modificar GitHub.</p>
-<div class="controls">
-<button class="btn dark" onclick="nuevoProducto()">➕ Agregar producto</button>
-<button class="btn light" onclick="cargarAdmin()">🔄 Actualizar</button>
-</div>
-<div id="adminMsg"></div>
-<div class="admin-table">
-<table>
-<thead><tr><th>Nombre</th><th>Precio</th><th>Categoría</th><th>Descripción</th><th>Imagen URL</th><th>Activo</th><th>Acciones</th></tr></thead>
-<tbody id="adminBody"></tbody>
-</table>
-</div>
-</section>
-
-<section id="contacto" class="section">
-<h2>📞 Contacto</h2>
-<p><strong>WhatsApp: +57 320 366 4703</strong></p>
-<a class="btn whatsapp" href="https://wa.me/573203664703?text=Hola%20Tech%20Colombia%2C%20quiero%20informaci%C3%B3n." target="_blank">📲 WhatsApp: +57 320 366 4703</a>
-<p class="small" style="margin-top:10px">Atención y cotizaciones por WhatsApp.</p>
-</section>
+<!-- =========================
+     VENTAJAS
+========================= -->
 
 <section class="section">
-<h2>📱 Aplicación Android</h2>
-<p>Abre la tienda desde tu aplicación Tech Colombia.</p>
-<button class="btn dark" onclick="abrirTienda()">Abrir tienda</button>
+
+<h2>
+✨ ¿Por qué comprar con nosotros?
+</h2>
+
+<div class="feature-grid">
+
+<div class="feature">
+
+<strong>
+🛒 Compra fácil
+</strong>
+
+<p>
+Agrega productos al carrito y solicita tu pedido.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<strong>
+📱 Desde cualquier dispositivo
+</strong>
+
+<p>
+Diseñada para celular, tablet y computador.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<strong>
+🖨️ Servicio Epson
+</strong>
+
+<p>
+Venta, mantenimiento y reparación de impresoras Epson.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<strong>
+📲 Atención directa
+</strong>
+
+<p>
+Comunícate rápidamente por WhatsApp.
+</p>
+
+</div>
+
+</div>
+
 </section>
+
+
+<!-- =========================
+     PRODUCTOS
+========================= -->
+
+<section id="productos" class="section">
+
+<h2>
+🛒 Productos
+</h2>
+
+<p class="section-subtitle">
+Busca productos o filtra por categoría.
+</p>
+
+<div class="controls">
+
+<input
+id="buscador"
+class="search"
+type="search"
+placeholder="🔎 Buscar producto..."
+oninput="filtrarProductos()">
+
+
+<select
+id="categoria"
+class="category"
+onchange="filtrarProductos()">
+
+<option value="">
+Todas las categorías
+</option>
+
+<option value="computadores">
+Computadores
+</option>
+
+<option value="accesorios">
+Accesorios
+</option>
+
+<option value="impresoras">
+Impresoras
+</option>
+
+<option value="tintas">
+Tintas
+</option>
+
+<option value="software">
+Software
+</option>
+
+<option value="hogar">
+Hogar
+</option>
+
+<option value="belleza">
+Belleza
+</option>
+
+<option value="otros">
+Otros
+</option>
+
+</select>
+
+</div>
+
+<div id="productosGrid" class="products"></div>
+
+</section>
+
+
+<!-- =========================
+     CARRITO
+========================= -->
+
+<section id="carrito" class="section">
+
+<h2>
+🛍️ Mi carrito
+</h2>
+
+<p class="section-subtitle">
+Revisa tus productos antes de solicitar el pedido.
+</p>
+
+<div id="carritoLista" class="cart-list"></div>
+
+<div
+id="carritoTotal"
+class="total">
+$0 COP
+</div>
+
+<div class="cart-actions">
+
+<button
+class="btn whatsapp"
+onclick="comprarWhatsApp()">
+📲 Solicitar pedido por WhatsApp
+</button>
+
+<button
+class="btn light"
+onclick="vaciarCarrito()">
+🗑️ Vaciar carrito
+</button>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     SERVICIOS
+========================= -->
+
+<section id="servicios" class="section">
+
+<h2>
+🛠️ Servicios informáticos
+</h2>
+
+<div class="products">
+
+
+<div class="card">
+
+<div class="card-body">
+
+<h3>
+💻 Servicio informático
+</h3>
+
+<p class="desc">
+Mantenimiento, configuración, instalación
+y soporte de computadores.
+</p>
+
+<div class="price">
+Desde $50.000 COP
+</div>
+
+<a
+class="btn whatsapp"
+href="https://wa.me/573203664703?text=Hola%20Tienda%20Yuri%2C%20necesito%20un%20servicio%20inform%C3%A1tico."
+target="_blank">
+Consultar
+</a>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-body">
+
+<h3>
+🖨️ Impresoras Epson
+</h3>
+
+<p class="desc">
+Reparación, mantenimiento, limpieza,
+revisión y solución de problemas
+de impresoras Epson.
+</p>
+
+<div class="price">
+Consultar
+</div>
+
+<a
+class="btn whatsapp"
+href="https://wa.me/573203664703?text=Hola%20Tienda%20Yuri%2C%20necesito%20servicio%20para%20una%20impresora%20Epson."
+target="_blank">
+Consultar
+</a>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-body">
+
+<h3>
+🏠 Servicio a domicilio
+</h3>
+
+<p class="desc">
+Atención según disponibilidad y ubicación
+en Palermo y alrededores.
+</p>
+
+<a
+class="btn whatsapp"
+href="https://wa.me/573203664703?text=Hola%20Tienda%20Yuri%2C%20necesito%20un%20servicio%20a%20domicilio."
+target="_blank">
+📲 Solicitar domicilio
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     CUENTA
+========================= -->
+
+<section id="cuenta" class="section">
+
+<h2>
+👤 Mi cuenta
+</h2>
+
+<div
+class="auth"
+id="authForms">
+
+
+<div class="form">
+
+<h3>
+Crear cuenta
+</h3>
+
+<input
+id="regEmail"
+type="email"
+placeholder="Correo electrónico">
+
+<input
+id="regPassword"
+type="password"
+placeholder="Contraseña (mín. 6 caracteres)">
+
+<button
+class="btn dark"
+onclick="registrarse()">
+📝 Registrarme
+</button>
+
+</div>
+
+
+<div class="form">
+
+<h3>
+Iniciar sesión
+</h3>
+
+<input
+id="loginEmail"
+type="email"
+placeholder="Correo electrónico">
+
+<input
+id="loginPassword"
+type="password"
+placeholder="Contraseña">
+
+<button
+class="btn dark"
+onclick="iniciarSesion()">
+🔐 Entrar
+</button>
+
+</div>
+
+</div>
+
+
+<div
+id="cuentaActiva"
+class="hidden">
+
+<p>
+Sesión iniciada como
+<strong id="correoActivo"></strong>.
+</p>
+
+<p class="small">
+Tu cuenta está conectada con Tienda Yuri en Palermo.
+</p>
+
+</div>
+
+
+<div id="authMsg"></div>
+
+</section>
+
+
+<!-- =========================
+     ADMIN
+========================= -->
+
+<section
+id="admin"
+class="section admin">
+
+<h2>
+⚙️ Panel de administración
+</h2>
+
+<p class="section-subtitle">
+Administra los productos sin modificar el código de la página.
+</p>
+
+
+<div class="controls">
+
+<button
+class="btn dark"
+onclick="nuevoProducto()">
+➕ Agregar producto
+</button>
+
+<button
+class="btn light"
+onclick="cargarAdmin()">
+🔄 Actualizar
+</button>
+
+</div>
+
+
+<div id="adminMsg"></div>
+
+
+<div class="admin-table">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>
+Nombre
+</th>
+
+<th>
+Precio
+</th>
+
+<th>
+Categoría
+</th>
+
+<th>
+Descripción
+</th>
+
+<th>
+Imagen URL
+</th>
+
+<th>
+Activo
+</th>
+
+<th>
+Acciones
+</th>
+
+</tr>
+
+</thead>
+
+
+<tbody id="adminBody"></tbody>
+
+</table>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     CONTACTO
+========================= -->
+
+<section
+id="contacto"
+class="section">
+
+<h2>
+📞 Contacto
+</h2>
+
+<p>
+<strong>
+📍 Palermo, Huila, Colombia
+</strong>
+</p>
+
+<p>
+<strong>
+📱 WhatsApp: +57 320 366 4703
+</strong>
+</p>
+
+
+<a
+class="btn whatsapp"
+href="https://wa.me/573203664703?text=Hola%20Tienda%20Yuri%20en%20Palermo%2C%20quiero%20informaci%C3%B3n."
+target="_blank">
+
+📲 Escribir por WhatsApp
+
+</a>
+
+
+<p
+class="small"
+style="margin-top:10px">
+
+Atención, pedidos, cotizaciones y servicios por WhatsApp.
+
+</p>
+
+</section>
+
+
+<!-- =========================
+     ANDROID
+========================= -->
+
+<section class="section">
+
+<h2>
+📱 Aplicación Android
+</h2>
+
+<p>
+Abre la Tienda Yuri en Palermo desde tu aplicación Android.
+</p>
+
+<button
+class="btn dark"
+onclick="abrirTienda()">
+
+📲 Abrir tienda
+
+</button>
+
+</section>
+
 </main>
 
+
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
-<p>© 2026 Tech Colombia | Tecnología e Informática</p>
-<p>WhatsApp: +57 320 366 4703</p>
+
+<p>
+© 2026 Tienda Yuri en Palermo | Tecnología e Informática
+</p>
+
+<p>
+WhatsApp: +57 320 366 4703
+</p>
+
+<p class="small">
+Palermo, Huila, Colombia · Tienda online
+</p>
+
 </footer>
 
+
 <script>
-const SUPABASE_URL = "https://ljmryxtbcgrtcsxhwnvl.supabase.co";
-const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_5pkF_bmKNgvSaGs0ht6ZRw_3Nop9t-Z";
-const TELEFONO_WHATSAPP = "573203664703";
-const TELEFONO_VISIBLE = "+57 320 366 4703";
-const TIENDA_URL = "https://tienda-tegnologia-1.onrender.com/?app=techcolombia";
+
+/* =====================================================
+   CONFIGURACIÓN
+===================================================== */
+
+const SUPABASE_URL =
+"https://ljmryxtbcgrtcsxhwnvl.supabase.co";
+
+const SUPABASE_PUBLISHABLE_KEY =
+"sb_publishable_5pkF_bmKNgvSaGs0ht6ZRw_3Nop9t-Z";
+
+const TELEFONO_WHATSAPP =
+"573203664703";
+
+const TELEFONO_VISIBLE =
+"+57 320 366 4703";
+
+const TIENDA_URL =
+"https://tienda-tegnologia-1.onrender.com/?app=tiendayuri";
+
+
+/* =====================================================
+   VARIABLES
+===================================================== */
 
 let supabaseClient = null;
+
 let productos = [];
-let carrito = JSON.parse(localStorage.getItem("techcolombia_carrito") || "[]");
+
+let carrito =
+JSON.parse(
+localStorage.getItem("tiendayuri_carrito") || "[]"
+);
+
 let usuarioActual = null;
+
 let esAdmin = false;
 
+
+/* =====================================================
+   FUNCIONES GENERALES
+===================================================== */
+
 function dinero(n){
- return "$" + Number(n || 0).toLocaleString("es-CO") + " COP";
+
+return "$" +
+Number(n || 0)
+.toLocaleString("es-CO") +
+" COP";
+
 }
+
+
 function normalizarCategoria(c){
- return String(c || "").toLowerCase().trim();
+
+return String(c || "")
+.toLowerCase()
+.trim();
+
 }
+
+
 function escapar(s){
- return String(s ?? "").replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
+
+return String(s ?? "")
+.replace(/[&<>"']/g,m => ({
+"&":"&amp;",
+"<":"&lt;",
+">":"&gt;",
+'"':"&quot;",
+"'":"&#039;"
+}[m]));
+
 }
+
+
+/* =====================================================
+   QR
+===================================================== */
+
 function qrUrl(){
- return "https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=" + encodeURIComponent(TIENDA_URL);
+
+return "https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=" +
+encodeURIComponent(TIENDA_URL);
+
 }
-document.getElementById("qrTop").src = qrUrl();
+
+document.getElementById("qrTop").src =
+qrUrl();
+
+
+/* =====================================================
+   SUPABASE
+===================================================== */
 
 function inicializarSupabase(){
- if(!SUPABASE_PUBLISHABLE_KEY || SUPABASE_PUBLISHABLE_KEY === "PEGA_AQUI_TU_PUBLISHABLE_KEY"){
-   mostrarProductosLocales();
-   document.getElementById("authMsg").innerHTML = '<div class="msg">⚠️ Falta colocar la Publishable Key de Supabase en este archivo.</div>';
-   return false;
- }
- supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
- return true;
+
+if(
+!SUPABASE_PUBLISHABLE_KEY ||
+SUPABASE_PUBLISHABLE_KEY ===
+"PEGA_AQUI_TU_PUBLISHABLE_KEY"
+){
+
+mostrarProductosLocales();
+
+mostrarAuth(
+"⚠️ Falta configurar la Publishable Key de Supabase.",
+"error"
+);
+
+return false;
+
 }
+
+supabaseClient =
+supabase.createClient(
+SUPABASE_URL,
+SUPABASE_PUBLISHABLE_KEY
+);
+
+return true;
+
+}
+
+
+/* =====================================================
+   PRODUCTOS DE DEMOSTRACIÓN
+===================================================== */
 
 const productosIniciales = [
- {id:"demo1",Nombre:"Laptop Lenovo",Precio:1500000,"Categoría":"computadores",Descripción:"Laptop Lenovo para trabajo y estudio.",Activo:true},
- {id:"demo2",Nombre:"Mouse inalámbrico",Precio:35000,"Categoría":"accesorios",Descripción:"Mouse inalámbrico para computador.",Activo:true},
- {id:"demo3",Nombre:"Teclado USB",Precio:45000,"Categoría":"accesorios",Descripción:"Teclado USB de uso general.",Activo:true},
- {id:"demo4",Nombre:"Impresora Epson",Precio:1150000,"Categoría":"impresoras",Descripción:"Impresora Epson. Precio de referencia.",Activo:true},
- {id:"demo5",Nombre:"Tinta Epson",Precio:25000,"Categoría":"tintas",Descripción:"Botella de tinta Epson.",Activo:true},
- {id:"demo6",Nombre:"Servicio informático",Precio:50000,"Categoría":"otros",Descripción:"Servicio informático desde $50.000 COP.",Activo:true}
+
+{
+id:"demo1",
+Nombre:"Laptop Lenovo",
+Precio:1500000,
+"Categoría":"computadores",
+Descripción:"Laptop Lenovo para trabajo y estudio.",
+Activo:true
+},
+
+{
+id:"demo2",
+Nombre:"Mouse inalámbrico",
+Precio:35000,
+"Categoría":"accesorios",
+Descripción:"Mouse inalámbrico para computador.",
+Activo:true
+},
+
+{
+id:"demo3",
+Nombre:"Teclado USB",
+Precio:45000,
+"Categoría":"accesorios",
+Descripción:"Teclado USB de uso general.",
+Activo:true
+},
+
+{
+id:"demo4",
+Nombre:"Impresora Epson",
+Precio:1150000,
+"Categoría":"impresoras",
+Descripción:"Impresora Epson. Precio de referencia.",
+Activo:true
+},
+
+{
+id:"demo5",
+Nombre:"Tinta Epson",
+Precio:25000,
+"Categoría":"tintas",
+Descripción:"Botella de tinta Epson.",
+Activo:true
+},
+
+{
+id:"demo6",
+Nombre:"Servicio informático",
+Precio:50000,
+"Categoría":"otros",
+Descripción:"Servicio informático desde $50.000 COP.",
+Activo:true
+}
+
 ];
 
+
+/* =====================================================
+   PRODUCTOS LOCALES
+===================================================== */
+
 function mostrarProductosLocales(){
- productos = productosIniciales;
- renderProductos(productos);
+
+productos =
+productosIniciales;
+
+renderProductos(productos);
+
 }
+
+
+/* =====================================================
+   CARGAR PRODUCTOS
+===================================================== */
 
 async function cargarProductos(){
- if(!supabaseClient){mostrarProductosLocales();return;}
- const {data,error} = await supabaseClient.from("Productos").select("*").eq("Activo",true).order("id",{ascending:false});
- if(error){
-   console.error(error);
-   mostrarProductosLocales();
-   return;
- }
- productos = data || [];
- renderProductos(productos);
+
+if(!supabaseClient){
+
+mostrarProductosLocales();
+
+return;
+
 }
+
+
+const {
+data,
+error
+} =
+await supabaseClient
+.from("Productos")
+.select("*")
+.eq("Activo",true)
+.order("id",{ascending:false});
+
+
+if(error){
+
+console.error(error);
+
+mostrarProductosLocales();
+
+return;
+
+}
+
+
+productos =
+data || [];
+
+renderProductos(productos);
+
+}
+
+
+/* =====================================================
+   MOSTRAR PRODUCTOS
+===================================================== */
 
 function renderProductos(lista){
- const grid = document.getElementById("productosGrid");
- if(!lista.length){grid.innerHTML='<div class="empty">No se encontraron productos.</div>';return;}
- grid.innerHTML = lista.map(p => `
- <div class="card">
-   <div class="card-img">${p["Web url"] ? `<img src="${escapar(p["Web url"])}" alt="${escapar(p.Nombre)}" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="placeholder" style="display:none">🛒</span>` : '<span class="placeholder">🛒</span>'}</div>
-   <div class="card-body">
-    <span class="badge">${escapar(p["Categoría"] || "otros")}</span>
-    <h3>${escapar(p.Nombre)}</h3>
-    <p class="desc">${escapar(p.Descripción || "Producto disponible en Tech Colombia.")}</p>
-    <div class="price">${dinero(p.Precio)}</div>
-    <button class="btn dark" onclick='agregarCarrito(${JSON.stringify(p)})'>🛒 Agregar</button>
-   </div>
- </div>`).join("");
+
+const grid =
+document.getElementById(
+"productosGrid"
+);
+
+
+if(!lista.length){
+
+grid.innerHTML =
+'<div class="empty">No se encontraron productos.</div>';
+
+return;
+
 }
+
+
+grid.innerHTML =
+lista.map(p => `
+
+<div class="card">
+
+<div class="card-img">
+
+${
+p["Web url"]
+
+?
+
+`<img
+src="${escapar(p["Web url"])}"
+alt="${escapar(p.Nombre)}"
+onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+
+<span
+class="placeholder"
+style="display:none">
+🛒
+</span>`
+
+:
+
+'<span class="placeholder">🛒</span>'
+}
+
+</div>
+
+
+<div class="card-body">
+
+<span class="badge">
+${escapar(
+p["Categoría"] || "otros"
+)}
+</span>
+
+
+<h3>
+${escapar(p.Nombre)}
+</h3>
+
+
+<p class="desc">
+${escapar(
+p["Descripción"] ||
+"Producto disponible en Tienda Yuri en Palermo."
+)}
+</p>
+
+
+<div class="price">
+${dinero(p.Precio)}
+</div>
+
+
+<button
+class="btn dark"
+onclick='agregarCarrito(${JSON.stringify(p).replace(/'/g,"&#39;")})'>
+
+🛒 Agregar al carrito
+
+</button>
+
+</div>
+
+</div>
+
+`).join("");
+
+}
+
+
+/* =====================================================
+   FILTROS
+===================================================== */
 
 function filtrarProductos(){
- const q = document.getElementById("buscador").value.toLowerCase();
- const cat = document.getElementById("categoria").value.toLowerCase();
- renderProductos(productos.filter(p =>
-   String(p.Nombre||"").toLowerCase().includes(q) &&
-   (!cat || normalizarCategoria(p["Categoría"])===cat)
- ));
+
+const q =
+document.getElementById(
+"buscador"
+).value.toLowerCase();
+
+
+const cat =
+document.getElementById(
+"categoria"
+).value.toLowerCase();
+
+
+renderProductos(
+
+productos.filter(p =>
+
+(
+
+String(
+p.Nombre || ""
+)
+.toLowerCase()
+.includes(q)
+
+||
+
+String(
+p["Descripción"] || ""
+)
+.toLowerCase()
+.includes(q)
+
+)
+
+&&
+
+(
+!cat ||
+
+normalizarCategoria(
+p["Categoría"]
+) === cat
+)
+
+)
+
+);
+
 }
+
+
+/* =====================================================
+   CARRITO
+===================================================== */
 
 function agregarCarrito(p){
- const existente = carrito.find(x => String(x.id)===String(p.id));
- if(existente) existente.cantidad++;
- else carrito.push({id:p.id,Nombre:p.Nombre,Precio:Number(p.Precio),cantidad:1});
- guardarCarrito();
- renderCarrito();
- alert("Producto agregado al carrito.");
+
+const existente =
+carrito.find(
+x => String(x.id) === String(p.id)
+);
+
+
+if(existente){
+
+existente.cantidad++;
+
+}else{
+
+carrito.push({
+
+id:p.id,
+
+Nombre:p.Nombre,
+
+Precio:Number(p.Precio),
+
+cantidad:1
+
+});
+
 }
 
-function guardarCarrito(){localStorage.setItem("techcolombia_carrito",JSON.stringify(carrito));}
+
+guardarCarrito();
+
+renderCarrito();
+
+alert(
+"✅ Producto agregado al carrito."
+);
+
+}
+
+
+function guardarCarrito(){
+
+localStorage.setItem(
+"tiendayuri_carrito",
+JSON.stringify(carrito)
+);
+
+}
+
+
 function renderCarrito(){
- const el=document.getElementById("carritoLista");
- if(!carrito.length){el.innerHTML='<div class="empty">Tu carrito está vacío.</div>';document.getElementById("carritoTotal").textContent="$0 COP";return;}
- el.innerHTML=carrito.map((p,i)=>`
- <div class="cart-item">
-  <div><strong>${escapar(p.Nombre)}</strong><br><span class="small">${dinero(p.Precio)} × ${p.cantidad}</span></div>
-  <div><strong>${dinero(p.Precio*p.cantidad)}</strong>
-  <button class="btn light" onclick="cambiarCantidad(${i},-1)">−</button>
-  <button class="btn light" onclick="cambiarCantidad(${i},1)">+</button>
-  </div>
- </div>`).join("");
- const total=carrito.reduce((s,p)=>s+p.Precio*p.cantidad,0);
- document.getElementById("carritoTotal").textContent=dinero(total);
+
+const el =
+document.getElementById(
+"carritoLista"
+);
+
+
+if(!carrito.length){
+
+el.innerHTML =
+'<div class="empty">🛒 Tu carrito está vacío.</div>';
+
+document.getElementById(
+"carritoTotal"
+).textContent =
+"$0 COP";
+
+return;
+
 }
+
+
+el.innerHTML =
+carrito.map((p,i) => `
+
+<div class="cart-item">
+
+<div>
+
+<strong>
+${escapar(p.Nombre)}
+</strong>
+
+<br>
+
+<span class="small">
+${dinero(p.Precio)} por unidad
+</span>
+
+</div>
+
+
+<div class="cart-controls">
+
+<button
+class="btn light"
+onclick="cambiarCantidad(${i},-1)">
+−
+</button>
+
+<span class="qty">
+${p.cantidad}
+</span>
+
+<button
+class="btn light"
+onclick="cambiarCantidad(${i},1)">
++
+</button>
+
+<strong>
+${dinero(
+p.Precio * p.cantidad
+)}
+</strong>
+
+</div>
+
+</div>
+
+`).join("");
+
+
+const total =
+carrito.reduce(
+(s,p) =>
+s + p.Precio * p.cantidad,
+0
+);
+
+
+document.getElementById(
+"carritoTotal"
+).textContent =
+dinero(total);
+
+}
+
+
 function cambiarCantidad(i,d){
- carrito[i].cantidad += d;
- if(carrito[i].cantidad<=0) carrito.splice(i,1);
- guardarCarrito();renderCarrito();
+
+carrito[i].cantidad += d;
+
+
+if(
+carrito[i].cantidad <= 0
+){
+
+carrito.splice(i,1);
+
 }
-function vaciarCarrito(){carrito=[];guardarCarrito();renderCarrito();}
+
+
+guardarCarrito();
+
+renderCarrito();
+
+}
+
+
+function vaciarCarrito(){
+
+if(!carrito.length){
+
+return;
+
+}
+
+
+if(
+confirm(
+"¿Quieres vaciar todo el carrito?"
+)
+){
+
+carrito = [];
+
+guardarCarrito();
+
+renderCarrito();
+
+}
+
+}
+
+
+/* =====================================================
+   WHATSAPP
+===================================================== */
+
 function comprarWhatsApp(){
- if(!carrito.length){alert("El carrito está vacío.");return;}
- let texto="Hola Tech Colombia, quiero comprar:%0A";
- carrito.forEach(p=>texto += `- ${p.Nombre} x${p.cantidad}: ${dinero(p.Precio*p.cantidad)}%0A`);
- const total=carrito.reduce((s,p)=>s+p.Precio*p.cantidad,0);
- texto += `%0ATotal: ${dinero(total)}`;
- window.open("https://wa.me/"+TELEFONO_WHATSAPP+"?text="+texto,"_blank");
+
+if(!carrito.length){
+
+alert(
+"El carrito está vacío."
+);
+
+return;
+
 }
-function abrirTienda(){window.open(TIENDA_URL,"_blank");}
+
+
+let texto =
+"Hola Tienda Yuri en Palermo, quiero solicitar este pedido:%0A%0A";
+
+
+carrito.forEach(p => {
+
+texto +=
+`- ${p.Nombre} x${p.cantidad}: ${dinero(
+p.Precio * p.cantidad
+)}%0A`;
+
+});
+
+
+const total =
+carrito.reduce(
+(s,p) =>
+s + p.Precio * p.cantidad,
+0
+);
+
+
+texto +=
+`%0ATotal: ${dinero(total)}%0A`;
+
+texto +=
+"%0AQuedo atento(a) a la confirmación del pedido.";
+
+
+window.open(
+
+"https://wa.me/" +
+TELEFONO_WHATSAPP +
+"?text=" +
+texto,
+
+"_blank"
+
+);
+
+}
+
+
+/* =====================================================
+   ABRIR TIENDA
+===================================================== */
+
+function abrirTienda(){
+
+window.open(
+TIENDA_URL,
+"_blank"
+);
+
+}
+
+
+/* =====================================================
+   MENSAJES AUTH
+===================================================== */
+
+function mostrarAuth(
+texto,
+tipo=""
+){
+
+const clase =
+tipo
+?
+"msg " + tipo
+:
+"msg";
+
+
+document.getElementById(
+"authMsg"
+).innerHTML =
+
+`<div class="${clase}">
+${escapar(texto)}
+</div>`;
+
+}
+
+
+/* =====================================================
+   REGISTRO
+===================================================== */
 
 async function registrarse(){
- if(!supabaseClient){mensajeAuth("Primero coloca la Publishable Key de Supabase.");return;}
- const email=document.getElementById("regEmail").value.trim();
- const password=document.getElementById("regPassword").value;
- if(!email || password.length<6){mensajeAuth("Escribe un correo válido y una contraseña de mínimo 6 caracteres.");return;}
- const {data,error}=await supabaseClient.auth.signUp({email,password});
- if(error){mensajeAuth("❌ "+error.message);return;}
- if(data.user){
-   const {error:pError}=await supabaseClient.from("Perfiles").insert({id:data.user.id,Correo:email,Administrador:false});
-   if(pError) console.warn("No se pudo crear el perfil:",pError.message);
- }
- mensajeAuth(data.session ? "✅ Cuenta creada correctamente." : "✅ Cuenta creada. Si tienes confirmación por correo activada, revisa tu correo.");
+
+if(!supabaseClient){
+
+mostrarAuth(
+"Primero configura Supabase.",
+"error"
+);
+
+return;
+
 }
+
+
+const email =
+document.getElementById(
+"regEmail"
+).value.trim();
+
+
+const password =
+document.getElementById(
+"regPassword"
+).value;
+
+
+if(
+!email ||
+password.length < 6
+){
+
+mostrarAuth(
+"Escribe un correo válido y una contraseña de mínimo 6 caracteres.",
+"error"
+);
+
+return;
+
+}
+
+
+const {
+data,
+error
+} =
+await supabaseClient.auth.signUp({
+
+email,
+password
+
+});
+
+
+if(error){
+
+mostrarAuth(
+error.message,
+"error"
+);
+
+return;
+
+}
+
+
+if(data.user){
+
+const {
+error:pError
+} =
+await supabaseClient
+.from("Perfiles")
+.insert({
+
+id:data.user.id,
+
+Correo:email,
+
+Administrador:false
+
+});
+
+
+if(pError){
+
+console.warn(
+"No se pudo crear el perfil:",
+pError.message
+);
+
+}
+
+}
+
+
+mostrarAuth(
+
+data.session
+
+?
+
+"✅ Cuenta creada correctamente."
+
+:
+
+"✅ Cuenta creada. Si tienes confirmación por correo activada, revisa tu correo.",
+
+"success"
+
+);
+
+}
+
+
+/* =====================================================
+   LOGIN
+===================================================== */
+
 async function iniciarSesion(){
- if(!supabaseClient){mensajeAuth("Primero coloca la Publishable Key de Supabase.");return;}
- const email=document.getElementById("loginEmail").value.trim();
- const password=document.getElementById("loginPassword").value;
- const {data,error}=await supabaseClient.auth.signInWithPassword({email,password});
- if(error){mensajeAuth("❌ "+error.message);return;}
- usuarioActual=data.user;
- await cargarPerfil();
- mensajeAuth("✅ Sesión iniciada.");
+
+if(!supabaseClient){
+
+mostrarAuth(
+"Primero configura Supabase.",
+"error"
+);
+
+return;
+
 }
-function mensajeAuth(t){document.getElementById("authMsg").innerHTML='<div class="msg">'+escapar(t)+'</div>';}
+
+
+const email =
+document.getElementById(
+"loginEmail"
+).value.trim();
+
+
+const password =
+document.getElementById(
+"loginPassword"
+).value;
+
+
+const {
+data,
+error
+} =
+await supabaseClient.auth.signInWithPassword({
+
+email,
+password
+
+});
+
+
+if(error){
+
+mostrarAuth(
+error.message,
+"error"
+);
+
+return;
+
+}
+
+
+usuarioActual =
+data.user;
+
+
+await cargarPerfil();
+
+
+mostrarAuth(
+"✅ Sesión iniciada correctamente.",
+"success"
+);
+
+}
+
+
+/* =====================================================
+   PERFIL
+===================================================== */
 
 async function cargarPerfil(){
- if(!usuarioActual || !supabaseClient)return;
- document.getElementById("userBar").textContent=usuarioActual.email;
- document.getElementById("logoutBtn").classList.remove("hidden");
- document.getElementById("authForms").classList.add("hidden");
- document.getElementById("cuentaActiva").classList.remove("hidden");
- document.getElementById("correoActivo").textContent=usuarioActual.email;
- const {data,error}=await supabaseClient.from("Perfiles").select("Administrador").eq("id",usuarioActual.id).maybeSingle();
- if(!error && data && data.Administrador===true){
-   esAdmin=true;
-   document.getElementById("admin").classList.add("active");
-   await cargarAdmin();
- }
+
+if(
+!usuarioActual ||
+!supabaseClient
+){
+
+return;
+
 }
+
+
+document.getElementById(
+"userBar"
+).textContent =
+usuarioActual.email;
+
+
+document.getElementById(
+"logoutBtn"
+).classList.remove(
+"hidden"
+);
+
+
+document.getElementById(
+"authForms"
+).classList.add(
+"hidden"
+);
+
+
+document.getElementById(
+"cuentaActiva"
+).classList.remove(
+"hidden"
+);
+
+
+document.getElementById(
+"correoActivo"
+).textContent =
+usuarioActual.email;
+
+
+const {
+data,
+error
+} =
+await supabaseClient
+.from("Perfiles")
+.select("Administrador")
+.eq("id",usuarioActual.id)
+.maybeSingle();
+
+
+if(
+!error &&
+data &&
+data.Administrador === true
+){
+
+esAdmin = true;
+
+document.getElementById(
+"admin"
+).classList.add(
+"active"
+);
+
+await cargarAdmin();
+
+}
+
+}
+
+
+/* =====================================================
+   CERRAR SESIÓN
+===================================================== */
+
 async function cerrarSesion(){
- if(supabaseClient) await supabaseClient.auth.signOut();
- usuarioActual=null;esAdmin=false;
- document.getElementById("userBar").textContent="No has iniciado sesión";
- document.getElementById("logoutBtn").classList.add("hidden");
- document.getElementById("authForms").classList.remove("hidden");
- document.getElementById("cuentaActiva").classList.add("hidden");
- document.getElementById("admin").classList.remove("active");
+
+if(supabaseClient){
+
+await supabaseClient.auth.signOut();
+
 }
+
+
+usuarioActual =
+null;
+
+esAdmin =
+false;
+
+
+document.getElementById(
+"userBar"
+).textContent =
+"No has iniciado sesión";
+
+
+document.getElementById(
+"logoutBtn"
+).classList.add(
+"hidden"
+);
+
+
+document.getElementById(
+"authForms"
+).classList.remove(
+"hidden"
+);
+
+
+document.getElementById(
+"cuentaActiva"
+).classList.add(
+"hidden"
+);
+
+
+document.getElementById(
+"admin"
+).classList.remove(
+"active"
+);
+
+}
+
+
+/* =====================================================
+   ADMIN
+===================================================== */
 
 async function cargarAdmin(){
- if(!esAdmin)return;
- const {data,error}=await supabaseClient.from("Productos").select("*").order("id",{ascending:false});
- if(error){adminMsg("❌ "+error.message);return;}
- const body=document.getElementById("adminBody");
- body.innerHTML=(data||[]).map(p=>filaAdmin(p)).join("");
-}
-function filaAdmin(p){
- return `<tr data-id="${escapar(p.id)}">
- <td><input class="a-nombre" value="${escapar(p.Nombre)}"></td>
- <td><input class="a-precio" type="number" min="0" value="${Number(p.Precio||0)}"></td>
- <td><select class="a-cat">
- ${["computadores","accesorios","impresoras","tintas","software","otros"].map(c=>`<option ${normalizarCategoria(p["Categoría"])===c?"selected":""} value="${c}">${c}</option>`).join("")}
- </select></td>
- <td><textarea class="a-desc" rows="2">${escapar(p.Descripción||"")}</textarea></td>
- <td><input class="a-url" value="${escapar(p["Web url"]||"")}" placeholder="https://..."></td>
- <td><input class="a-activo" type="checkbox" ${p.Activo?"checked":""}></td>
- <td><button class="btn dark" onclick="guardarProducto('${escapar(p.id)}',this)">Guardar</button>
- <button class="btn light" onclick="eliminarProducto('${escapar(p.id)}')">Eliminar</button></td>
- </tr>`;
-}
-function adminMsg(t){document.getElementById("adminMsg").innerHTML='<div class="msg">'+escapar(t)+'</div>';}
-async function guardarProducto(id,btn){
- const tr=btn.closest("tr");
- const obj={
-  Nombre:tr.querySelector(".a-nombre").value.trim(),
-  Precio:Number(tr.querySelector(".a-precio").value||0),
-  "Categoría":tr.querySelector(".a-cat").value,
-  Descripción:tr.querySelector(".a-desc").value.trim(),
-  "Web url":tr.querySelector(".a-url").value.trim(),
-  Activo:tr.querySelector(".a-activo").checked
- };
- const {error}=await supabaseClient.from("Productos").update(obj).eq("id",id);
- if(error)adminMsg("❌ "+error.message);else{adminMsg("✅ Producto actualizado.");await cargarProductos();await cargarAdmin();}
-}
-async function eliminarProducto(id){
- if(!confirm("¿Eliminar este producto?"))return;
- const {error}=await supabaseClient.from("Productos").delete().eq("id",id);
- if(error)adminMsg("❌ "+error.message);else{adminMsg("✅ Producto eliminado.");await cargarProductos();await cargarAdmin();}
-}
-async function nuevoProducto(){
- const obj={Nombre:"Nuevo producto",Precio:0,"Categoría":"otros",Descripción:"", "Web url":"",Activo:true};
- const {data,error}=await supabaseClient.from("Productos").insert(obj).select().single();
- if(error){adminMsg("❌ "+error.message);return;}
- adminMsg("✅ Producto creado.");
- await cargarProductos();await cargarAdmin();
+
+if(!esAdmin){
+
+return;
+
 }
 
-async function arrancar(){
- renderCarrito();
- const conectado=inicializarSupabase();
- if(conectado){
-   const {data}=await supabaseClient.auth.getSession();
-   if(data.session){usuarioActual=data.session.user;await cargarPerfil();}
-   await cargarProductos();
- }
- if(conectado){
-   supabaseClient.auth.onAuthStateChange((_event,session)=>{
-     setTimeout(async()=>{
-       if(session && !usuarioActual){usuarioActual=session.user;await cargarPerfil();}
-     },0);
-   });
- }
+
+const {
+data,
+error
+} =
+await supabaseClient
+.from("Productos")
+.select("*")
+.order("id",{ascending:false});
+
+
+if(error){
+
+adminMsg(
+error.message,
+"error"
+);
+
+return;
+
 }
+
+
+document.getElementById(
+"adminBody"
+).innerHTML =
+
+(data || [])
+.map(p => filaAdmin(p))
+.join("");
+
+}
+
+
+function filaAdmin(p){
+
+return `
+
+<tr data-id="${escapar(p.id)}">
+
+<td>
+
+<input
+class="a-nombre"
+value="${escapar(p.Nombre)}">
+
+</td>
+
+
+<td>
+
+<input
+class="a-precio"
+type="number"
+min="0"
+value="${Number(
+p.Precio || 0
+)}">
+
+</td>
+
+
+<td>
+
+<select class="a-cat">
+
+${
+[
+"computadores",
+"accesorios",
+"impresoras",
+"tintas",
+"software",
+"hogar",
+"belleza",
+"otros"
+
+]
+
+.map(c =>
+
+`<option ${
+normalizarCategoria(
+p["Categoría"]
+) === c
+?
+"selected"
+:
+""
+}
+value="${c}">
+${c}
+</option>`
+
+)
+.join("")
+}
+
+</select>
+
+</td>
+
+
+<td>
+
+<textarea
+class="a-desc"
+rows="2">
+${escapar(
+p["Descripción"] || ""
+)}
+</textarea>
+
+</td>
+
+
+<td>
+
+<input
+class="a-url"
+value="${escapar(
+p["Web url"] || ""
+)}"
+placeholder="https://...">
+
+</td>
+
+
+<td>
+
+<input
+class="a-activo"
+type="checkbox"
+${p.Activo ? "checked" : ""}>
+
+</td>
+
+
+<td class="admin-actions">
+
+<button
+class="btn dark"
+onclick="guardarProducto('${escapar(p.id)}',this)">
+💾 Guardar
+</button>
+
+
+<button
+class="btn light"
+onclick="eliminarProducto('${escapar(p.id)}')">
+🗑️ Eliminar
+</button>
+
+</td>
+
+</tr>
+
+`;
+
+}
+
+
+/* =====================================================
+   MENSAJE ADMIN
+===================================================== */
+
+function adminMsg(
+t,
+tipo=""
+){
+
+const clase =
+tipo
+?
+"msg " + tipo
+:
+"msg";
+
+
+document.getElementById(
+"adminMsg"
+).innerHTML =
+
+`<div class="${clase}">
+${escapar(t)}
+</div>`;
+
+}
+
+
+/* =====================================================
+   GUARDAR PRODUCTO
+===================================================== */
+
+async function guardarProducto(
+id,
+btn
+){
+
+const tr =
+btn.closest("tr");
+
+
+const obj = {
+
+Nombre:
+tr.querySelector(
+".a-nombre"
+).value.trim(),
+
+Precio:
+Number(
+tr.querySelector(
+".a-precio"
+).value || 0
+),
+
+"Categoría":
+tr.querySelector(
+".a-cat"
+).value,
+
+"Descripción":
+tr.querySelector(
+".a-desc"
+).value.trim(),
+
+"Web url":
+tr.querySelector(
+".a-url"
+).value.trim(),
+
+Activo:
+tr.querySelector(
+".a-activo"
+).checked
+
+};
+
+
+if(!obj.Nombre){
+
+adminMsg(
+"El nombre del producto es obligatorio.",
+"error"
+);
+
+return;
+
+}
+
+
+const {
+error
+} =
+await supabaseClient
+.from("Productos")
+.update(obj)
+.eq("id",id);
+
+
+if(error){
+
+adminMsg(
+error.message,
+"error"
+);
+
+}else{
+
+adminMsg(
+"✅ Producto actualizado correctamente.",
+"success"
+);
+
+await cargarProductos();
+
+await cargarAdmin();
+
+}
+
+}
+
+
+/* =====================================================
+   ELIMINAR PRODUCTO
+===================================================== */
+
+async function eliminarProducto(id){
+
+if(
+!confirm(
+"¿Eliminar este producto definitivamente?"
+)
+){
+
+return;
+
+}
+
+
+const {
+error
+} =
+await supabaseClient
+.from("Productos")
+.delete()
+.eq("id",id);
+
+
+if(error){
+
+adminMsg(
+error.message,
+"error"
+);
+
+}else{
+
+adminMsg(
+"✅ Producto eliminado.",
+"success"
+);
+
+await cargarProductos();
+
+await cargarAdmin();
+
+}
+
+}
+
+
+/* =====================================================
+   NUEVO PRODUCTO
+===================================================== */
+
+async function nuevoProducto(){
+
+const obj = {
+
+Nombre:
+"Nuevo producto",
+
+Precio:
+0,
+
+"Categoría":
+"otros",
+
+"Descripción":
+"",
+
+"Web url":
+"",
+
+Activo:
+true
+
+};
+
+
+const {
+data,
+error
+} =
+await supabaseClient
+.from("Productos")
+.insert(obj)
+.select()
+.single();
+
+
+if(error){
+
+adminMsg(
+error.message,
+"error"
+);
+
+return;
+
+}
+
+
+adminMsg(
+"✅ Producto creado correctamente.",
+"success"
+);
+
+
+await cargarProductos();
+
+await cargarAdmin();
+
+}
+
+
+/* =====================================================
+   ARRANQUE
+===================================================== */
+
+async function arrancar(){
+
+renderCarrito();
+
+
+const conectado =
+inicializarSupabase();
+
+
+if(conectado){
+
+const {
+data
+} =
+await supabaseClient.auth.getSession();
+
+
+if(data.session){
+
+usuarioActual =
+data.session.user;
+
+await cargarPerfil();
+
+}
+
+
+await cargarProductos();
+
+}
+
+
+if(conectado){
+
+supabaseClient.auth.onAuthStateChange(
+(_event,session)=>{
+
+setTimeout(
+async()=>{
+
+if(
+session &&
+!usuarioActual
+){
+
+usuarioActual =
+session.user;
+
+await cargarPerfil();
+
+}
+
+},
+0
+);
+
+});
+
+}
+
+}
+
+
 arrancar();
+
 </script>
+
 </body>
 </html>
