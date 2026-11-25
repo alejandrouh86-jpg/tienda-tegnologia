@@ -1,2830 +1,1778 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Tienda Yuri en Palermo | Tecnología e Informática</title>
-
-<meta name="description"
-content="Tienda Yuri en Palermo - tecnología, informática, impresoras Epson, tintas, accesorios y servicios informáticos.">
-
-<meta name="theme-color" content="#0b5cab">
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-<style>
-*{
-box-sizing:border-box;
-margin:0;
-padding:0
-}
-
-html{
-scroll-behavior:smooth
-}
-
-body{
-font-family:Arial,Helvetica,sans-serif;
-background:#f4f7fb;
-color:#172033;
-line-height:1.5
-}
-
-a{
-text-decoration:none;
-color:inherit
-}
-
-button,
-input,
-select,
-textarea{
-font:inherit
-}
-
-button{
-cursor:pointer
-}
-
-/* =========================
-   CABECERA
-========================= */
-
-header{
-background:linear-gradient(135deg,#071b35,#0b5cab 65%,#16a4d8);
-color:#fff;
-position:sticky;
-top:0;
-z-index:100;
-box-shadow:0 3px 14px #0004
-}
-
-.nav{
-max-width:1250px;
-margin:auto;
-padding:13px 18px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:14px
-}
-
-.logo{
-font-size:23px;
-font-weight:900;
-letter-spacing:.2px;
-white-space:nowrap
-}
-
-.logo span{
-color:#48d7ff
-}
-
-.logo small{
-display:block;
-font-size:10px;
-font-weight:500;
-opacity:.82;
-letter-spacing:.5px
-}
-
-nav{
-display:flex;
-gap:5px;
-flex-wrap:wrap;
-align-items:center
-}
-
-nav a,
-.nav button{
-border:0;
-background:transparent;
-color:#fff;
-padding:9px 11px;
-border-radius:8px;
-cursor:pointer
-}
-
-nav a:hover,
-.nav button:hover{
-background:#ffffff20
-}
-
-.userbar{
-font-size:12px;
-color:#dceeff;
-max-width:210px;
-overflow:hidden;
-text-overflow:ellipsis;
-white-space:nowrap
-}
-
-/* =========================
-   CONTENEDOR
-========================= */
-
-.container{
-max-width:1250px;
-margin:auto;
-padding:22px 18px
-}
-
-/* =========================
-   HERO
-========================= */
-
-.hero{
-background:linear-gradient(135deg,#0b5cab,#16a4d8 70%,#20b9c9);
-color:#fff;
-border-radius:20px;
-padding:38px 28px;
-margin-bottom:22px;
-display:grid;
-grid-template-columns:1.55fr .75fr;
-gap:25px;
-align-items:center;
-position:relative;
-overflow:hidden
-}
-
-.hero:after{
-content:"";
-position:absolute;
-width:300px;
-height:300px;
-border-radius:50%;
-background:#ffffff12;
-right:-110px;
-top:-125px
-}
-
-.hero h1{
-font-size:40px;
-margin-bottom:10px;
-position:relative;
-z-index:1
-}
-
-.hero p{
-font-size:17px;
-max-width:720px;
-position:relative;
-z-index:1
-}
-
-.hero-actions{
-position:relative;
-z-index:1
-}
-
-/* =========================
-   BOTONES
-========================= */
-
-.btn{
-display:inline-block;
-border:0;
-border-radius:9px;
-padding:11px 16px;
-font-weight:700;
-cursor:pointer;
-margin:6px 5px 0 0;
-transition:.15s
-}
-
-.btn:hover{
-transform:translateY(-1px);
-filter:brightness(1.03)
-}
-
-.primary{
-background:#fff;
-color:#07599c
-}
-
-.dark{
-background:#0b5cab;
-color:#fff
-}
-
-.whatsapp{
-background:#168b45;
-color:#fff
-}
-
-.light{
-background:#e9f2fb;
-color:#0b5cab
-}
-
-.danger{
-background:#b42318;
-color:#fff
-}
-
-/* =========================
-   QR
-========================= */
-
-.qrbox{
-background:#fff;
-color:#172033;
-border-radius:15px;
-padding:15px;
-text-align:center;
-position:relative;
-z-index:2
-}
-
-.qrbox img{
-width:180px;
-max-width:100%;
-display:block;
-margin:auto
-}
-
-/* =========================
-   SECCIONES
-========================= */
-
-.section{
-background:#fff;
-border-radius:15px;
-padding:22px;
-margin:20px 0;
-box-shadow:0 3px 14px #17203312
-}
-
-.section h2{
-margin-bottom:14px;
-color:#0b5cab
-}
-
-.section-subtitle{
-color:#66758a;
-margin:-7px 0 16px;
-font-size:14px
-}
-
-.small{
-font-size:12px;
-color:#69788c
-}
-
-/* =========================
-   CARACTERÍSTICAS
-========================= */
-
-.feature-grid{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:14px
-}
-
-.feature{
-padding:17px;
-border:1px solid #e5eaf1;
-border-radius:12px;
-background:#fbfdff
-}
-
-.feature strong{
-display:block;
-margin-bottom:5px;
-color:#0b5cab
-}
-
-.feature p{
-font-size:13px;
-color:#66758a
-}
-
-/* =========================
-   BÚSQUEDA
-========================= */
-
-.controls{
-display:flex;
-gap:10px;
-flex-wrap:wrap;
-margin-bottom:18px
-}
-
-.controls input,
-.controls select,
-.form input,
-.form select,
-.form textarea{
-width:100%;
-padding:11px;
-border:1px solid #ccd6e2;
-border-radius:8px;
-background:#fff
-}
-
-.search{
-flex:1;
-min-width:220px
-}
-
-.category{
-width:220px!important
-}
-
-/* =========================
-   PRODUCTOS
-========================= */
-
-.products{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:18px
-}
-
-.card{
-background:#fff;
-border:1px solid #e3e8ef;
-border-radius:13px;
-overflow:hidden;
-box-shadow:0 3px 12px #1720330d;
-transition:transform .18s,box-shadow .18s
-}
-
-.card:hover{
-transform:translateY(-3px);
-box-shadow:0 9px 25px #17203320
-}
-
-.card-img{
-height:195px;
-background:#edf4fa;
-display:flex;
-align-items:center;
-justify-content:center;
-overflow:hidden
-}
-
-.card-img img{
-width:100%;
-height:100%;
-object-fit:cover
-}
-
-.placeholder{
-font-size:58px
-}
-
-.card-body{
-padding:15px
-}
-
-.card h3{
-margin:7px 0 6px
-}
-
-.desc{
-font-size:14px;
-color:#66758a;
-min-height:42px
-}
-
-.price{
-font-size:21px;
-font-weight:800;
-color:#0b5cab;
-margin:10px 0
-}
-
-.badge{
-display:inline-block;
-font-size:12px;
-padding:4px 8px;
-border-radius:20px;
-background:#e8f3ff;
-color:#0b5cab
-}
-
-/* =========================
-   CARRITO
-========================= */
-
-.cart-list{
-display:grid;
-gap:10px
-}
-
-.cart-item{
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:10px;
-border-bottom:1px solid #e5e9ef;
-padding:12px 0
-}
-
-.cart-controls{
-display:flex;
-align-items:center;
-gap:5px
-}
-
-.qty{
-min-width:28px;
-text-align:center;
-font-weight:700
-}
-
-.total{
-font-size:20px;
-font-weight:800;
-text-align:right;
-margin-top:15px
-}
-
-.cart-actions{
-text-align:right
-}
-
-/* =========================
-   CUENTA
-========================= */
-
-.auth{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:20px
-}
-
-.form{
-display:grid;
-gap:10px
-}
-
-.form h3{
-color:#0b5cab
-}
-
-.msg{
-padding:10px;
-border-radius:8px;
-background:#eef6ff;
-margin-top:8px
-}
-
-.success{
-background:#ecfdf3;
-color:#126b3a
-}
-
-.error{
-background:#fff1f0;
-color:#a11b12
-}
-
-/* =========================
-   ADMIN
-========================= */
-
-.admin{
-display:none
-}
-
-.admin.active{
-display:block
-}
-
-.admin-table{
-width:100%;
-overflow:auto
-}
-
-.admin-table table{
-width:100%;
-min-width:980px;
-border-collapse:collapse
-}
-
-.admin-table th,
-.admin-table td{
-border-bottom:1px solid #e2e7ee;
-padding:9px;
-text-align:left;
-vertical-align:top
-}
-
-.admin-table input,
-.admin-table select,
-.admin-table textarea{
-width:100%;
-padding:7px;
-border:1px solid #ccd6e2;
-border-radius:6px
-}
-
-.admin-table textarea{
-min-height:55px
-}
-
-.admin-actions{
-white-space:nowrap
-}
-
-/* =========================
-   UTILIDADES
-========================= */
-
-.empty{
-text-align:center;
-padding:30px;
-color:#66758a
-}
-
-.hidden{
-display:none!important
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-footer{
-background:#071b35;
-color:#fff;
-text-align:center;
-padding:28px 18px;
-margin-top:35px
-}
-
-footer .small{
-color:#bfd4e8;
-margin-top:5px
-}
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media(max-width:950px){
-
-.hero{
-grid-template-columns:1fr
-}
-
-.products{
-grid-template-columns:repeat(2,1fr)
-}
-
-.feature-grid{
-grid-template-columns:repeat(2,1fr)
-}
-
-.auth{
-grid-template-columns:1fr
-}
-
-}
-
-@media(max-width:650px){
-
-.nav{
-align-items:flex-start;
-flex-direction:column
-}
-
-nav{
-width:100%;
-justify-content:flex-start
-}
-
-.userbar{
-max-width:100%
-}
-
-.logo{
-font-size:20px
-}
-
-.hero{
-padding:28px 20px
-}
-
-.hero h1{
-font-size:29px
-}
-
-.products{
-grid-template-columns:1fr
-}
-
-.feature-grid{
-grid-template-columns:1fr
-}
-
-.container{
-padding:14px 12px
-}
-
-.section{
-padding:15px
-}
-
-.qrbox img{
-width:145px
-}
-
-.cart-item{
-align-items:flex-start;
-flex-direction:column
-}
-
-.cart-actions{
-width:100%;
-text-align:left
-}
-
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Tienda Yuri en Palermo | L'BEL, ésika y CYZONE</title>
+
+  <meta name="description"
+        content="Tienda Yuri en Palermo, Huila. Encuentra productos de belleza L'BEL, ésika y CYZONE, además de servicios informáticos y productos tecnológicos.">
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <!-- Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .hero {
+      background:
+        linear-gradient(rgba(0,0,0,.48), rgba(0,0,0,.58)),
+        linear-gradient(135deg, #831843, #be185d, #7e22ce);
+    }
+
+    .product-card {
+      transition: .25s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0,0,0,.15);
+    }
+
+    .cart-badge {
+      min-width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: bold;
+      position: absolute;
+      top: -8px;
+      right: -10px;
+    }
+
+    .modal-bg {
+      background: rgba(0,0,0,.65);
+    }
+
+    .line-clamp-2 {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .category-btn.active {
+      background: #be185d;
+      color: white;
+    }
+  </style>
 </head>
 
-<body>
+<body class="bg-gray-50 text-gray-800">
 
-<!-- =========================
-     CABECERA
-========================= -->
+<!-- ========================================================= -->
+<!-- HEADER -->
+<!-- ========================================================= -->
 
-<header>
+<header class="bg-white shadow-md sticky top-0 z-50">
 
-<div class="nav">
+  <div class="max-w-7xl mx-auto px-4">
 
-<div>
+    <div class="flex items-center justify-between h-16">
 
-<div class="logo">
-🛍️ Tienda Yuri <span>en Palermo</span>
-</div>
+      <!-- LOGO -->
+      <a href="#inicio"
+         class="flex items-center gap-3">
 
-<small>
-TECNOLOGÍA · INFORMÁTICA · SERVICIOS
-</small>
+        <div class="w-11 h-11 rounded-full bg-gradient-to-br from-pink-600 to-purple-600
+                    flex items-center justify-center text-white text-xl shadow">
 
-</div>
+          <i class="fa-solid fa-bag-shopping"></i>
 
-<div class="userbar" id="userBar">
-No has iniciado sesión
-</div>
+        </div>
 
-<nav>
+        <div>
+          <h1 class="font-bold text-lg text-pink-700">
+            Tienda Yuri
+          </h1>
 
-<a href="#inicio">Inicio</a>
+          <p class="text-xs text-gray-500">
+            Palermo, Huila
+          </p>
+        </div>
 
-<a href="#productos">
-Productos
-</a>
+      </a>
 
-<a href="#servicios">
-Servicios
-</a>
 
-<a href="#carrito">
-🛒 Carrito
-</a>
+      <!-- MENU -->
+      <nav class="hidden md:flex items-center gap-6">
 
-<a href="#cuenta">
-Cuenta
-</a>
+        <a href="#inicio"
+           class="hover:text-pink-600">
+          Inicio
+        </a>
 
-<a href="#contacto">
-Contacto
-</a>
+        <a href="#productos"
+           class="hover:text-pink-600">
+          Productos
+        </a>
 
-<button
-id="logoutBtn"
-class="hidden"
-onclick="cerrarSesion()">
-Salir
-</button>
+        <a href="#categorias"
+           class="hover:text-pink-600">
+          Categorías
+        </a>
 
-</nav>
+        <a href="#servicios"
+           class="hover:text-pink-600">
+          Servicios
+        </a>
 
-</div>
+        <a href="#contacto"
+           class="hover:text-pink-600">
+          Contacto
+        </a>
+
+      </nav>
+
+
+      <!-- ACCIONES -->
+      <div class="flex items-center gap-4">
+
+        <!-- CARRITO ARRIBA -->
+        <button onclick="abrirCarrito()"
+                class="relative text-pink-700 hover:text-pink-900 text-xl">
+
+          <i class="fa-solid fa-cart-shopping"></i>
+
+          <span id="cartCount"
+                class="cart-badge bg-pink-600 text-white">
+            0
+          </span>
+
+        </button>
+
+
+        <!-- LOGIN -->
+        <button onclick="abrirLogin()"
+                class="hidden sm:block bg-pink-600 hover:bg-pink-700
+                       text-white px-4 py-2 rounded-lg text-sm">
+
+          <i class="fa-solid fa-user mr-1"></i>
+          Mi cuenta
+
+        </button>
+
+
+        <!-- MENU MOVIL -->
+        <button onclick="toggleMenu()"
+                class="md:hidden text-xl">
+
+          <i class="fa-solid fa-bars"></i>
+
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- MENU MOVIL -->
+
+    <div id="mobileMenu"
+         class="hidden md:hidden pb-4">
+
+      <a href="#inicio"
+         onclick="toggleMenu()"
+         class="block py-2">
+        Inicio
+      </a>
+
+      <a href="#productos"
+         onclick="toggleMenu()"
+         class="block py-2">
+        Productos
+      </a>
+
+      <a href="#categorias"
+         onclick="toggleMenu()"
+         class="block py-2">
+        Categorías
+      </a>
+
+      <a href="#servicios"
+         onclick="toggleMenu()"
+         class="block py-2">
+        Servicios
+      </a>
+
+      <a href="#contacto"
+         onclick="toggleMenu()"
+         class="block py-2">
+        Contacto
+      </a>
+
+    </div>
+
+  </div>
 
 </header>
 
 
-<main class="container">
+<!-- ========================================================= -->
+<!-- HERO -->
+<!-- ========================================================= -->
+
+<section id="inicio"
+         class="hero text-white">
+
+  <div class="max-w-7xl mx-auto px-4 py-20 md:py-28">
+
+    <div class="max-w-3xl">
+
+      <div class="inline-block bg-white/20 px-4 py-2 rounded-full mb-5">
+        <i class="fa-solid fa-star text-yellow-300 mr-2"></i>
+        Belleza y productos para ti
+      </div>
 
 
-<!-- =========================
-     INICIO
-========================= -->
+      <h2 class="text-4xl md:text-6xl font-extrabold leading-tight">
 
-<section id="inicio" class="hero">
+        Tienda Yuri
+        <span class="text-pink-200">
+          en Palermo
+        </span>
 
-<div>
-
-<h1>
-Tienda Yuri en Palermo
-</h1>
-
-<p>
-Tu tienda de tecnología e informática en Palermo, Huila.
-Encuentra productos, accesorios, impresoras Epson, tintas
-y servicios informáticos.
-</p>
-
-<div class="hero-actions">
-
-<a href="#productos"
-class="btn primary">
-🛒 Ver productos
-</a>
-
-<a href="#servicios"
-class="btn light">
-🛠️ Ver servicios
-</a>
-
-<a
-href="https://wa.me/573203664703?text=Hola%20Tienda%20Yuri%20en%20Palermo%2C%20quiero%20informaci%C3%B3n."
-class="btn whatsapp"
-target="_blank">
-📲 WhatsApp
-</a>
-
-</div>
-
-</div>
+      </h2>
 
 
-<div class="qrbox">
+      <p class="mt-6 text-lg md:text-xl text-white/90">
 
-<strong>
-📱 Conecta con Tienda Yuri
-</strong>
+        Encuentra productos de belleza
+        <strong>L'BEL, ésika y CYZONE</strong>,
+        además de servicios y soluciones informáticas.
 
-<img
-id="qrTop"
-alt="Código QR Tienda Yuri en Palermo">
-
-<p class="small">
-Escanea para abrir la tienda
-</p>
-
-</div>
-
-</section>
+      </p>
 
 
-<!-- =========================
-     VENTAJAS
-========================= -->
+      <div class="flex flex-wrap gap-4 mt-8">
 
-<section class="section">
+        <a href="#productos"
+           class="bg-white text-pink-700 px-6 py-3 rounded-xl
+                  font-bold hover:bg-pink-50">
 
-<h2>
-✨ ¿Por qué comprar con nosotros?
-</h2>
+          <i class="fa-solid fa-bag-shopping mr-2"></i>
+          Ver productos
 
-<div class="feature-grid">
-
-<div class="feature">
-
-<strong>
-🛒 Compra fácil
-</strong>
-
-<p>
-Agrega productos al carrito y solicita tu pedido.
-</p>
-
-</div>
+        </a>
 
 
-<div class="feature">
+        <button onclick="abrirCarrito()"
+                class="border-2 border-white px-6 py-3 rounded-xl
+                       font-bold hover:bg-white hover:text-pink-700">
 
-<strong>
-📱 Desde cualquier dispositivo
-</strong>
+          <i class="fa-solid fa-cart-shopping mr-2"></i>
+          Ver carrito
 
-<p>
-Diseñada para celular, tablet y computador.
-</p>
+        </button>
 
-</div>
+      </div>
 
+    </div>
 
-<div class="feature">
-
-<strong>
-🖨️ Servicio Epson
-</strong>
-
-<p>
-Venta, mantenimiento y reparación de impresoras Epson.
-</p>
-
-</div>
-
-
-<div class="feature">
-
-<strong>
-📲 Atención directa
-</strong>
-
-<p>
-Comunícate rápidamente por WhatsApp.
-</p>
-
-</div>
-
-</div>
+  </div>
 
 </section>
 
 
-<!-- =========================
-     PRODUCTOS
-========================= -->
+<!-- ========================================================= -->
+<!-- CATEGORÍAS -->
+<!-- ========================================================= -->
 
-<section id="productos" class="section">
+<section id="categorias"
+         class="py-10 bg-white">
 
-<h2>
-🛒 Productos
-</h2>
+  <div class="max-w-7xl mx-auto px-4">
 
-<p class="section-subtitle">
-Busca productos o filtra por categoría.
-</p>
+    <div class="text-center mb-8">
 
-<div class="controls">
+      <h2 class="text-3xl font-bold text-gray-800">
+        Compra por categoría
+      </h2>
 
-<input
-id="buscador"
-class="search"
-type="search"
-placeholder="🔎 Buscar producto..."
-oninput="filtrarProductos()">
+      <p class="text-gray-500 mt-2">
+        Elige tus productos favoritos
+      </p>
+
+    </div>
 
 
-<select
-id="categoria"
-class="category"
-onchange="filtrarProductos()">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
 
-<option value="">
-Todas las categorías
-</option>
+      <!-- L'BEL -->
 
-<option value="computadores">
-Computadores
-</option>
+      <button onclick="filtrarCategoria('L BEL')"
+              class="bg-gradient-to-br from-purple-600 to-pink-600
+                     text-white rounded-2xl p-7 text-left
+                     hover:scale-[1.02] transition">
 
-<option value="accesorios">
-Accesorios
-</option>
+        <i class="fa-solid fa-sparkles text-3xl mb-4"></i>
 
-<option value="impresoras">
-Impresoras
-</option>
+        <h3 class="text-2xl font-bold">
+          L'BEL
+        </h3>
 
-<option value="tintas">
-Tintas
-</option>
+        <p class="mt-2 text-white/80">
+          Belleza, cuidado y productos especializados.
+        </p>
 
-<option value="software">
-Software
-</option>
-
-<option value="hogar">
-Hogar
-</option>
-
-<option value="belleza">
-Belleza
-</option>
-
-<option value="otros">
-Otros
-</option>
-
-</select>
-
-</div>
-
-<div id="productosGrid" class="products"></div>
-
-</section>
+      </button>
 
 
-<!-- =========================
-     CARRITO
-========================= -->
+      <!-- ÉSIKA -->
 
-<section id="carrito" class="section">
+      <button onclick="filtrarCategoria('Esika')"
+              class="bg-gradient-to-br from-pink-500 to-rose-500
+                     text-white rounded-2xl p-7 text-left
+                     hover:scale-[1.02] transition">
 
-<h2>
-🛍️ Mi carrito
-</h2>
+        <i class="fa-solid fa-heart text-3xl mb-4"></i>
 
-<p class="section-subtitle">
-Revisa tus productos antes de solicitar el pedido.
-</p>
+        <h3 class="text-2xl font-bold">
+          ésika
+        </h3>
 
-<div id="carritoLista" class="cart-list"></div>
+        <p class="mt-2 text-white/80">
+          Perfumes, maquillaje y productos de belleza.
+        </p>
 
-<div
-id="carritoTotal"
-class="total">
-$0 COP
-</div>
+      </button>
 
-<div class="cart-actions">
 
-<button
-class="btn whatsapp"
-onclick="comprarWhatsApp()">
-📲 Solicitar pedido por WhatsApp
-</button>
+      <!-- CYZONE -->
 
-<button
-class="btn light"
-onclick="vaciarCarrito()">
-🗑️ Vaciar carrito
-</button>
+      <button onclick="filtrarCategoria('CYZONE')"
+              class="bg-gradient-to-br from-fuchsia-600 to-purple-600
+                     text-white rounded-2xl p-7 text-left
+                     hover:scale-[1.02] transition">
 
-</div>
+        <i class="fa-solid fa-wand-magic-sparkles text-3xl mb-4"></i>
+
+        <h3 class="text-2xl font-bold">
+          CYZONE
+        </h3>
+
+        <p class="mt-2 text-white/80">
+          Tendencias, maquillaje y productos juveniles.
+        </p>
+
+      </button>
+
+    </div>
+
+  </div>
 
 </section>
 
 
-<!-- =========================
-     SERVICIOS
-========================= -->
+<!-- ========================================================= -->
+<!-- PRODUCTOS -->
+<!-- ========================================================= -->
 
-<section id="servicios" class="section">
+<section id="productos"
+         class="py-12">
 
-<h2>
-🛠️ Servicios informáticos
-</h2>
+  <div class="max-w-7xl mx-auto px-4">
 
-<div class="products">
+    <div class="flex flex-col md:flex-row
+                justify-between items-center gap-4 mb-8">
 
+      <div>
 
-<div class="card">
+        <h2 class="text-3xl font-bold">
+          Productos
+        </h2>
 
-<div class="card-body">
+        <p class="text-gray-500">
+          Descubre nuestros productos disponibles
+        </p>
 
-<h3>
-💻 Servicio informático
-</h3>
-
-<p class="desc">
-Mantenimiento, configuración, instalación
-y soporte de computadores.
-</p>
-
-<div class="price">
-Desde $50.000 COP
-</div>
-
-<a
-class="btn whatsapp"
-href="https://wa.me/573203664703?text=Hola%20Tienda%20Yuri%2C%20necesito%20un%20servicio%20inform%C3%A1tico."
-target="_blank">
-Consultar
-</a>
-
-</div>
-
-</div>
+      </div>
 
 
-<div class="card">
+      <!-- BUSCADOR -->
 
-<div class="card-body">
+      <div class="relative w-full md:w-80">
 
-<h3>
-🖨️ Impresoras Epson
-</h3>
+        <input id="searchInput"
+               type="text"
+               placeholder="Buscar producto..."
+               oninput="buscarProductos()"
+               class="w-full border rounded-xl px-4 py-3 pr-10
+                      focus:ring-2 focus:ring-pink-500 outline-none">
 
-<p class="desc">
-Reparación, mantenimiento, limpieza,
-revisión y solución de problemas
-de impresoras Epson.
-</p>
+        <i class="fa-solid fa-magnifying-glass
+                  absolute right-4 top-4 text-gray-400"></i>
 
-<div class="price">
-Consultar
-</div>
+      </div>
 
-<a
-class="btn whatsapp"
-href="https://wa.me/573203664703?text=Hola%20Tienda%20Yuri%2C%20necesito%20servicio%20para%20una%20impresora%20Epson."
-target="_blank">
-Consultar
-</a>
-
-</div>
-
-</div>
+    </div>
 
 
-<div class="card">
+    <!-- FILTROS -->
 
-<div class="card-body">
+    <div class="flex flex-wrap gap-2 mb-8">
 
-<h3>
-🏠 Servicio a domicilio
-</h3>
+      <button onclick="filtrarCategoria('TODOS')"
+              class="category-btn active border px-4 py-2 rounded-full"
+              data-category="TODOS">
 
-<p class="desc">
-Atención según disponibilidad y ubicación
-en Palermo y alrededores.
-</p>
+        Todos
 
-<a
-class="btn whatsapp"
-href="https://wa.me/573203664703?text=Hola%20Tienda%20Yuri%2C%20necesito%20un%20servicio%20a%20domicilio."
-target="_blank">
-📲 Solicitar domicilio
-</a>
+      </button>
 
-</div>
+      <button onclick="filtrarCategoria('L BEL')"
+              class="category-btn border px-4 py-2 rounded-full"
+              data-category="L BEL">
 
-</div>
+        L'BEL
 
-</div>
+      </button>
 
-</section>
+      <button onclick="filtrarCategoria('Esika')"
+              class="category-btn border px-4 py-2 rounded-full"
+              data-category="Esika">
 
+        ésika
 
-<!-- =========================
-     CUENTA
-========================= -->
+      </button>
 
-<section id="cuenta" class="section">
+      <button onclick="filtrarCategoria('CYZONE')"
+              class="category-btn border px-4 py-2 rounded-full"
+              data-category="CYZONE">
 
-<h2>
-👤 Mi cuenta
-</h2>
+        CYZONE
 
-<div
-class="auth"
-id="authForms">
+      </button>
+
+    </div>
 
 
-<div class="form">
+    <!-- PRODUCTOS -->
 
-<h3>
-Crear cuenta
-</h3>
+    <div id="productGrid"
+         class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
-<input
-id="regEmail"
-type="email"
-placeholder="Correo electrónico">
+      <!-- Se llenará con JavaScript -->
 
-<input
-id="regPassword"
-type="password"
-placeholder="Contraseña (mín. 6 caracteres)">
-
-<button
-class="btn dark"
-onclick="registrarse()">
-📝 Registrarme
-</button>
-
-</div>
+    </div>
 
 
-<div class="form">
+    <div id="noProducts"
+         class="hidden text-center py-16">
 
-<h3>
-Iniciar sesión
-</h3>
+      <i class="fa-solid fa-box-open text-5xl text-gray-300"></i>
 
-<input
-id="loginEmail"
-type="email"
-placeholder="Correo electrónico">
+      <p class="mt-4 text-gray-500">
+        No encontramos productos.
+      </p>
 
-<input
-id="loginPassword"
-type="password"
-placeholder="Contraseña">
+    </div>
 
-<button
-class="btn dark"
-onclick="iniciarSesion()">
-🔐 Entrar
-</button>
-
-</div>
-
-</div>
-
-
-<div
-id="cuentaActiva"
-class="hidden">
-
-<p>
-Sesión iniciada como
-<strong id="correoActivo"></strong>.
-</p>
-
-<p class="small">
-Tu cuenta está conectada con Tienda Yuri en Palermo.
-</p>
-
-</div>
-
-
-<div id="authMsg"></div>
+  </div>
 
 </section>
 
 
-<!-- =========================
-     ADMIN
-========================= -->
+<!-- ========================================================= -->
+<!-- SERVICIOS -->
+<!-- ========================================================= -->
 
-<section
-id="admin"
-class="section admin">
+<section id="servicios"
+         class="py-14 bg-white">
 
-<h2>
-⚙️ Panel de administración
-</h2>
+  <div class="max-w-7xl mx-auto px-4">
 
-<p class="section-subtitle">
-Administra los productos sin modificar el código de la página.
-</p>
+    <div class="text-center mb-10">
 
+      <h2 class="text-3xl font-bold">
+        También ofrecemos
+      </h2>
 
-<div class="controls">
+      <p class="text-gray-500 mt-2">
+        Servicios para ayudarte en Palermo
+      </p>
 
-<button
-class="btn dark"
-onclick="nuevoProducto()">
-➕ Agregar producto
-</button>
-
-<button
-class="btn light"
-onclick="cargarAdmin()">
-🔄 Actualizar
-</button>
-
-</div>
+    </div>
 
 
-<div id="adminMsg"></div>
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <div class="p-7 rounded-2xl bg-gray-50 border">
+
+        <i class="fa-solid fa-print text-4xl text-pink-600"></i>
+
+        <h3 class="text-xl font-bold mt-4">
+          Impresoras Epson
+        </h3>
+
+        <p class="text-gray-600 mt-2">
+          Reparación y mantenimiento de impresoras Epson.
+        </p>
+
+      </div>
 
 
-<div class="admin-table">
+      <div class="p-7 rounded-2xl bg-gray-50 border">
 
-<table>
+        <i class="fa-solid fa-droplet text-4xl text-purple-600"></i>
 
-<thead>
+        <h3 class="text-xl font-bold mt-4">
+          Tintas Epson
+        </h3>
 
-<tr>
+        <p class="text-gray-600 mt-2">
+          Venta de tintas y productos para impresión.
+        </p>
 
-<th>
-Nombre
-</th>
-
-<th>
-Precio
-</th>
-
-<th>
-Categoría
-</th>
-
-<th>
-Descripción
-</th>
-
-<th>
-Imagen URL
-</th>
-
-<th>
-Activo
-</th>
-
-<th>
-Acciones
-</th>
-
-</tr>
-
-</thead>
+      </div>
 
 
-<tbody id="adminBody"></tbody>
+      <div class="p-7 rounded-2xl bg-gray-50 border">
 
-</table>
+        <i class="fa-solid fa-laptop-code text-4xl text-pink-600"></i>
 
-</div>
+        <h3 class="text-xl font-bold mt-4">
+          Servicios informáticos
+        </h3>
+
+        <p class="text-gray-600 mt-2">
+          Soporte, mantenimiento y soluciones informáticas.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
 
 </section>
 
 
-<!-- =========================
-     CONTACTO
-========================= -->
+<!-- ========================================================= -->
+<!-- CONTACTO -->
+<!-- ========================================================= -->
 
-<section
-id="contacto"
-class="section">
+<section id="contacto"
+         class="py-14 bg-gradient-to-br from-pink-700 to-purple-700 text-white">
 
-<h2>
-📞 Contacto
-</h2>
+  <div class="max-w-6xl mx-auto px-4">
 
-<p>
-<strong>
-📍 Palermo, Huila, Colombia
-</strong>
-</p>
+    <div class="grid md:grid-cols-2 gap-10 items-center">
 
-<p>
-<strong>
-📱 WhatsApp: +57 320 366 4703
-</strong>
-</p>
+      <div>
 
+        <h2 class="text-4xl font-bold">
+          Tienda Yuri
+        </h2>
 
-<a
-class="btn whatsapp"
-href="https://wa.me/573203664703?text=Hola%20Tienda%20Yuri%20en%20Palermo%2C%20quiero%20informaci%C3%B3n."
-target="_blank">
+        <p class="mt-4 text-white/90 text-lg">
+          Productos de belleza L'BEL, ésika y CYZONE
+          en Palermo, Huila.
+        </p>
 
-📲 Escribir por WhatsApp
+        <div class="mt-6 space-y-3">
 
-</a>
+          <p>
+            <i class="fa-solid fa-location-dot w-6"></i>
+            Palermo, Huila, Colombia
+          </p>
 
+          <p>
+            <i class="fa-brands fa-whatsapp w-6"></i>
+            320 366 4703
+          </p>
 
-<p
-class="small"
-style="margin-top:10px">
+        </div>
 
-Atención, pedidos, cotizaciones y servicios por WhatsApp.
-
-</p>
-
-</section>
+      </div>
 
 
-<!-- =========================
-     ANDROID
-========================= -->
+      <div class="text-center">
 
-<section class="section">
+        <a href="https://wa.me/573203664703"
+           target="_blank"
+           class="inline-flex items-center gap-3
+                  bg-green-500 hover:bg-green-600
+                  px-7 py-4 rounded-xl font-bold text-lg">
 
-<h2>
-📱 Aplicación Android
-</h2>
+          <i class="fa-brands fa-whatsapp text-2xl"></i>
 
-<p>
-Abre la Tienda Yuri en Palermo desde tu aplicación Android.
-</p>
+          Comprar por WhatsApp
 
-<button
-class="btn dark"
-onclick="abrirTienda()">
+        </a>
 
-📲 Abrir tienda
+      </div>
 
-</button>
+    </div>
+
+  </div>
 
 </section>
 
-</main>
 
+<!-- ========================================================= -->
+<!-- FOOTER -->
+<!-- ========================================================= -->
 
-<!-- =========================
-     FOOTER
-========================= -->
+<footer class="bg-gray-900 text-gray-400">
 
-<footer>
+  <div class="max-w-7xl mx-auto px-4 py-8">
 
-<p>
-© 2026 Tienda Yuri en Palermo | Tecnología e Informática
-</p>
+    <div class="flex flex-col md:flex-row
+                justify-between gap-4">
 
-<p>
-WhatsApp: +57 320 366 4703
-</p>
+      <div>
 
-<p class="small">
-Palermo, Huila, Colombia · Tienda online
-</p>
+        <h3 class="text-white font-bold text-lg">
+          Tienda Yuri en Palermo
+        </h3>
+
+        <p class="text-sm mt-1">
+          L'BEL · ésika · CYZONE
+        </p>
+
+      </div>
+
+      <p class="text-sm">
+        © 2026 Tienda Yuri. Todos los derechos reservados.
+      </p>
+
+    </div>
+
+  </div>
 
 </footer>
 
 
+<!-- ========================================================= -->
+<!-- MODAL CARRITO -->
+<!-- ========================================================= -->
+
+<div id="cartModal"
+     class="hidden fixed inset-0 modal-bg z-[100]">
+
+  <div class="min-h-screen flex items-center justify-center p-4">
+
+    <div class="bg-white rounded-2xl w-full max-w-2xl
+                max-h-[90vh] overflow-hidden shadow-2xl">
+
+      <!-- HEADER -->
+
+      <div class="flex items-center justify-between
+                  p-5 border-b">
+
+        <div>
+
+          <h2 class="text-2xl font-bold">
+            <i class="fa-solid fa-cart-shopping text-pink-600 mr-2"></i>
+            Mi carrito
+          </h2>
+
+          <p class="text-sm text-gray-500">
+            Revisa tu pedido antes de enviarlo
+          </p>
+
+        </div>
+
+
+        <button onclick="cerrarCarrito()"
+                class="text-gray-500 hover:text-red-500 text-xl">
+
+          <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+      </div>
+
+
+      <!-- CONTENIDO -->
+
+      <div id="cartItems"
+           class="p-5 overflow-y-auto max-h-[45vh]">
+
+      </div>
+
+
+      <!-- TOTAL -->
+
+      <div class="border-t p-5">
+
+        <div class="flex justify-between
+                    text-xl font-bold mb-4">
+
+          <span>
+            Total
+          </span>
+
+          <span id="cartTotal"
+                class="text-pink-600">
+            $0
+          </span>
+
+        </div>
+
+
+        <div class="grid sm:grid-cols-2 gap-3">
+
+          <button onclick="vaciarCarrito()"
+                  class="border border-red-400 text-red-500
+                         hover:bg-red-50 py-3 rounded-xl">
+
+            <i class="fa-solid fa-trash mr-2"></i>
+            Vaciar carrito
+
+          </button>
+
+
+          <button onclick="enviarPedidoWhatsApp()"
+                  class="bg-green-500 hover:bg-green-600
+                         text-white py-3 rounded-xl font-bold">
+
+            <i class="fa-brands fa-whatsapp mr-2"></i>
+            Enviar pedido
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- ========================================================= -->
+<!-- MODAL LOGIN -->
+<!-- ========================================================= -->
+
+<div id="loginModal"
+     class="hidden fixed inset-0 modal-bg z-[110]">
+
+  <div class="min-h-screen flex items-center justify-center p-4">
+
+    <div class="bg-white rounded-2xl p-6 w-full max-w-md">
+
+      <div class="flex justify-between items-center mb-5">
+
+        <h2 class="text-2xl font-bold">
+          Mi cuenta
+        </h2>
+
+        <button onclick="cerrarLogin()"
+                class="text-gray-500 text-xl">
+
+          <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+      </div>
+
+
+      <input id="emailLogin"
+             type="email"
+             placeholder="Correo electrónico"
+             class="w-full border rounded-lg px-4 py-3 mb-3">
+
+
+      <input id="passwordLogin"
+             type="password"
+             placeholder="Contraseña"
+             class="w-full border rounded-lg px-4 py-3 mb-4">
+
+
+      <button onclick="iniciarSesion()"
+              class="w-full bg-pink-600 hover:bg-pink-700
+                     text-white py-3 rounded-lg font-bold">
+
+        Iniciar sesión
+
+      </button>
+
+
+      <p id="loginMessage"
+         class="text-center text-sm mt-4"></p>
+
+    </div>
+
+  </div>
+
+</div>
+
+
 <script>
 
-/* =====================================================
-   CONFIGURACIÓN
-===================================================== */
+/* =========================================================
+   CONFIGURACIÓN SUPABASE
+========================================================= */
 
 const SUPABASE_URL =
-"https://ljmryxtbcgrtcsxhwnvl.supabase.co";
+  "https://ljmryxtbcgrtcsxhwnvl.supabase.co";
 
-const SUPABASE_PUBLISHABLE_KEY =
-"sb_publishable_5pkF_bmKNgvSaGs0ht6ZRw_3Nop9t-Z";
+const SUPABASE_KEY =
+  "sb_publishable_5pkF_bmKNgvSaGs0ht6ZRw_3Nop9t-Z";
 
-const TELEFONO_WHATSAPP =
-"573203664703";
-
-const TELEFONO_VISIBLE =
-"+57 320 366 4703";
-
-const TIENDA_URL =
-"https://tienda-tegnologia-1.onrender.com/?app=tiendayuri";
+const supabaseClient =
+  window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+  );
 
 
-/* =====================================================
-   VARIABLES
-===================================================== */
+/* =========================================================
+   CONFIGURACIÓN
+========================================================= */
 
-let supabaseClient = null;
-
-let productos = [];
-
-let carrito =
-JSON.parse(
-localStorage.getItem("tiendayuri_carrito") || "[]"
-);
-
-let usuarioActual = null;
-
-let esAdmin = false;
+const WHATSAPP =
+  "573203664703";
 
 
-/* =====================================================
-   FUNCIONES GENERALES
-===================================================== */
+/* =========================================================
+   DATOS LOCALES DE RESPALDO
+========================================================= */
 
-function dinero(n){
+const productosDemo = [
 
-return "$" +
-Number(n || 0)
-.toLocaleString("es-CO") +
-" COP";
+  {
+    id: 1,
+    Nombre: "Perfume L'BEL",
+    Precio: 85000,
+    Categoría: "L BEL",
+    Descripción: "Producto de belleza L'BEL.",
+    "Web url": "",
+    Activo: true
+  },
 
-}
+  {
+    id: 2,
+    Nombre: "Perfume ésika",
+    Precio: 79000,
+    Categoría: "Esika",
+    Descripción: "Fragancia ésika.",
+    "Web url": "",
+    Activo: true
+  },
 
-
-function normalizarCategoria(c){
-
-return String(c || "")
-.toLowerCase()
-.trim();
-
-}
-
-
-function escapar(s){
-
-return String(s ?? "")
-.replace(/[&<>"']/g,m => ({
-"&":"&amp;",
-"<":"&lt;",
-">":"&gt;",
-'"':"&quot;",
-"'":"&#039;"
-}[m]));
-
-}
-
-
-/* =====================================================
-   QR
-===================================================== */
-
-function qrUrl(){
-
-return "https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=" +
-encodeURIComponent(TIENDA_URL);
-
-}
-
-document.getElementById("qrTop").src =
-qrUrl();
-
-
-/* =====================================================
-   SUPABASE
-===================================================== */
-
-function inicializarSupabase(){
-
-if(
-!SUPABASE_PUBLISHABLE_KEY ||
-SUPABASE_PUBLISHABLE_KEY ===
-"PEGA_AQUI_TU_PUBLISHABLE_KEY"
-){
-
-mostrarProductosLocales();
-
-mostrarAuth(
-"⚠️ Falta configurar la Publishable Key de Supabase.",
-"error"
-);
-
-return false;
-
-}
-
-supabaseClient =
-supabase.createClient(
-SUPABASE_URL,
-SUPABASE_PUBLISHABLE_KEY
-);
-
-return true;
-
-}
-
-
-/* =====================================================
-   PRODUCTOS DE DEMOSTRACIÓN
-===================================================== */
-
-const productosIniciales = [
-
-{
-id:"demo1",
-Nombre:"Laptop Lenovo",
-Precio:1500000,
-"Categoría":"computadores",
-Descripción:"Laptop Lenovo para trabajo y estudio.",
-Activo:true
-},
-
-{
-id:"demo2",
-Nombre:"Mouse inalámbrico",
-Precio:35000,
-"Categoría":"accesorios",
-Descripción:"Mouse inalámbrico para computador.",
-Activo:true
-},
-
-{
-id:"demo3",
-Nombre:"Teclado USB",
-Precio:45000,
-"Categoría":"accesorios",
-Descripción:"Teclado USB de uso general.",
-Activo:true
-},
-
-{
-id:"demo4",
-Nombre:"Impresora Epson",
-Precio:1150000,
-"Categoría":"impresoras",
-Descripción:"Impresora Epson. Precio de referencia.",
-Activo:true
-},
-
-{
-id:"demo5",
-Nombre:"Tinta Epson",
-Precio:25000,
-"Categoría":"tintas",
-Descripción:"Botella de tinta Epson.",
-Activo:true
-},
-
-{
-id:"demo6",
-Nombre:"Servicio informático",
-Precio:50000,
-"Categoría":"otros",
-Descripción:"Servicio informático desde $50.000 COP.",
-Activo:true
-}
+  {
+    id: 3,
+    Nombre: "Producto CYZONE",
+    Precio: 65000,
+    Categoría: "CYZONE",
+    Descripción: "Producto de belleza CYZONE.",
+    "Web url": "",
+    Activo: true
+  }
 
 ];
 
 
-/* =====================================================
-   PRODUCTOS LOCALES
-===================================================== */
+let productos = [];
+let carrito = [];
+let categoriaActual = "TODOS";
 
-function mostrarProductosLocales(){
 
-productos =
-productosIniciales;
+/* =========================================================
+   INICIO
+========================================================= */
 
-renderProductos(productos);
+document.addEventListener("DOMContentLoaded", async () => {
+
+  cargarCarrito();
+
+  await cargarProductos();
+
+  actualizarCarrito();
+
+});
+
+
+/* =========================================================
+   MENU MOVIL
+========================================================= */
+
+function toggleMenu() {
+
+  const menu =
+    document.getElementById("mobileMenu");
+
+  menu.classList.toggle("hidden");
 
 }
 
 
-/* =====================================================
+/* =========================================================
    CARGAR PRODUCTOS
-===================================================== */
+========================================================= */
 
-async function cargarProductos(){
+async function cargarProductos() {
 
-if(!supabaseClient){
+  try {
 
-mostrarProductosLocales();
+    const { data, error } =
+      await supabaseClient
+        .from("Productos")
+        .select("*")
+        .eq("Activo", true)
+        .order("id", { ascending: false });
 
-return;
+
+    if (error) {
+
+      console.warn(
+        "No se pudieron cargar productos desde Supabase:",
+        error.message
+      );
+
+      productos = productosDemo;
+
+    } else {
+
+      productos = data && data.length
+        ? data
+        : productosDemo;
+
+    }
+
+  } catch (error) {
+
+    productos = productosDemo;
+
+  }
+
+
+  mostrarProductos();
 
 }
 
 
-const {
-data,
-error
-} =
-await supabaseClient
-.from("Productos")
-.select("*")
-.eq("Activo",true)
-.order("id",{ascending:false});
-
-
-if(error){
-
-console.error(error);
-
-mostrarProductosLocales();
-
-return;
-
-}
-
-
-productos =
-data || [];
-
-renderProductos(productos);
-
-}
-
-
-/* =====================================================
+/* =========================================================
    MOSTRAR PRODUCTOS
-===================================================== */
+========================================================= */
 
-function renderProductos(lista){
+function mostrarProductos() {
 
-const grid =
-document.getElementById(
-"productosGrid"
-);
+  const grid =
+    document.getElementById("productGrid");
+
+  const busqueda =
+    document.getElementById("searchInput")
+      .value
+      .toLowerCase()
+      .trim();
 
 
-if(!lista.length){
+  let lista = productos.filter(p => {
 
-grid.innerHTML =
-'<div class="empty">No se encontraron productos.</div>';
+    const nombre =
+      String(p.Nombre || "")
+        .toLowerCase();
 
-return;
+    const descripcion =
+      String(p.Descripción || "")
+        .toLowerCase();
+
+    const categoria =
+      String(p.Categoría || "")
+        .toLowerCase();
+
+
+    const coincideBusqueda =
+      !busqueda ||
+      nombre.includes(busqueda) ||
+      descripcion.includes(busqueda) ||
+      categoria.includes(busqueda);
+
+
+    const coincideCategoria =
+      categoriaActual === "TODOS" ||
+      normalizarCategoria(p.Categoría)
+        === normalizarCategoria(categoriaActual);
+
+
+    return coincideBusqueda &&
+           coincideCategoria &&
+           p.Activo !== false;
+
+  });
+
+
+  grid.innerHTML = "";
+
+
+  document
+    .getElementById("noProducts")
+    .classList.toggle(
+      "hidden",
+      lista.length > 0
+    );
+
+
+  lista.forEach(producto => {
+
+    const card =
+      document.createElement("div");
+
+    card.className =
+      "product-card bg-white rounded-2xl overflow-hidden border";
+
+
+    const precio =
+      Number(producto.Precio || 0);
+
+
+    const imagen =
+      producto.imagen ||
+      producto.Imagen ||
+      producto.image ||
+      producto["Web url"] ||
+      "";
+
+
+    let imagenHTML;
+
+
+    if (imagen) {
+
+      imagenHTML = `
+        <img src="${escapeHtml(imagen)}"
+             class="w-full h-56 object-cover"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+
+        <div class="hidden h-56 bg-gradient-to-br from-pink-100 to-purple-100
+                    items-center justify-center text-pink-600 text-6xl">
+
+          <i class="fa-solid fa-spray-can-sparkles"></i>
+
+        </div>
+      `;
+
+    } else {
+
+      imagenHTML = `
+        <div class="h-56 bg-gradient-to-br from-pink-100 to-purple-100
+                    flex items-center justify-center text-pink-600 text-6xl">
+
+          <i class="fa-solid fa-spray-can-sparkles"></i>
+
+        </div>
+      `;
+
+    }
+
+
+    card.innerHTML = `
+
+      ${imagenHTML}
+
+      <div class="p-5">
+
+        <span class="inline-block bg-pink-100 text-pink-700
+                     px-3 py-1 rounded-full text-xs font-bold mb-3">
+
+          ${escapeHtml(producto.Categoría || "Belleza")}
+
+        </span>
+
+
+        <h3 class="font-bold text-lg">
+          ${escapeHtml(producto.Nombre || "Producto")}
+        </h3>
+
+
+        <p class="text-gray-500 text-sm mt-2 line-clamp-2">
+
+          ${escapeHtml(
+            producto.Descripción ||
+            "Producto de belleza disponible en Tienda Yuri."
+          )}
+
+        </p>
+
+
+        <div class="flex items-center justify-between
+                    gap-3 mt-5">
+
+          <div>
+
+            <p class="text-xs text-gray-400">
+              Precio
+            </p>
+
+            <p class="text-xl font-extrabold text-pink-600">
+
+              ${formatearPrecio(precio)}
+
+            </p>
+
+          </div>
+
+
+          <button onclick="agregarAlCarrito(${producto.id})"
+                  class="bg-pink-600 hover:bg-pink-700
+                         text-white px-4 py-3 rounded-xl">
+
+            <i class="fa-solid fa-cart-plus"></i>
+
+          </button>
+
+        </div>
+
+      </div>
+    `;
+
+
+    grid.appendChild(card);
+
+  });
 
 }
 
 
-grid.innerHTML =
-lista.map(p => `
+/* =========================================================
+   NORMALIZAR CATEGORÍAS
+========================================================= */
 
-<div class="card">
+function normalizarCategoria(valor) {
 
-<div class="card-img">
-
-${
-p["Web url"]
-
-?
-
-`<img
-src="${escapar(p["Web url"])}"
-alt="${escapar(p.Nombre)}"
-onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-
-<span
-class="placeholder"
-style="display:none">
-🛒
-</span>`
-
-:
-
-'<span class="placeholder">🛒</span>'
-}
-
-</div>
-
-
-<div class="card-body">
-
-<span class="badge">
-${escapar(
-p["Categoría"] || "otros"
-)}
-</span>
-
-
-<h3>
-${escapar(p.Nombre)}
-</h3>
-
-
-<p class="desc">
-${escapar(
-p["Descripción"] ||
-"Producto disponible en Tienda Yuri en Palermo."
-)}
-</p>
-
-
-<div class="price">
-${dinero(p.Precio)}
-</div>
-
-
-<button
-class="btn dark"
-onclick='agregarCarrito(${JSON.stringify(p).replace(/'/g,"&#39;")})'>
-
-🛒 Agregar al carrito
-
-</button>
-
-</div>
-
-</div>
-
-`).join("");
+  return String(valor || "")
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/['’]/g, "")
+    .replace(/\s+/g, "");
 
 }
 
 
-/* =====================================================
-   FILTROS
-===================================================== */
+/* =========================================================
+   FILTRAR CATEGORÍA
+========================================================= */
 
-function filtrarProductos(){
+function filtrarCategoria(categoria) {
 
-const q =
-document.getElementById(
-"buscador"
-).value.toLowerCase();
+  categoriaActual = categoria;
+
+  document
+    .querySelectorAll(".category-btn")
+    .forEach(btn => {
+
+      btn.classList.remove("active");
+
+      if (
+        normalizarCategoria(
+          btn.dataset.category
+        ) === normalizarCategoria(categoria)
+      ) {
+
+        btn.classList.add("active");
+
+      }
+
+    });
 
 
-const cat =
-document.getElementById(
-"categoria"
-).value.toLowerCase();
+  mostrarProductos();
 
 
-renderProductos(
-
-productos.filter(p =>
-
-(
-
-String(
-p.Nombre || ""
-)
-.toLowerCase()
-.includes(q)
-
-||
-
-String(
-p["Descripción"] || ""
-)
-.toLowerCase()
-.includes(q)
-
-)
-
-&&
-
-(
-!cat ||
-
-normalizarCategoria(
-p["Categoría"]
-) === cat
-)
-
-)
-
-);
+  document
+    .getElementById("productos")
+    .scrollIntoView({
+      behavior: "smooth"
+    });
 
 }
 
 
-/* =====================================================
+/* =========================================================
+   BUSCAR
+========================================================= */
+
+function buscarProductos() {
+
+  mostrarProductos();
+
+}
+
+
+/* =========================================================
+   AGREGAR AL CARRITO
+========================================================= */
+
+function agregarAlCarrito(id) {
+
+  const producto =
+    productos.find(
+      p => Number(p.id) === Number(id)
+    );
+
+
+  if (!producto) return;
+
+
+  const existente =
+    carrito.find(
+      item => Number(item.id) === Number(id)
+    );
+
+
+  if (existente) {
+
+    existente.cantidad++;
+
+  } else {
+
+    carrito.push({
+      id: producto.id,
+      nombre: producto.Nombre,
+      precio: Number(producto.Precio || 0),
+      cantidad: 1
+    });
+
+  }
+
+
+  guardarCarrito();
+
+  actualizarCarrito();
+
+
+  mostrarNotificacion(
+    "Producto agregado al carrito"
+  );
+
+}
+
+
+/* =========================================================
    CARRITO
-===================================================== */
+========================================================= */
 
-function agregarCarrito(p){
+function cargarCarrito() {
 
-const existente =
-carrito.find(
-x => String(x.id) === String(p.id)
-);
+  try {
 
+    carrito =
+      JSON.parse(
+        localStorage.getItem("tiendaYuriCarrito")
+      ) || [];
 
-if(existente){
+  } catch {
 
-existente.cantidad++;
+    carrito = [];
 
-}else{
-
-carrito.push({
-
-id:p.id,
-
-Nombre:p.Nombre,
-
-Precio:Number(p.Precio),
-
-cantidad:1
-
-});
+  }
 
 }
 
 
-guardarCarrito();
+function guardarCarrito() {
 
-renderCarrito();
-
-alert(
-"✅ Producto agregado al carrito."
-);
-
-}
-
-
-function guardarCarrito(){
-
-localStorage.setItem(
-"tiendayuri_carrito",
-JSON.stringify(carrito)
-);
+  localStorage.setItem(
+    "tiendaYuriCarrito",
+    JSON.stringify(carrito)
+  );
 
 }
 
 
-function renderCarrito(){
+function actualizarCarrito() {
 
-const el =
-document.getElementById(
-"carritoLista"
-);
+  const cantidad =
+    carrito.reduce(
+      (total, item) =>
+        total + Number(item.cantidad || 0),
+      0
+    );
 
 
-if(!carrito.length){
+  document
+    .getElementById("cartCount")
+    .textContent = cantidad;
 
-el.innerHTML =
-'<div class="empty">🛒 Tu carrito está vacío.</div>';
 
-document.getElementById(
-"carritoTotal"
-).textContent =
-"$0 COP";
+  const container =
+    document.getElementById("cartItems");
 
-return;
+  const totalElement =
+    document.getElementById("cartTotal");
+
+
+  if (!container) return;
+
+
+  if (!carrito.length) {
+
+    container.innerHTML = `
+
+      <div class="text-center py-10">
+
+        <i class="fa-solid fa-cart-shopping
+                  text-5xl text-gray-300"></i>
+
+        <p class="mt-4 text-gray-500">
+          Tu carrito está vacío.
+        </p>
+
+        <button onclick="cerrarCarrito();document.getElementById('productos').scrollIntoView({behavior:'smooth'})"
+                class="mt-4 bg-pink-600 text-white
+                       px-5 py-2 rounded-lg">
+
+          Ver productos
+
+        </button>
+
+      </div>
+
+    `;
+
+    totalElement.textContent = "$0";
+
+    return;
+
+  }
+
+
+  let total = 0;
+
+  container.innerHTML = "";
+
+
+  carrito.forEach((item, index) => {
+
+    const subtotal =
+      item.precio * item.cantidad;
+
+    total += subtotal;
+
+
+    const div =
+      document.createElement("div");
+
+    div.className =
+      "flex gap-4 items-center border-b py-4";
+
+
+    div.innerHTML = `
+
+      <div class="w-12 h-12 rounded-xl
+                  bg-pink-100 text-pink-600
+                  flex items-center justify-center">
+
+        <i class="fa-solid fa-bag-shopping"></i>
+
+      </div>
+
+
+      <div class="flex-1">
+
+        <h3 class="font-bold">
+          ${escapeHtml(item.nombre)}
+        </h3>
+
+        <p class="text-sm text-gray-500">
+          ${formatearPrecio(item.precio)}
+        </p>
+
+
+        <div class="flex items-center gap-2 mt-2">
+
+          <button onclick="cambiarCantidad(${index}, -1)"
+                  class="w-8 h-8 border rounded-lg">
+
+            −
+
+          </button>
+
+
+          <span class="font-bold">
+            ${item.cantidad}
+          </span>
+
+
+          <button onclick="cambiarCantidad(${index}, 1)"
+                  class="w-8 h-8 border rounded-lg">
+
+            +
+
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div class="text-right">
+
+        <p class="font-bold text-pink-600">
+          ${formatearPrecio(subtotal)}
+        </p>
+
+
+        <button onclick="eliminarProductoCarrito(${index})"
+                class="text-red-500 text-sm mt-2">
+
+          <i class="fa-solid fa-trash"></i>
+
+        </button>
+
+      </div>
+
+    `;
+
+
+    container.appendChild(div);
+
+  });
+
+
+  totalElement.textContent =
+    formatearPrecio(total);
 
 }
 
 
-el.innerHTML =
-carrito.map((p,i) => `
+/* =========================================================
+   CAMBIAR CANTIDAD
+========================================================= */
 
-<div class="cart-item">
+function cambiarCantidad(index, cambio) {
 
-<div>
-
-<strong>
-${escapar(p.Nombre)}
-</strong>
-
-<br>
-
-<span class="small">
-${dinero(p.Precio)} por unidad
-</span>
-
-</div>
+  carrito[index].cantidad += cambio;
 
 
-<div class="cart-controls">
+  if (carrito[index].cantidad <= 0) {
 
-<button
-class="btn light"
-onclick="cambiarCantidad(${i},-1)">
-−
-</button>
+    carrito.splice(index, 1);
 
-<span class="qty">
-${p.cantidad}
-</span>
-
-<button
-class="btn light"
-onclick="cambiarCantidad(${i},1)">
-+
-</button>
-
-<strong>
-${dinero(
-p.Precio * p.cantidad
-)}
-</strong>
-
-</div>
-
-</div>
-
-`).join("");
+  }
 
 
-const total =
-carrito.reduce(
-(s,p) =>
-s + p.Precio * p.cantidad,
-0
-);
+  guardarCarrito();
 
-
-document.getElementById(
-"carritoTotal"
-).textContent =
-dinero(total);
+  actualizarCarrito();
 
 }
 
 
-function cambiarCantidad(i,d){
+/* =========================================================
+   ELIMINAR
+========================================================= */
 
-carrito[i].cantidad += d;
+function eliminarProductoCarrito(index) {
 
+  carrito.splice(index, 1);
 
-if(
-carrito[i].cantidad <= 0
-){
+  guardarCarrito();
 
-carrito.splice(i,1);
-
-}
-
-
-guardarCarrito();
-
-renderCarrito();
+  actualizarCarrito();
 
 }
 
 
-function vaciarCarrito(){
+/* =========================================================
+   VACIAR
+========================================================= */
 
-if(!carrito.length){
+function vaciarCarrito() {
 
-return;
-
-}
+  if (!carrito.length) return;
 
 
-if(
-confirm(
-"¿Quieres vaciar todo el carrito?"
-)
-){
+  if (
+    confirm("¿Quieres vaciar todo el carrito?")
+  ) {
 
-carrito = [];
+    carrito = [];
 
-guardarCarrito();
+    guardarCarrito();
 
-renderCarrito();
+    actualizarCarrito();
 
-}
+  }
 
 }
 
 
-/* =====================================================
-   WHATSAPP
-===================================================== */
+/* =========================================================
+   ABRIR CARRITO
+========================================================= */
 
-function comprarWhatsApp(){
+function abrirCarrito() {
 
-if(!carrito.length){
+  actualizarCarrito();
 
-alert(
-"El carrito está vacío."
-);
+  document
+    .getElementById("cartModal")
+    .classList.remove("hidden");
 
-return;
-
-}
-
-
-let texto =
-"Hola Tienda Yuri en Palermo, quiero solicitar este pedido:%0A%0A";
-
-
-carrito.forEach(p => {
-
-texto +=
-`- ${p.Nombre} x${p.cantidad}: ${dinero(
-p.Precio * p.cantidad
-)}%0A`;
-
-});
-
-
-const total =
-carrito.reduce(
-(s,p) =>
-s + p.Precio * p.cantidad,
-0
-);
-
-
-texto +=
-`%0ATotal: ${dinero(total)}%0A`;
-
-texto +=
-"%0AQuedo atento(a) a la confirmación del pedido.";
-
-
-window.open(
-
-"https://wa.me/" +
-TELEFONO_WHATSAPP +
-"?text=" +
-texto,
-
-"_blank"
-
-);
+  document.body.style.overflow =
+    "hidden";
 
 }
 
 
-/* =====================================================
-   ABRIR TIENDA
-===================================================== */
+function cerrarCarrito() {
 
-function abrirTienda(){
+  document
+    .getElementById("cartModal")
+    .classList.add("hidden");
 
-window.open(
-TIENDA_URL,
-"_blank"
-);
+  document.body.style.overflow =
+    "";
 
 }
 
 
-/* =====================================================
-   MENSAJES AUTH
-===================================================== */
+/* =========================================================
+   ENVIAR PEDIDO POR WHATSAPP
+========================================================= */
 
-function mostrarAuth(
-texto,
-tipo=""
-){
+function enviarPedidoWhatsApp() {
 
-const clase =
-tipo
-?
-"msg " + tipo
-:
-"msg";
+  if (!carrito.length) {
+
+    alert("El carrito está vacío.");
+
+    return;
+
+  }
 
 
-document.getElementById(
-"authMsg"
-).innerHTML =
-
-`<div class="${clase}">
-${escapar(texto)}
-</div>`;
-
-}
+  let mensaje =
+    "Hola Yuri 👋%0A%0A" +
+    "Quiero realizar el siguiente pedido:%0A%0A";
 
 
-/* =====================================================
-   REGISTRO
-===================================================== */
-
-async function registrarse(){
-
-if(!supabaseClient){
-
-mostrarAuth(
-"Primero configura Supabase.",
-"error"
-);
-
-return;
-
-}
+  let total = 0;
 
 
-const email =
-document.getElementById(
-"regEmail"
-).value.trim();
+  carrito.forEach(item => {
+
+    const subtotal =
+      item.precio * item.cantidad;
+
+    total += subtotal;
 
 
-const password =
-document.getElementById(
-"regPassword"
-).value;
+    mensaje +=
+      `🛍️ ${item.nombre}%0A` +
+      `Cantidad: ${item.cantidad}%0A` +
+      `Precio: ${formatearPrecio(item.precio)}%0A` +
+      `Subtotal: ${formatearPrecio(subtotal)}%0A%0A`;
+
+  });
 
 
-if(
-!email ||
-password.length < 6
-){
+  mensaje +=
+    `💰 TOTAL: ${formatearPrecio(total)}%0A%0A` +
+    "Mi pedido es de Tienda Yuri en Palermo.";
 
-mostrarAuth(
-"Escribe un correo válido y una contraseña de mínimo 6 caracteres.",
-"error"
-);
 
-return;
+  window.open(
+    `https://wa.me/${WHATSAPP}?text=${mensaje}`,
+    "_blank"
+  );
 
 }
 
 
-const {
-data,
-error
-} =
-await supabaseClient.auth.signUp({
-
-email,
-password
-
-});
-
-
-if(error){
-
-mostrarAuth(
-error.message,
-"error"
-);
-
-return;
-
-}
-
-
-if(data.user){
-
-const {
-error:pError
-} =
-await supabaseClient
-.from("Perfiles")
-.insert({
-
-id:data.user.id,
-
-Correo:email,
-
-Administrador:false
-
-});
-
-
-if(pError){
-
-console.warn(
-"No se pudo crear el perfil:",
-pError.message
-);
-
-}
-
-}
-
-
-mostrarAuth(
-
-data.session
-
-?
-
-"✅ Cuenta creada correctamente."
-
-:
-
-"✅ Cuenta creada. Si tienes confirmación por correo activada, revisa tu correo.",
-
-"success"
-
-);
-
-}
-
-
-/* =====================================================
+/* =========================================================
    LOGIN
-===================================================== */
+========================================================= */
 
-async function iniciarSesion(){
+function abrirLogin() {
 
-if(!supabaseClient){
-
-mostrarAuth(
-"Primero configura Supabase.",
-"error"
-);
-
-return;
+  document
+    .getElementById("loginModal")
+    .classList.remove("hidden");
 
 }
 
 
-const email =
-document.getElementById(
-"loginEmail"
-).value.trim();
+function cerrarLogin() {
 
-
-const password =
-document.getElementById(
-"loginPassword"
-).value;
-
-
-const {
-data,
-error
-} =
-await supabaseClient.auth.signInWithPassword({
-
-email,
-password
-
-});
-
-
-if(error){
-
-mostrarAuth(
-error.message,
-"error"
-);
-
-return;
+  document
+    .getElementById("loginModal")
+    .classList.add("hidden");
 
 }
 
 
-usuarioActual =
-data.user;
+async function iniciarSesion() {
+
+  const email =
+    document.getElementById("emailLogin")
+      .value
+      .trim();
+
+  const password =
+    document.getElementById("passwordLogin")
+      .value;
 
 
-await cargarPerfil();
+  const message =
+    document.getElementById("loginMessage");
 
 
-mostrarAuth(
-"✅ Sesión iniciada correctamente.",
-"success"
-);
+  if (!email || !password) {
 
-}
+    message.textContent =
+      "Completa todos los campos.";
 
+    message.className =
+      "text-center text-sm mt-4 text-red-500";
 
-/* =====================================================
-   PERFIL
-===================================================== */
+    return;
 
-async function cargarPerfil(){
-
-if(
-!usuarioActual ||
-!supabaseClient
-){
-
-return;
-
-}
+  }
 
 
-document.getElementById(
-"userBar"
-).textContent =
-usuarioActual.email;
+  message.textContent =
+    "Iniciando sesión...";
 
 
-document.getElementById(
-"logoutBtn"
-).classList.remove(
-"hidden"
-);
+  const {
+    data,
+    error
+  } =
+    await supabaseClient.auth.signInWithPassword({
+      email,
+      password
+    });
 
 
-document.getElementById(
-"authForms"
-).classList.add(
-"hidden"
-);
+  if (error) {
+
+    message.textContent =
+      error.message;
+
+    message.className =
+      "text-center text-sm mt-4 text-red-500";
+
+    return;
+
+  }
 
 
-document.getElementById(
-"cuentaActiva"
-).classList.remove(
-"hidden"
-);
+  message.textContent =
+    "Sesión iniciada correctamente.";
+
+  message.className =
+    "text-center text-sm mt-4 text-green-600";
 
 
-document.getElementById(
-"correoActivo"
-).textContent =
-usuarioActual.email;
+  setTimeout(() => {
 
+    cerrarLogin();
 
-const {
-data,
-error
-} =
-await supabaseClient
-.from("Perfiles")
-.select("Administrador")
-.eq("id",usuarioActual.id)
-.maybeSingle();
-
-
-if(
-!error &&
-data &&
-data.Administrador === true
-){
-
-esAdmin = true;
-
-document.getElementById(
-"admin"
-).classList.add(
-"active"
-);
-
-await cargarAdmin();
-
-}
+  }, 1000);
 
 }
 
 
-/* =====================================================
-   CERRAR SESIÓN
-===================================================== */
+/* =========================================================
+   UTILIDADES
+========================================================= */
 
-async function cerrarSesion(){
+function formatearPrecio(valor) {
 
-if(supabaseClient){
-
-await supabaseClient.auth.signOut();
-
-}
-
-
-usuarioActual =
-null;
-
-esAdmin =
-false;
-
-
-document.getElementById(
-"userBar"
-).textContent =
-"No has iniciado sesión";
-
-
-document.getElementById(
-"logoutBtn"
-).classList.add(
-"hidden"
-);
-
-
-document.getElementById(
-"authForms"
-).classList.remove(
-"hidden"
-);
-
-
-document.getElementById(
-"cuentaActiva"
-).classList.add(
-"hidden"
-);
-
-
-document.getElementById(
-"admin"
-).classList.remove(
-"active"
-);
+  return new Intl.NumberFormat(
+    "es-CO",
+    {
+      style: "currency",
+      currency: "COP",
+      maximumFractionDigits: 0
+    }
+  ).format(valor || 0);
 
 }
 
 
-/* =====================================================
-   ADMIN
-===================================================== */
+function escapeHtml(text) {
 
-async function cargarAdmin(){
-
-if(!esAdmin){
-
-return;
-
-}
-
-
-const {
-data,
-error
-} =
-await supabaseClient
-.from("Productos")
-.select("*")
-.order("id",{ascending:false});
-
-
-if(error){
-
-adminMsg(
-error.message,
-"error"
-);
-
-return;
+  return String(text || "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 
 }
 
 
-document.getElementById(
-"adminBody"
-).innerHTML =
+function mostrarNotificacion(texto) {
 
-(data || [])
-.map(p => filaAdmin(p))
-.join("");
+  const div =
+    document.createElement("div");
 
-}
+  div.className =
+    "fixed bottom-5 right-5 z-[200] bg-gray-900 text-white px-5 py-3 rounded-xl shadow-xl";
 
 
-function filaAdmin(p){
-
-return `
-
-<tr data-id="${escapar(p.id)}">
-
-<td>
-
-<input
-class="a-nombre"
-value="${escapar(p.Nombre)}">
-
-</td>
+  div.innerHTML =
+    `<i class="fa-solid fa-check text-green-400 mr-2"></i>
+     ${escapeHtml(texto)}`;
 
 
-<td>
-
-<input
-class="a-precio"
-type="number"
-min="0"
-value="${Number(
-p.Precio || 0
-)}">
-
-</td>
+  document.body.appendChild(div);
 
 
-<td>
+  setTimeout(() => {
 
-<select class="a-cat">
+    div.remove();
 
-${
-[
-"computadores",
-"accesorios",
-"impresoras",
-"tintas",
-"software",
-"hogar",
-"belleza",
-"otros"
-
-]
-
-.map(c =>
-
-`<option ${
-normalizarCategoria(
-p["Categoría"]
-) === c
-?
-"selected"
-:
-""
-}
-value="${c}">
-${c}
-</option>`
-
-)
-.join("")
-}
-
-</select>
-
-</td>
-
-
-<td>
-
-<textarea
-class="a-desc"
-rows="2">
-${escapar(
-p["Descripción"] || ""
-)}
-</textarea>
-
-</td>
-
-
-<td>
-
-<input
-class="a-url"
-value="${escapar(
-p["Web url"] || ""
-)}"
-placeholder="https://...">
-
-</td>
-
-
-<td>
-
-<input
-class="a-activo"
-type="checkbox"
-${p.Activo ? "checked" : ""}>
-
-</td>
-
-
-<td class="admin-actions">
-
-<button
-class="btn dark"
-onclick="guardarProducto('${escapar(p.id)}',this)">
-💾 Guardar
-</button>
-
-
-<button
-class="btn light"
-onclick="eliminarProducto('${escapar(p.id)}')">
-🗑️ Eliminar
-</button>
-
-</td>
-
-</tr>
-
-`;
+  }, 2500);
 
 }
 
 
-/* =====================================================
-   MENSAJE ADMIN
-===================================================== */
+/* =========================================================
+   CERRAR MODALES AL HACER CLICK AFUERA
+========================================================= */
 
-function adminMsg(
-t,
-tipo=""
-){
+document
+  .getElementById("cartModal")
+  .addEventListener("click", function(e) {
 
-const clase =
-tipo
-?
-"msg " + tipo
-:
-"msg";
+    if (e.target === this) {
 
+      cerrarCarrito();
 
-document.getElementById(
-"adminMsg"
-).innerHTML =
+    }
 
-`<div class="${clase}">
-${escapar(t)}
-</div>`;
+  });
 
-}
 
+document
+  .getElementById("loginModal")
+  .addEventListener("click", function(e) {
 
-/* =====================================================
-   GUARDAR PRODUCTO
-===================================================== */
+    if (e.target === this) {
 
-async function guardarProducto(
-id,
-btn
-){
+      cerrarLogin();
 
-const tr =
-btn.closest("tr");
+    }
 
-
-const obj = {
-
-Nombre:
-tr.querySelector(
-".a-nombre"
-).value.trim(),
-
-Precio:
-Number(
-tr.querySelector(
-".a-precio"
-).value || 0
-),
-
-"Categoría":
-tr.querySelector(
-".a-cat"
-).value,
-
-"Descripción":
-tr.querySelector(
-".a-desc"
-).value.trim(),
-
-"Web url":
-tr.querySelector(
-".a-url"
-).value.trim(),
-
-Activo:
-tr.querySelector(
-".a-activo"
-).checked
-
-};
-
-
-if(!obj.Nombre){
-
-adminMsg(
-"El nombre del producto es obligatorio.",
-"error"
-);
-
-return;
-
-}
-
-
-const {
-error
-} =
-await supabaseClient
-.from("Productos")
-.update(obj)
-.eq("id",id);
-
-
-if(error){
-
-adminMsg(
-error.message,
-"error"
-);
-
-}else{
-
-adminMsg(
-"✅ Producto actualizado correctamente.",
-"success"
-);
-
-await cargarProductos();
-
-await cargarAdmin();
-
-}
-
-}
-
-
-/* =====================================================
-   ELIMINAR PRODUCTO
-===================================================== */
-
-async function eliminarProducto(id){
-
-if(
-!confirm(
-"¿Eliminar este producto definitivamente?"
-)
-){
-
-return;
-
-}
-
-
-const {
-error
-} =
-await supabaseClient
-.from("Productos")
-.delete()
-.eq("id",id);
-
-
-if(error){
-
-adminMsg(
-error.message,
-"error"
-);
-
-}else{
-
-adminMsg(
-"✅ Producto eliminado.",
-"success"
-);
-
-await cargarProductos();
-
-await cargarAdmin();
-
-}
-
-}
-
-
-/* =====================================================
-   NUEVO PRODUCTO
-===================================================== */
-
-async function nuevoProducto(){
-
-const obj = {
-
-Nombre:
-"Nuevo producto",
-
-Precio:
-0,
-
-"Categoría":
-"otros",
-
-"Descripción":
-"",
-
-"Web url":
-"",
-
-Activo:
-true
-
-};
-
-
-const {
-data,
-error
-} =
-await supabaseClient
-.from("Productos")
-.insert(obj)
-.select()
-.single();
-
-
-if(error){
-
-adminMsg(
-error.message,
-"error"
-);
-
-return;
-
-}
-
-
-adminMsg(
-"✅ Producto creado correctamente.",
-"success"
-);
-
-
-await cargarProductos();
-
-await cargarAdmin();
-
-}
-
-
-/* =====================================================
-   ARRANQUE
-===================================================== */
-
-async function arrancar(){
-
-renderCarrito();
-
-
-const conectado =
-inicializarSupabase();
-
-
-if(conectado){
-
-const {
-data
-} =
-await supabaseClient.auth.getSession();
-
-
-if(data.session){
-
-usuarioActual =
-data.session.user;
-
-await cargarPerfil();
-
-}
-
-
-await cargarProductos();
-
-}
-
-
-if(conectado){
-
-supabaseClient.auth.onAuthStateChange(
-(_event,session)=>{
-
-setTimeout(
-async()=>{
-
-if(
-session &&
-!usuarioActual
-){
-
-usuarioActual =
-session.user;
-
-await cargarPerfil();
-
-}
-
-},
-0
-);
-
-});
-
-}
-
-}
-
-
-arrancar();
+  });
 
 </script>
 
