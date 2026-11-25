@@ -1,1780 +1,3558 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Tienda Yuri en Palermo | L'BEL, ésika y CYZONE</title>
+<meta charset="UTF-8">
 
-  <meta name="description"
-        content="Tienda Yuri en Palermo, Huila. Encuentra productos de belleza L'BEL, ésika y CYZONE, además de servicios informáticos y productos tecnológicos.">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
-  <!-- Tailwind -->
-  <script src="https://cdn.tailwindcss.com"></script>
+<title>
+Tienda Yuri en Palermo | L'BEL, ésika y CYZONE
+</title>
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<meta name="description"
+content="Tienda Yuri en Palermo, Huila. Productos de belleza L'BEL, ésika y CYZONE con entrega a domicilio.">
 
-  <!-- Supabase -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<!-- =====================================================
+     TAILWIND
+===================================================== -->
 
-  <style>
-    html {
-      scroll-behavior: smooth;
+<script src="https://cdn.tailwindcss.com"></script>
+
+
+<!-- =====================================================
+     FONT AWESOME
+===================================================== -->
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+<!-- =====================================================
+     SUPABASE
+===================================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+<style>
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+    background:
+        linear-gradient(
+            rgba(0,0,0,.45),
+            rgba(0,0,0,.58)
+        ),
+        linear-gradient(
+            135deg,
+            #831843,
+            #be185d,
+            #7e22ce
+        );
+}
+
+
+/* =====================================================
+   PRODUCTOS
+===================================================== */
+
+.product-card {
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.15);
+}
+
+
+/* =====================================================
+   CARRITO
+===================================================== */
+
+.cart-badge {
+
+    min-width: 22px;
+
+    height: 22px;
+
+    border-radius: 999px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    position: absolute;
+
+    top: -8px;
+
+    right: -10px;
+}
+
+
+/* =====================================================
+   MODALES
+===================================================== */
+
+.modal-bg {
+    background: rgba(0,0,0,.65);
+}
+
+
+/* =====================================================
+   BOTÓN SUBIR
+===================================================== */
+
+#btnArriba {
+
+    position: fixed;
+
+    right: 20px;
+
+    bottom: 25px;
+
+    width: 50px;
+
+    height: 50px;
+
+    border-radius: 50%;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #be185d,
+            #7e22ce
+        );
+
+    color: white;
+
+    font-size: 20px;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.25);
+
+    z-index: 80;
+
+    transition: .25s;
+}
+
+#btnArriba:hover {
+    transform: translateY(-4px);
+}
+
+
+/* =====================================================
+   TEXTO PRODUCTO
+===================================================== */
+
+.line-clamp-2 {
+
+    display: -webkit-box;
+
+    -webkit-line-clamp: 2;
+
+    -webkit-box-orient: vertical;
+
+    overflow: hidden;
+
+}
+
+
+/* =====================================================
+   CATEGORÍAS
+===================================================== */
+
+.category-btn.active {
+
+    background: #be185d;
+
+    color: white;
+
+    border-color: #be185d;
+
+}
+
+
+/* =====================================================
+   ENTREGA
+===================================================== */
+
+.delivery-box {
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff1f2,
+            #fdf4ff
+        );
+
+}
+
+
+/* =====================================================
+   ANIMACIÓN
+===================================================== */
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+        transform: translateY(10px);
     }
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 
-    .hero {
-      background:
-        linear-gradient(rgba(0,0,0,.48), rgba(0,0,0,.58)),
-        linear-gradient(135deg, #831843, #be185d, #7e22ce);
-    }
+}
 
-    .product-card {
-      transition: .25s ease;
-    }
+.animar {
+    animation: aparecer .5s ease;
+}
 
-    .product-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 35px rgba(0,0,0,.15);
-    }
+</style>
 
-    .cart-badge {
-      min-width: 22px;
-      height: 22px;
-      border-radius: 999px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      font-weight: bold;
-      position: absolute;
-      top: -8px;
-      right: -10px;
-    }
-
-    .modal-bg {
-      background: rgba(0,0,0,.65);
-    }
-
-    .line-clamp-2 {
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-
-    .category-btn.active {
-      background: #be185d;
-      color: white;
-    }
-  </style>
 </head>
+
 
 <body class="bg-gray-50 text-gray-800">
 
-<!-- ========================================================= -->
-<!-- HEADER -->
-<!-- ========================================================= -->
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
 <header class="bg-white shadow-md sticky top-0 z-50">
 
-  <div class="max-w-7xl mx-auto px-4">
-
-    <div class="flex items-center justify-between h-16">
-
-      <!-- LOGO -->
-      <a href="#inicio"
-         class="flex items-center gap-3">
-
-        <div class="w-11 h-11 rounded-full bg-gradient-to-br from-pink-600 to-purple-600
-                    flex items-center justify-center text-white text-xl shadow">
-
-          <i class="fa-solid fa-bag-shopping"></i>
-
-        </div>
-
-        <div>
-          <h1 class="font-bold text-lg text-pink-700">
-            Tienda Yuri
-          </h1>
-
-          <p class="text-xs text-gray-500">
-            Palermo, Huila
-          </p>
-        </div>
-
-      </a>
+<div class="max-w-7xl mx-auto px-4">
 
 
-      <!-- MENU -->
-      <nav class="hidden md:flex items-center gap-6">
-
-        <a href="#inicio"
-           class="hover:text-pink-600">
-          Inicio
-        </a>
-
-        <a href="#productos"
-           class="hover:text-pink-600">
-          Productos
-        </a>
-
-        <a href="#categorias"
-           class="hover:text-pink-600">
-          Categorías
-        </a>
-
-        <a href="#servicios"
-           class="hover:text-pink-600">
-          Servicios
-        </a>
-
-        <a href="#contacto"
-           class="hover:text-pink-600">
-          Contacto
-        </a>
-
-      </nav>
+<div class="flex items-center justify-between h-16">
 
 
-      <!-- ACCIONES -->
-      <div class="flex items-center gap-4">
+<!-- LOGO -->
 
-        <!-- CARRITO ARRIBA -->
-        <button onclick="abrirCarrito()"
-                class="relative text-pink-700 hover:text-pink-900 text-xl">
+<a href="#inicio"
+   class="flex items-center gap-3">
 
-          <i class="fa-solid fa-cart-shopping"></i>
+<div class="
+w-11
+h-11
+rounded-full
+bg-gradient-to-br
+from-pink-600
+to-purple-600
+flex
+items-center
+justify-center
+text-white
+text-xl
+shadow
+">
 
-          <span id="cartCount"
-                class="cart-badge bg-pink-600 text-white">
-            0
-          </span>
+<i class="fa-solid fa-bag-shopping"></i>
 
-        </button>
-
-
-        <!-- LOGIN -->
-        <button onclick="abrirLogin()"
-                class="hidden sm:block bg-pink-600 hover:bg-pink-700
-                       text-white px-4 py-2 rounded-lg text-sm">
-
-          <i class="fa-solid fa-user mr-1"></i>
-          Mi cuenta
-
-        </button>
+</div>
 
 
-        <!-- MENU MOVIL -->
-        <button onclick="toggleMenu()"
-                class="md:hidden text-xl">
+<div>
 
-          <i class="fa-solid fa-bars"></i>
+<h1 class="font-bold text-lg text-pink-700">
 
-        </button>
+Tienda Yuri
 
-      </div>
-
-    </div>
+</h1>
 
 
-    <!-- MENU MOVIL -->
+<p class="text-xs text-gray-500">
 
-    <div id="mobileMenu"
-         class="hidden md:hidden pb-4">
+Palermo, Huila
 
-      <a href="#inicio"
-         onclick="toggleMenu()"
-         class="block py-2">
-        Inicio
-      </a>
+</p>
 
-      <a href="#productos"
-         onclick="toggleMenu()"
-         class="block py-2">
-        Productos
-      </a>
+</div>
 
-      <a href="#categorias"
-         onclick="toggleMenu()"
-         class="block py-2">
-        Categorías
-      </a>
+</a>
 
-      <a href="#servicios"
-         onclick="toggleMenu()"
-         class="block py-2">
-        Servicios
-      </a>
 
-      <a href="#contacto"
-         onclick="toggleMenu()"
-         class="block py-2">
-        Contacto
-      </a>
 
-    </div>
+<!-- MENÚ -->
 
-  </div>
+<nav class="hidden md:flex items-center gap-6">
+
+<a href="#inicio"
+   class="hover:text-pink-600">
+
+Inicio
+
+</a>
+
+
+<a href="#productos"
+   class="hover:text-pink-600">
+
+Productos
+
+</a>
+
+
+<a href="#categorias"
+   class="hover:text-pink-600">
+
+Categorías
+
+</a>
+
+
+<a href="#entrega"
+   class="hover:text-pink-600">
+
+Entrega
+
+</a>
+
+
+<a href="#contacto"
+   class="hover:text-pink-600">
+
+Contacto
+
+</a>
+
+</nav>
+
+
+
+<!-- ACCIONES -->
+
+<div class="flex items-center gap-4">
+
+
+<!-- CARRITO -->
+
+<button onclick="abrirCarrito()"
+        class="relative text-pink-700 hover:text-pink-900 text-xl">
+
+<i class="fa-solid fa-cart-shopping"></i>
+
+
+<span id="cartCount"
+      class="cart-badge bg-pink-600 text-white">
+
+0
+
+</span>
+
+</button>
+
+
+
+<!-- CUENTA -->
+
+<button onclick="abrirLogin()"
+        class="
+        hidden
+        sm:block
+        bg-pink-600
+        hover:bg-pink-700
+        text-white
+        px-4
+        py-2
+        rounded-lg
+        text-sm
+        ">
+
+<i class="fa-solid fa-user mr-1"></i>
+
+Mi cuenta
+
+</button>
+
+
+
+<!-- MENÚ CELULAR -->
+
+<button onclick="toggleMenu()"
+        class="md:hidden text-xl">
+
+<i class="fa-solid fa-bars"></i>
+
+</button>
+
+
+</div>
+
+</div>
+
+
+
+<!-- MENÚ CELULAR -->
+
+<div id="mobileMenu"
+     class="hidden md:hidden pb-4">
+
+<a href="#inicio"
+   onclick="toggleMenu()"
+   class="block py-2">
+
+Inicio
+
+</a>
+
+
+<a href="#productos"
+   onclick="toggleMenu()"
+   class="block py-2">
+
+Productos
+
+</a>
+
+
+<a href="#categorias"
+   onclick="toggleMenu()"
+   class="block py-2">
+
+Categorías
+
+</a>
+
+
+<a href="#entrega"
+   onclick="toggleMenu()"
+   class="block py-2">
+
+Entrega a domicilio
+
+</a>
+
+
+<a href="#contacto"
+   onclick="toggleMenu()"
+   class="block py-2">
+
+Contacto
+
+</a>
+
+</div>
+
+
+</div>
 
 </header>
 
 
-<!-- ========================================================= -->
-<!-- HERO -->
-<!-- ========================================================= -->
+
+<!-- =====================================================
+     HERO
+===================================================== -->
 
 <section id="inicio"
          class="hero text-white">
 
-  <div class="max-w-7xl mx-auto px-4 py-20 md:py-28">
 
-    <div class="max-w-3xl">
-
-      <div class="inline-block bg-white/20 px-4 py-2 rounded-full mb-5">
-        <i class="fa-solid fa-star text-yellow-300 mr-2"></i>
-        Belleza y productos para ti
-      </div>
-
-
-      <h2 class="text-4xl md:text-6xl font-extrabold leading-tight">
-
-        Tienda Yuri
-        <span class="text-pink-200">
-          en Palermo
-        </span>
-
-      </h2>
+<div class="
+max-w-7xl
+mx-auto
+px-4
+py-20
+md:py-28
+">
 
 
-      <p class="mt-6 text-lg md:text-xl text-white/90">
-
-        Encuentra productos de belleza
-        <strong>L'BEL, ésika y CYZONE</strong>,
-        además de servicios y soluciones informáticas.
-
-      </p>
+<div class="max-w-3xl">
 
 
-      <div class="flex flex-wrap gap-4 mt-8">
+<div class="
+inline-block
+bg-white/20
+px-4
+py-2
+rounded-full
+mb-5
+">
 
-        <a href="#productos"
-           class="bg-white text-pink-700 px-6 py-3 rounded-xl
-                  font-bold hover:bg-pink-50">
+<i class="
+fa-solid
+fa-truck
+text-yellow-300
+mr-2
+"></i>
 
-          <i class="fa-solid fa-bag-shopping mr-2"></i>
-          Ver productos
+Entrega a domicilio
 
-        </a>
+</div>
 
 
-        <button onclick="abrirCarrito()"
-                class="border-2 border-white px-6 py-3 rounded-xl
-                       font-bold hover:bg-white hover:text-pink-700">
 
-          <i class="fa-solid fa-cart-shopping mr-2"></i>
-          Ver carrito
+<h2 class="
+text-4xl
+md:text-6xl
+font-extrabold
+leading-tight
+">
 
-        </button>
+Tienda Yuri
 
-      </div>
+<span class="text-pink-200">
 
-    </div>
+en Palermo
 
-  </div>
+</span>
+
+</h2>
+
+
+
+<p class="
+mt-6
+text-lg
+md:text-xl
+text-white/90
+">
+
+Descubre productos de belleza
+
+<strong>
+L'BEL, ésika y CYZONE
+</strong>
+
+con la comodidad de recibir tus productos
+directamente en tu domicilio.
+
+</p>
+
+
+
+<div class="flex flex-wrap gap-4 mt-8">
+
+
+<a href="#productos"
+   class="
+   bg-white
+   text-pink-700
+   px-6
+   py-3
+   rounded-xl
+   font-bold
+   hover:bg-pink-50
+   ">
+
+<i class="fa-solid fa-bag-shopping mr-2"></i>
+
+Ver productos
+
+</a>
+
+
+
+<button onclick="abrirCarrito()"
+        class="
+        border-2
+        border-white
+        px-6
+        py-3
+        rounded-xl
+        font-bold
+        hover:bg-white
+        hover:text-pink-700
+        ">
+
+<i class="fa-solid fa-cart-shopping mr-2"></i>
+
+Mi carrito
+
+</button>
+
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 
-<!-- ========================================================= -->
-<!-- CATEGORÍAS -->
-<!-- ========================================================= -->
+
+<!-- =====================================================
+     ENTREGA A DOMICILIO
+===================================================== -->
+
+<section id="entrega"
+         class="py-8">
+
+
+<div class="max-w-7xl mx-auto px-4">
+
+
+<div class="
+delivery-box
+border
+border-pink-100
+rounded-2xl
+p-6
+md:p-8
+">
+
+
+<div class="
+flex
+flex-col
+md:flex-row
+items-center
+gap-6
+">
+
+
+<div class="
+w-16
+h-16
+rounded-full
+bg-pink-600
+text-white
+flex
+items-center
+justify-center
+text-2xl
+flex-shrink-0
+">
+
+<i class="fa-solid fa-truck-fast"></i>
+
+</div>
+
+
+
+<div class="flex-1 text-center md:text-left">
+
+
+<h2 class="
+text-2xl
+font-bold
+text-gray-800
+">
+
+¡Recibe tus productos en casa!
+
+</h2>
+
+
+<p class="text-gray-600 mt-2">
+
+Realizamos <strong>entrega a domicilio</strong>
+en Palermo, Huila.
+Haz tu pedido desde la tienda y
+coordina la entrega por WhatsApp.
+
+</p>
+
+</div>
+
+
+
+<a href="https://wa.me/573203664703"
+   target="_blank"
+   class="
+   bg-green-500
+   hover:bg-green-600
+   text-white
+   px-6
+   py-3
+   rounded-xl
+   font-bold
+   whitespace-nowrap
+   ">
+
+<i class="fa-brands fa-whatsapp mr-2"></i>
+
+Consultar entrega
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CATEGORÍAS
+===================================================== -->
 
 <section id="categorias"
          class="py-10 bg-white">
 
-  <div class="max-w-7xl mx-auto px-4">
 
-    <div class="text-center mb-8">
-
-      <h2 class="text-3xl font-bold text-gray-800">
-        Compra por categoría
-      </h2>
-
-      <p class="text-gray-500 mt-2">
-        Elige tus productos favoritos
-      </p>
-
-    </div>
+<div class="max-w-7xl mx-auto px-4">
 
 
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+<div class="text-center mb-8">
 
-      <!-- L'BEL -->
+<h2 class="text-3xl font-bold">
 
-      <button onclick="filtrarCategoria('L BEL')"
-              class="bg-gradient-to-br from-purple-600 to-pink-600
-                     text-white rounded-2xl p-7 text-left
-                     hover:scale-[1.02] transition">
+Compra por categoría
 
-        <i class="fa-solid fa-sparkles text-3xl mb-4"></i>
-
-        <h3 class="text-2xl font-bold">
-          L'BEL
-        </h3>
-
-        <p class="mt-2 text-white/80">
-          Belleza, cuidado y productos especializados.
-        </p>
-
-      </button>
+</h2>
 
 
-      <!-- ÉSIKA -->
+<p class="text-gray-500 mt-2">
 
-      <button onclick="filtrarCategoria('Esika')"
-              class="bg-gradient-to-br from-pink-500 to-rose-500
-                     text-white rounded-2xl p-7 text-left
-                     hover:scale-[1.02] transition">
+Encuentra rápidamente lo que estás buscando.
 
-        <i class="fa-solid fa-heart text-3xl mb-4"></i>
+</p>
 
-        <h3 class="text-2xl font-bold">
-          ésika
-        </h3>
-
-        <p class="mt-2 text-white/80">
-          Perfumes, maquillaje y productos de belleza.
-        </p>
-
-      </button>
+</div>
 
 
-      <!-- CYZONE -->
 
-      <button onclick="filtrarCategoria('CYZONE')"
-              class="bg-gradient-to-br from-fuchsia-600 to-purple-600
-                     text-white rounded-2xl p-7 text-left
-                     hover:scale-[1.02] transition">
+<div class="
+grid
+grid-cols-1
+sm:grid-cols-3
+gap-5
+">
 
-        <i class="fa-solid fa-wand-magic-sparkles text-3xl mb-4"></i>
 
-        <h3 class="text-2xl font-bold">
-          CYZONE
-        </h3>
+<!-- L'BEL -->
 
-        <p class="mt-2 text-white/80">
-          Tendencias, maquillaje y productos juveniles.
-        </p>
+<button onclick="filtrarCategoria('L BEL')"
+class="
+bg-gradient-to-br
+from-purple-600
+to-pink-600
+text-white
+rounded-2xl
+p-7
+text-left
+hover:scale-[1.02]
+transition
+">
 
-      </button>
 
-    </div>
+<i class="
+fa-solid
+fa-sparkles
+text-3xl
+mb-4
+"></i>
 
-  </div>
+
+<h3 class="text-2xl font-bold">
+
+L'BEL
+
+</h3>
+
+
+<p class="mt-2 text-white/80">
+
+Belleza, cuidado y productos especializados.
+
+</p>
+
+</button>
+
+
+
+<!-- ÉSIKA -->
+
+<button onclick="filtrarCategoria('Esika')"
+class="
+bg-gradient-to-br
+from-pink-500
+to-rose-500
+text-white
+rounded-2xl
+p-7
+text-left
+hover:scale-[1.02]
+transition
+">
+
+
+<i class="
+fa-solid
+fa-heart
+text-3xl
+mb-4
+"></i>
+
+
+<h3 class="text-2xl font-bold">
+
+ésika
+
+</h3>
+
+
+<p class="mt-2 text-white/80">
+
+Perfumes, maquillaje y productos de belleza.
+
+</p>
+
+</button>
+
+
+
+<!-- CYZONE -->
+
+<button onclick="filtrarCategoria('CYZONE')"
+class="
+bg-gradient-to-br
+from-fuchsia-600
+to-purple-600
+text-white
+rounded-2xl
+p-7
+text-left
+hover:scale-[1.02]
+transition
+">
+
+
+<i class="
+fa-solid
+fa-wand-magic-sparkles
+text-3xl
+mb-4
+"></i>
+
+
+<h3 class="text-2xl font-bold">
+
+CYZONE
+
+</h3>
+
+
+<p class="mt-2 text-white/80">
+
+Tendencias, maquillaje y productos juveniles.
+
+</p>
+
+</button>
+
+
+</div>
+
+</div>
 
 </section>
 
 
-<!-- ========================================================= -->
-<!-- PRODUCTOS -->
-<!-- ========================================================= -->
+
+<!-- =====================================================
+     PRODUCTOS
+===================================================== -->
 
 <section id="productos"
          class="py-12">
 
-  <div class="max-w-7xl mx-auto px-4">
 
-    <div class="flex flex-col md:flex-row
-                justify-between items-center gap-4 mb-8">
-
-      <div>
-
-        <h2 class="text-3xl font-bold">
-          Productos
-        </h2>
-
-        <p class="text-gray-500">
-          Descubre nuestros productos disponibles
-        </p>
-
-      </div>
+<div class="max-w-7xl mx-auto px-4">
 
 
-      <!-- BUSCADOR -->
-
-      <div class="relative w-full md:w-80">
-
-        <input id="searchInput"
-               type="text"
-               placeholder="Buscar producto..."
-               oninput="buscarProductos()"
-               class="w-full border rounded-xl px-4 py-3 pr-10
-                      focus:ring-2 focus:ring-pink-500 outline-none">
-
-        <i class="fa-solid fa-magnifying-glass
-                  absolute right-4 top-4 text-gray-400"></i>
-
-      </div>
-
-    </div>
+<div class="
+flex
+flex-col
+md:flex-row
+justify-between
+items-center
+gap-4
+mb-8
+">
 
 
-    <!-- FILTROS -->
+<div>
 
-    <div class="flex flex-wrap gap-2 mb-8">
+<h2 class="text-3xl font-bold">
 
-      <button onclick="filtrarCategoria('TODOS')"
-              class="category-btn active border px-4 py-2 rounded-full"
-              data-category="TODOS">
+Productos
 
-        Todos
-
-      </button>
-
-      <button onclick="filtrarCategoria('L BEL')"
-              class="category-btn border px-4 py-2 rounded-full"
-              data-category="L BEL">
-
-        L'BEL
-
-      </button>
-
-      <button onclick="filtrarCategoria('Esika')"
-              class="category-btn border px-4 py-2 rounded-full"
-              data-category="Esika">
-
-        ésika
-
-      </button>
-
-      <button onclick="filtrarCategoria('CYZONE')"
-              class="category-btn border px-4 py-2 rounded-full"
-              data-category="CYZONE">
-
-        CYZONE
-
-      </button>
-
-    </div>
+</h2>
 
 
-    <!-- PRODUCTOS -->
+<p class="text-gray-500">
 
-    <div id="productGrid"
-         class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+Elige tus productos favoritos y agrégalos al carrito.
 
-      <!-- Se llenará con JavaScript -->
+</p>
 
-    </div>
+</div>
 
 
-    <div id="noProducts"
-         class="hidden text-center py-16">
 
-      <i class="fa-solid fa-box-open text-5xl text-gray-300"></i>
+<!-- BUSCADOR -->
 
-      <p class="mt-4 text-gray-500">
-        No encontramos productos.
-      </p>
+<div class="relative w-full md:w-80">
 
-    </div>
+<input id="searchInput"
+       type="text"
+       placeholder="Buscar producto..."
+       oninput="buscarProductos()"
+       class="
+       w-full
+       border
+       rounded-xl
+       px-4
+       py-3
+       pr-10
+       focus:ring-2
+       focus:ring-pink-500
+       outline-none
+       ">
 
-  </div>
+
+<i class="
+fa-solid
+fa-magnifying-glass
+absolute
+right-4
+top-4
+text-gray-400
+"></i>
+
+</div>
+
+</div>
+
+
+
+<!-- FILTROS -->
+
+<div class="flex flex-wrap gap-2 mb-8">
+
+
+<button onclick="filtrarCategoria('TODOS')"
+        class="
+        category-btn
+        active
+        border
+        px-4
+        py-2
+        rounded-full
+        "
+        data-category="TODOS">
+
+Todos
+
+</button>
+
+
+
+<button onclick="filtrarCategoria('L BEL')"
+        class="
+        category-btn
+        border
+        px-4
+        py-2
+        rounded-full
+        "
+        data-category="L BEL">
+
+L'BEL
+
+</button>
+
+
+
+<button onclick="filtrarCategoria('Esika')"
+        class="
+        category-btn
+        border
+        px-4
+        py-2
+        rounded-full
+        "
+        data-category="Esika">
+
+ésika
+
+</button>
+
+
+
+<button onclick="filtrarCategoria('CYZONE')"
+        class="
+        category-btn
+        border
+        px-4
+        py-2
+        rounded-full
+        "
+        data-category="CYZONE">
+
+CYZONE
+
+</button>
+
+</div>
+
+
+
+<!-- GRID -->
+
+<div id="productGrid"
+     class="
+     grid
+     grid-cols-1
+     sm:grid-cols-2
+     lg:grid-cols-4
+     gap-6
+     ">
+
+</div>
+
+
+
+<div id="noProducts"
+     class="hidden text-center py-16">
+
+<i class="
+fa-solid
+fa-box-open
+text-5xl
+text-gray-300
+"></i>
+
+
+<p class="mt-4 text-gray-500">
+
+No encontramos productos.
+
+</p>
+
+</div>
+
+
+</div>
 
 </section>
 
 
-<!-- ========================================================= -->
-<!-- SERVICIOS -->
-<!-- ========================================================= -->
 
-<section id="servicios"
-         class="py-14 bg-white">
+<!-- =====================================================
+     CÓMO COMPRAR
+===================================================== -->
 
-  <div class="max-w-7xl mx-auto px-4">
-
-    <div class="text-center mb-10">
-
-      <h2 class="text-3xl font-bold">
-        También ofrecemos
-      </h2>
-
-      <p class="text-gray-500 mt-2">
-        Servicios para ayudarte en Palermo
-      </p>
-
-    </div>
+<section class="py-12 bg-white">
 
 
-    <div class="grid md:grid-cols-3 gap-6">
-
-      <div class="p-7 rounded-2xl bg-gray-50 border">
-
-        <i class="fa-solid fa-print text-4xl text-pink-600"></i>
-
-        <h3 class="text-xl font-bold mt-4">
-          Impresoras Epson
-        </h3>
-
-        <p class="text-gray-600 mt-2">
-          Reparación y mantenimiento de impresoras Epson.
-        </p>
-
-      </div>
+<div class="max-w-7xl mx-auto px-4">
 
 
-      <div class="p-7 rounded-2xl bg-gray-50 border">
+<div class="text-center mb-10">
 
-        <i class="fa-solid fa-droplet text-4xl text-purple-600"></i>
+<h2 class="text-3xl font-bold">
 
-        <h3 class="text-xl font-bold mt-4">
-          Tintas Epson
-        </h3>
+¿Cómo hacer tu pedido?
 
-        <p class="text-gray-600 mt-2">
-          Venta de tintas y productos para impresión.
-        </p>
+</h2>
 
-      </div>
+<p class="text-gray-500 mt-2">
+
+Comprar es muy fácil.
+
+</p>
+
+</div>
 
 
-      <div class="p-7 rounded-2xl bg-gray-50 border">
 
-        <i class="fa-solid fa-laptop-code text-4xl text-pink-600"></i>
+<div class="
+grid
+md:grid-cols-3
+gap-6
+">
 
-        <h3 class="text-xl font-bold mt-4">
-          Servicios informáticos
-        </h3>
 
-        <p class="text-gray-600 mt-2">
-          Soporte, mantenimiento y soluciones informáticas.
-        </p>
+<div class="text-center p-6">
 
-      </div>
+<div class="
+w-16
+h-16
+mx-auto
+rounded-full
+bg-pink-100
+text-pink-600
+flex
+items-center
+justify-center
+text-2xl
+">
 
-    </div>
+<i class="fa-solid fa-magnifying-glass"></i>
 
-  </div>
+</div>
+
+
+<h3 class="font-bold text-lg mt-4">
+
+1. Elige tus productos
+
+</h3>
+
+
+<p class="text-gray-500 mt-2">
+
+Busca tus productos favoritos
+y agrégalos al carrito.
+
+</p>
+
+</div>
+
+
+
+<div class="text-center p-6">
+
+<div class="
+w-16
+h-16
+mx-auto
+rounded-full
+bg-purple-100
+text-purple-600
+flex
+items-center
+justify-center
+text-2xl
+">
+
+<i class="fa-solid fa-cart-shopping"></i>
+
+</div>
+
+
+<h3 class="font-bold text-lg mt-4">
+
+2. Revisa tu carrito
+
+</h3>
+
+
+<p class="text-gray-500 mt-2">
+
+Comprueba cantidades y
+valor total de tu pedido.
+
+</p>
+
+</div>
+
+
+
+<div class="text-center p-6">
+
+<div class="
+w-16
+h-16
+mx-auto
+rounded-full
+bg-green-100
+text-green-600
+flex
+items-center
+justify-center
+text-2xl
+">
+
+<i class="fa-solid fa-truck"></i>
+
+</div>
+
+
+<h3 class="font-bold text-lg mt-4">
+
+3. Recibe en tu domicilio
+
+</h3>
+
+
+<p class="text-gray-500 mt-2">
+
+Envía el pedido por WhatsApp
+y coordina la entrega.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 
-<!-- ========================================================= -->
-<!-- CONTACTO -->
-<!-- ========================================================= -->
+
+<!-- =====================================================
+     SERVICIOS
+===================================================== -->
+
+<section class="py-14 bg-gray-50">
+
+
+<div class="max-w-7xl mx-auto px-4">
+
+
+<div class="text-center mb-10">
+
+<h2 class="text-3xl font-bold">
+
+También ofrecemos
+
+</h2>
+
+
+<p class="text-gray-500 mt-2">
+
+Servicios adicionales de Tienda Yuri.
+
+</p>
+
+</div>
+
+
+
+<div class="
+grid
+md:grid-cols-3
+gap-6
+">
+
+
+<div class="
+p-7
+rounded-2xl
+bg-white
+border
+">
+
+<i class="
+fa-solid
+fa-print
+text-4xl
+text-pink-600
+"></i>
+
+
+<h3 class="text-xl font-bold mt-4">
+
+Impresoras Epson
+
+</h3>
+
+
+<p class="text-gray-600 mt-2">
+
+Reparación y mantenimiento
+de impresoras Epson.
+
+</p>
+
+</div>
+
+
+
+<div class="
+p-7
+rounded-2xl
+bg-white
+border
+">
+
+<i class="
+fa-solid
+fa-droplet
+text-4xl
+text-purple-600
+"></i>
+
+
+<h3 class="text-xl font-bold mt-4">
+
+Tintas Epson
+
+</h3>
+
+
+<p class="text-gray-600 mt-2">
+
+Venta de tintas y productos
+para impresión.
+
+</p>
+
+</div>
+
+
+
+<div class="
+p-7
+rounded-2xl
+bg-white
+border
+">
+
+<i class="
+fa-solid
+fa-laptop-code
+text-4xl
+text-pink-600
+"></i>
+
+
+<h3 class="text-xl font-bold mt-4">
+
+Servicios informáticos
+
+</h3>
+
+
+<p class="text-gray-600 mt-2">
+
+Soporte, mantenimiento
+y soluciones informáticas.
+
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CONTACTO
+===================================================== -->
 
 <section id="contacto"
-         class="py-14 bg-gradient-to-br from-pink-700 to-purple-700 text-white">
-
-  <div class="max-w-6xl mx-auto px-4">
-
-    <div class="grid md:grid-cols-2 gap-10 items-center">
-
-      <div>
-
-        <h2 class="text-4xl font-bold">
-          Tienda Yuri
-        </h2>
-
-        <p class="mt-4 text-white/90 text-lg">
-          Productos de belleza L'BEL, ésika y CYZONE
-          en Palermo, Huila.
-        </p>
-
-        <div class="mt-6 space-y-3">
-
-          <p>
-            <i class="fa-solid fa-location-dot w-6"></i>
-            Palermo, Huila, Colombia
-          </p>
-
-          <p>
-            <i class="fa-brands fa-whatsapp w-6"></i>
-            320 366 4703
-          </p>
-
-        </div>
-
-      </div>
+         class="
+         py-14
+         bg-gradient-to-br
+         from-pink-700
+         to-purple-700
+         text-white
+         ">
 
 
-      <div class="text-center">
+<div class="max-w-6xl mx-auto px-4">
 
-        <a href="https://wa.me/573203664703"
-           target="_blank"
-           class="inline-flex items-center gap-3
-                  bg-green-500 hover:bg-green-600
-                  px-7 py-4 rounded-xl font-bold text-lg">
 
-          <i class="fa-brands fa-whatsapp text-2xl"></i>
+<div class="
+grid
+md:grid-cols-2
+gap-10
+items-center
+">
 
-          Comprar por WhatsApp
 
-        </a>
+<div>
 
-      </div>
 
-    </div>
+<h2 class="text-4xl font-bold">
 
-  </div>
+Tienda Yuri
+
+</h2>
+
+
+<p class="mt-4 text-white/90 text-lg">
+
+Productos de belleza
+L'BEL, ésika y CYZONE
+en Palermo, Huila.
+
+</p>
+
+
+
+<div class="mt-6 space-y-3">
+
+
+<p>
+
+<i class="
+fa-solid
+fa-location-dot
+w-6
+"></i>
+
+Palermo, Huila, Colombia
+
+</p>
+
+
+
+<p>
+
+<i class="
+fa-solid
+fa-truck
+w-6
+"></i>
+
+Entrega a domicilio
+
+</p>
+
+
+
+<p>
+
+<i class="
+fa-brands
+fa-whatsapp
+w-6
+"></i>
+
+320 366 4703
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="text-center">
+
+
+<a href="https://wa.me/573203664703"
+   target="_blank"
+   class="
+   inline-flex
+   items-center
+   gap-3
+   bg-green-500
+   hover:bg-green-600
+   px-7
+   py-4
+   rounded-xl
+   font-bold
+   text-lg
+   ">
+
+<i class="
+fa-brands
+fa-whatsapp
+text-2xl
+"></i>
+
+Comprar por WhatsApp
+
+</a>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 
-<!-- ========================================================= -->
-<!-- FOOTER -->
-<!-- ========================================================= -->
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer class="bg-gray-900 text-gray-400">
 
-  <div class="max-w-7xl mx-auto px-4 py-8">
 
-    <div class="flex flex-col md:flex-row
-                justify-between gap-4">
+<div class="max-w-7xl mx-auto px-4 py-8">
 
-      <div>
 
-        <h3 class="text-white font-bold text-lg">
-          Tienda Yuri en Palermo
-        </h3>
+<div class="
+flex
+flex-col
+md:flex-row
+justify-between
+gap-4
+">
 
-        <p class="text-sm mt-1">
-          L'BEL · ésika · CYZONE
-        </p>
 
-      </div>
+<div>
 
-      <p class="text-sm">
-        © 2026 Tienda Yuri. Todos los derechos reservados.
-      </p>
+<h3 class="
+text-white
+font-bold
+text-lg
+">
 
-    </div>
+Tienda Yuri en Palermo
 
-  </div>
+</h3>
+
+
+<p class="text-sm mt-1">
+
+L'BEL · ésika · CYZONE
+
+</p>
+
+
+<p class="text-sm mt-2">
+
+Entrega a domicilio
+
+</p>
+
+</div>
+
+
+
+<p class="text-sm">
+
+© 2026 Tienda Yuri.
+Todos los derechos reservados.
+
+</p>
+
+
+</div>
+
+</div>
 
 </footer>
 
 
-<!-- ========================================================= -->
-<!-- MODAL CARRITO -->
-<!-- ========================================================= -->
+
+<!-- =====================================================
+     BOTÓN SUBIR
+===================================================== -->
+
+<button id="btnArriba"
+        onclick="subirArriba()"
+        aria-label="Volver arriba">
+
+<i class="fa-solid fa-arrow-up"></i>
+
+</button>
+
+
+
+<!-- =====================================================
+     MODAL CARRITO
+===================================================== -->
 
 <div id="cartModal"
-     class="hidden fixed inset-0 modal-bg z-[100]">
-
-  <div class="min-h-screen flex items-center justify-center p-4">
-
-    <div class="bg-white rounded-2xl w-full max-w-2xl
-                max-h-[90vh] overflow-hidden shadow-2xl">
-
-      <!-- HEADER -->
-
-      <div class="flex items-center justify-between
-                  p-5 border-b">
-
-        <div>
-
-          <h2 class="text-2xl font-bold">
-            <i class="fa-solid fa-cart-shopping text-pink-600 mr-2"></i>
-            Mi carrito
-          </h2>
-
-          <p class="text-sm text-gray-500">
-            Revisa tu pedido antes de enviarlo
-          </p>
-
-        </div>
+     class="
+     hidden
+     fixed
+     inset-0
+     modal-bg
+     z-[100]
+     ">
 
 
-        <button onclick="cerrarCarrito()"
-                class="text-gray-500 hover:text-red-500 text-xl">
-
-          <i class="fa-solid fa-xmark"></i>
-
-        </button>
-
-      </div>
-
-
-      <!-- CONTENIDO -->
-
-      <div id="cartItems"
-           class="p-5 overflow-y-auto max-h-[45vh]">
-
-      </div>
+<div class="
+min-h-screen
+flex
+items-center
+justify-center
+p-4
+">
 
 
-      <!-- TOTAL -->
-
-      <div class="border-t p-5">
-
-        <div class="flex justify-between
-                    text-xl font-bold mb-4">
-
-          <span>
-            Total
-          </span>
-
-          <span id="cartTotal"
-                class="text-pink-600">
-            $0
-          </span>
-
-        </div>
+<div class="
+bg-white
+rounded-2xl
+w-full
+max-w-2xl
+max-h-[90vh]
+overflow-hidden
+shadow-2xl
+">
 
 
-        <div class="grid sm:grid-cols-2 gap-3">
+<!-- HEADER CARRITO -->
 
-          <button onclick="vaciarCarrito()"
-                  class="border border-red-400 text-red-500
-                         hover:bg-red-50 py-3 rounded-xl">
+<div class="
+flex
+items-center
+justify-between
+p-5
+border-b
+">
 
-            <i class="fa-solid fa-trash mr-2"></i>
-            Vaciar carrito
 
-          </button>
+<div>
+
+<h2 class="text-2xl font-bold">
+
+<i class="
+fa-solid
+fa-cart-shopping
+text-pink-600
+mr-2
+"></i>
+
+Mi carrito
+
+</h2>
 
 
-          <button onclick="enviarPedidoWhatsApp()"
-                  class="bg-green-500 hover:bg-green-600
-                         text-white py-3 rounded-xl font-bold">
+<p class="text-sm text-gray-500">
 
-            <i class="fa-brands fa-whatsapp mr-2"></i>
-            Enviar pedido
+Productos a entregar
 
-          </button>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
+</p>
 
 </div>
 
 
-<!-- ========================================================= -->
-<!-- MODAL LOGIN -->
-<!-- ========================================================= -->
+
+<button onclick="cerrarCarrito()"
+        class="text-gray-500 hover:text-red-500 text-xl">
+
+<i class="fa-solid fa-xmark"></i>
+
+</button>
+
+</div>
+
+
+
+<!-- PRODUCTOS DEL CARRITO -->
+
+<div id="cartItems"
+     class="
+     p-5
+     overflow-y-auto
+     max-h-[45vh]
+     ">
+
+</div>
+
+
+
+<!-- TOTAL -->
+
+<div class="border-t p-5">
+
+
+<div class="
+flex
+justify-between
+text-xl
+font-bold
+mb-4
+">
+
+
+<span>
+
+Total productos a entregar
+
+</span>
+
+
+<span id="cartTotal"
+      class="text-pink-600">
+
+$0
+
+</span>
+
+</div>
+
+
+
+<div class="
+grid
+sm:grid-cols-2
+gap-3
+">
+
+
+<button onclick="vaciarCarrito()"
+        class="
+        border
+        border-red-400
+        text-red-500
+        hover:bg-red-50
+        py-3
+        rounded-xl
+        ">
+
+<i class="fa-solid fa-trash mr-2"></i>
+
+Vaciar carrito
+
+</button>
+
+
+
+<button onclick="enviarPedidoWhatsApp()"
+        class="
+        bg-green-500
+        hover:bg-green-600
+        text-white
+        py-3
+        rounded-xl
+        font-bold
+        ">
+
+<i class="fa-brands fa-whatsapp mr-2"></i>
+
+Enviar pedido
+
+</button>
+
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     MODAL LOGIN
+===================================================== -->
 
 <div id="loginModal"
-     class="hidden fixed inset-0 modal-bg z-[110]">
-
-  <div class="min-h-screen flex items-center justify-center p-4">
-
-    <div class="bg-white rounded-2xl p-6 w-full max-w-md">
-
-      <div class="flex justify-between items-center mb-5">
-
-        <h2 class="text-2xl font-bold">
-          Mi cuenta
-        </h2>
-
-        <button onclick="cerrarLogin()"
-                class="text-gray-500 text-xl">
-
-          <i class="fa-solid fa-xmark"></i>
-
-        </button>
-
-      </div>
+     class="
+     hidden
+     fixed
+     inset-0
+     modal-bg
+     z-[110]
+     ">
 
 
-      <input id="emailLogin"
-             type="email"
-             placeholder="Correo electrónico"
-             class="w-full border rounded-lg px-4 py-3 mb-3">
+<div class="
+min-h-screen
+flex
+items-center
+justify-center
+p-4
+">
 
 
-      <input id="passwordLogin"
-             type="password"
-             placeholder="Contraseña"
-             class="w-full border rounded-lg px-4 py-3 mb-4">
+<div class="
+bg-white
+rounded-2xl
+p-6
+w-full
+max-w-md
+">
 
 
-      <button onclick="iniciarSesion()"
-              class="w-full bg-pink-600 hover:bg-pink-700
-                     text-white py-3 rounded-lg font-bold">
+<div class="
+flex
+justify-between
+items-center
+mb-5
+">
 
-        Iniciar sesión
 
-      </button>
+<h2 class="text-2xl font-bold">
+
+Mi cuenta
+
+</h2>
 
 
-      <p id="loginMessage"
-         class="text-center text-sm mt-4"></p>
+<button onclick="cerrarLogin()"
+        class="text-gray-500 text-xl">
 
-    </div>
+<i class="fa-solid fa-xmark"></i>
 
-  </div>
+</button>
 
 </div>
 
+
+
+<input id="emailLogin"
+       type="email"
+       placeholder="Correo electrónico"
+       class="
+       w-full
+       border
+       rounded-lg
+       px-4
+       py-3
+       mb-3
+       ">
+
+
+
+<input id="passwordLogin"
+       type="password"
+       placeholder="Contraseña"
+       class="
+       w-full
+       border
+       rounded-lg
+       px-4
+       py-3
+       mb-4
+       ">
+
+
+
+<button onclick="iniciarSesion()"
+        class="
+        w-full
+        bg-pink-600
+        hover:bg-pink-700
+        text-white
+        py-3
+        rounded-lg
+        font-bold
+        ">
+
+Iniciar sesión
+
+</button>
+
+
+
+<p id="loginMessage"
+   class="text-center text-sm mt-4">
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
 
 <script>
 
-/* =========================================================
-   CONFIGURACIÓN SUPABASE
-========================================================= */
+
+/* =====================================================
+   SUPABASE
+===================================================== */
 
 const SUPABASE_URL =
-  "https://ljmryxtbcgrtcsxhwnvl.supabase.co";
+"https://ljmryxtbcgrtcsxhwnvl.supabase.co";
+
 
 const SUPABASE_KEY =
-  "sb_publishable_5pkF_bmKNgvSaGs0ht6ZRw_3Nop9t-Z";
+"sb_publishable_5pkF_bmKNgvSaGs0ht6ZRw_3Nop9t-Z";
+
 
 const supabaseClient =
-  window.supabase.createClient(
+window.supabase.createClient(
     SUPABASE_URL,
     SUPABASE_KEY
-  );
+);
 
 
-/* =========================================================
-   CONFIGURACIÓN
-========================================================= */
+
+/* =====================================================
+   WHATSAPP
+===================================================== */
 
 const WHATSAPP =
-  "573203664703";
+"573203664703";
 
 
-/* =========================================================
-   DATOS LOCALES DE RESPALDO
-========================================================= */
+
+/* =====================================================
+   PRODUCTOS DE RESPALDO
+===================================================== */
 
 const productosDemo = [
 
-  {
+{
     id: 1,
     Nombre: "Perfume L'BEL",
     Precio: 85000,
     Categoría: "L BEL",
-    Descripción: "Producto de belleza L'BEL.",
+    Descripción:
+    "Producto de belleza L'BEL.",
     "Web url": "",
     Activo: true
-  },
+},
 
-  {
+{
     id: 2,
     Nombre: "Perfume ésika",
     Precio: 79000,
     Categoría: "Esika",
-    Descripción: "Fragancia ésika.",
+    Descripción:
+    "Fragancia ésika.",
     "Web url": "",
     Activo: true
-  },
+},
 
-  {
+{
     id: 3,
     Nombre: "Producto CYZONE",
     Precio: 65000,
     Categoría: "CYZONE",
-    Descripción: "Producto de belleza CYZONE.",
+    Descripción:
+    "Producto de belleza CYZONE.",
     "Web url": "",
     Activo: true
-  }
+}
 
 ];
 
 
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
 let productos = [];
+
 let carrito = [];
+
 let categoriaActual = "TODOS";
 
 
-/* =========================================================
+
+/* =====================================================
    INICIO
-========================================================= */
+===================================================== */
 
-document.addEventListener("DOMContentLoaded", async () => {
+document.addEventListener(
+"DOMContentLoaded",
+async () => {
 
-  cargarCarrito();
+    cargarCarrito();
 
-  await cargarProductos();
+    await cargarProductos();
 
-  actualizarCarrito();
+    actualizarCarrito();
+
+    actualizarBotonArriba();
 
 });
 
 
-/* =========================================================
-   MENU MOVIL
-========================================================= */
+
+/* =====================================================
+   MENU
+===================================================== */
 
 function toggleMenu() {
 
-  const menu =
+    const menu =
     document.getElementById("mobileMenu");
 
-  menu.classList.toggle("hidden");
+    menu.classList.toggle("hidden");
 
 }
 
 
-/* =========================================================
+
+/* =====================================================
    CARGAR PRODUCTOS
-========================================================= */
+===================================================== */
 
 async function cargarProductos() {
 
-  try {
+    try {
 
-    const { data, error } =
-      await supabaseClient
+        const { data, error } =
+        await supabaseClient
         .from("Productos")
         .select("*")
         .eq("Activo", true)
-        .order("id", { ascending: false });
+        .order("id", {
+            ascending: false
+        });
 
 
-    if (error) {
+        if (error) {
 
-      console.warn(
-        "No se pudieron cargar productos desde Supabase:",
-        error.message
-      );
+            console.warn(
+            "Supabase:",
+            error.message
+            );
 
-      productos = productosDemo;
+            productos =
+            productosDemo;
 
-    } else {
+        }
 
-      productos = data && data.length
-        ? data
-        : productosDemo;
+        else {
+
+            productos =
+            data && data.length
+            ? data
+            : productosDemo;
+
+        }
 
     }
 
-  } catch (error) {
+    catch (error) {
 
-    productos = productosDemo;
+        productos =
+        productosDemo;
 
-  }
+    }
 
 
-  mostrarProductos();
+    mostrarProductos();
 
 }
 
 
-/* =========================================================
+
+/* =====================================================
    MOSTRAR PRODUCTOS
-========================================================= */
+===================================================== */
 
 function mostrarProductos() {
 
-  const grid =
-    document.getElementById("productGrid");
-
-  const busqueda =
-    document.getElementById("searchInput")
-      .value
-      .toLowerCase()
-      .trim();
-
-
-  let lista = productos.filter(p => {
-
-    const nombre =
-      String(p.Nombre || "")
-        .toLowerCase();
-
-    const descripcion =
-      String(p.Descripción || "")
-        .toLowerCase();
-
-    const categoria =
-      String(p.Categoría || "")
-        .toLowerCase();
-
-
-    const coincideBusqueda =
-      !busqueda ||
-      nombre.includes(busqueda) ||
-      descripcion.includes(busqueda) ||
-      categoria.includes(busqueda);
-
-
-    const coincideCategoria =
-      categoriaActual === "TODOS" ||
-      normalizarCategoria(p.Categoría)
-        === normalizarCategoria(categoriaActual);
-
-
-    return coincideBusqueda &&
-           coincideCategoria &&
-           p.Activo !== false;
-
-  });
-
-
-  grid.innerHTML = "";
-
-
-  document
-    .getElementById("noProducts")
-    .classList.toggle(
-      "hidden",
-      lista.length > 0
+    const grid =
+    document.getElementById(
+        "productGrid"
     );
 
 
-  lista.forEach(producto => {
-
-    const card =
-      document.createElement("div");
-
-    card.className =
-      "product-card bg-white rounded-2xl overflow-hidden border";
-
-
-    const precio =
-      Number(producto.Precio || 0);
+    const busqueda =
+    document.getElementById(
+        "searchInput"
+    )
+    .value
+    .toLowerCase()
+    .trim();
 
 
-    const imagen =
-      producto.imagen ||
-      producto.Imagen ||
-      producto.image ||
-      producto["Web url"] ||
-      "";
+
+    let lista =
+    productos.filter(
+    p => {
 
 
-    let imagenHTML;
+        const nombre =
+        String(
+            p.Nombre || ""
+        )
+        .toLowerCase();
 
 
-    if (imagen) {
-
-      imagenHTML = `
-        <img src="${escapeHtml(imagen)}"
-             class="w-full h-56 object-cover"
-             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-
-        <div class="hidden h-56 bg-gradient-to-br from-pink-100 to-purple-100
-                    items-center justify-center text-pink-600 text-6xl">
-
-          <i class="fa-solid fa-spray-can-sparkles"></i>
-
-        </div>
-      `;
-
-    } else {
-
-      imagenHTML = `
-        <div class="h-56 bg-gradient-to-br from-pink-100 to-purple-100
-                    flex items-center justify-center text-pink-600 text-6xl">
-
-          <i class="fa-solid fa-spray-can-sparkles"></i>
-
-        </div>
-      `;
-
-    }
+        const descripcion =
+        String(
+            p.Descripción || ""
+        )
+        .toLowerCase();
 
 
-    card.innerHTML = `
+        const categoria =
+        String(
+            p.Categoría || ""
+        )
+        .toLowerCase();
 
-      ${imagenHTML}
 
-      <div class="p-5">
 
-        <span class="inline-block bg-pink-100 text-pink-700
-                     px-3 py-1 rounded-full text-xs font-bold mb-3">
+        const coincideBusqueda =
 
-          ${escapeHtml(producto.Categoría || "Belleza")}
+            !busqueda ||
+
+            nombre.includes(
+                busqueda
+            ) ||
+
+            descripcion.includes(
+                busqueda
+            ) ||
+
+            categoria.includes(
+                busqueda
+            );
+
+
+
+        const coincideCategoria =
+
+            categoriaActual ===
+            "TODOS"
+
+            ||
+
+            normalizarCategoria(
+                p.Categoría
+            )
+            ===
+            normalizarCategoria(
+                categoriaActual
+            );
+
+
+
+        return (
+
+            coincideBusqueda &&
+
+            coincideCategoria &&
+
+            p.Activo !== false
+
+        );
+
+    });
+
+
+
+    grid.innerHTML = "";
+
+
+
+    document
+    .getElementById(
+        "noProducts"
+    )
+    .classList.toggle(
+        "hidden",
+        lista.length > 0
+    );
+
+
+
+    lista.forEach(
+    producto => {
+
+
+        const card =
+        document.createElement(
+            "div"
+        );
+
+
+        card.className =
+        `
+        product-card
+        bg-white
+        rounded-2xl
+        overflow-hidden
+        border
+        animar
+        `;
+
+
+
+        const precio =
+        Number(
+            producto.Precio || 0
+        );
+
+
+
+        const imagen =
+        producto.imagen ||
+        producto.Imagen ||
+        producto.image ||
+        producto["Web url"] ||
+        "";
+
+
+
+        let imagenHTML;
+
+
+
+        if (imagen) {
+
+            imagenHTML = `
+
+            <img src="${escapeHtml(imagen)}"
+                 class="
+                 w-full
+                 h-56
+                 object-cover
+                 "
+                 onerror="
+                 this.style.display='none';
+                 this.nextElementSibling.style.display='flex';
+                 ">
+
+
+            <div class="
+            hidden
+            h-56
+            bg-gradient-to-br
+            from-pink-100
+            to-purple-100
+            items-center
+            justify-center
+            text-pink-600
+            text-6xl
+            ">
+
+            <i class="
+            fa-solid
+            fa-spray-can-sparkles
+            "></i>
+
+            </div>
+
+            `;
+
+        }
+
+        else {
+
+            imagenHTML = `
+
+            <div class="
+            h-56
+            bg-gradient-to-br
+            from-pink-100
+            to-purple-100
+            flex
+            items-center
+            justify-center
+            text-pink-600
+            text-6xl
+            ">
+
+            <i class="
+            fa-solid
+            fa-spray-can-sparkles
+            "></i>
+
+            </div>
+
+            `;
+
+        }
+
+
+
+        card.innerHTML = `
+
+        ${imagenHTML}
+
+
+        <div class="p-5">
+
+
+        <span class="
+        inline-block
+        bg-pink-100
+        text-pink-700
+        px-3
+        py-1
+        rounded-full
+        text-xs
+        font-bold
+        mb-3
+        ">
+
+        ${escapeHtml(
+            producto.Categoría ||
+            "Belleza"
+        )}
 
         </span>
 
 
-        <h3 class="font-bold text-lg">
-          ${escapeHtml(producto.Nombre || "Producto")}
+
+        <h3 class="
+        font-bold
+        text-lg
+        ">
+
+        ${escapeHtml(
+            producto.Nombre ||
+            "Producto"
+        )}
+
         </h3>
 
 
-        <p class="text-gray-500 text-sm mt-2 line-clamp-2">
 
-          ${escapeHtml(
+        <p class="
+        text-gray-500
+        text-sm
+        mt-2
+        line-clamp-2
+        ">
+
+        ${escapeHtml(
             producto.Descripción ||
             "Producto de belleza disponible en Tienda Yuri."
-          )}
+        )}
 
         </p>
 
 
-        <div class="flex items-center justify-between
-                    gap-3 mt-5">
 
-          <div>
-
-            <p class="text-xs text-gray-400">
-              Precio
-            </p>
-
-            <p class="text-xl font-extrabold text-pink-600">
-
-              ${formatearPrecio(precio)}
-
-            </p>
-
-          </div>
+        <div class="
+        flex
+        items-center
+        justify-between
+        gap-3
+        mt-5
+        ">
 
 
-          <button onclick="agregarAlCarrito(${producto.id})"
-                  class="bg-pink-600 hover:bg-pink-700
-                         text-white px-4 py-3 rounded-xl">
+        <div>
 
-            <i class="fa-solid fa-cart-plus"></i>
+        <p class="
+        text-xs
+        text-gray-400
+        ">
 
-          </button>
+        Precio
+
+        </p>
+
+
+        <p class="
+        text-xl
+        font-extrabold
+        text-pink-600
+        ">
+
+        ${formatearPrecio(
+            precio
+        )}
+
+        </p>
 
         </div>
 
-      </div>
-    `;
 
 
-    grid.appendChild(card);
+        <button onclick="
+        agregarAlCarrito(
+            ${producto.id}
+        )
+        "
+        class="
+        bg-pink-600
+        hover:bg-pink-700
+        text-white
+        px-4
+        py-3
+        rounded-xl
+        ">
 
-  });
+        <i class="
+        fa-solid
+        fa-cart-plus
+        "></i>
+
+        </button>
+
+
+        </div>
+
+        </div>
+
+        `;
+
+
+
+        grid.appendChild(
+            card
+        );
+
+    });
 
 }
 
 
-/* =========================================================
-   NORMALIZAR CATEGORÍAS
-========================================================= */
 
-function normalizarCategoria(valor) {
+/* =====================================================
+   NORMALIZAR CATEGORÍA
+===================================================== */
 
-  return String(valor || "")
+function normalizarCategoria(
+    valor
+) {
+
+    return String(
+        valor || ""
+    )
     .toLowerCase()
     .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/['’]/g, "")
-    .replace(/\s+/g, "");
+    .replace(
+        /[\u0300-\u036f]/g,
+        ""
+    )
+    .replace(
+        /['’]/g,
+        ""
+    )
+    .replace(
+        /\s+/g,
+        ""
+    );
 
 }
 
 
-/* =========================================================
-   FILTRAR CATEGORÍA
-========================================================= */
 
-function filtrarCategoria(categoria) {
+/* =====================================================
+   FILTRAR
+===================================================== */
 
-  categoriaActual = categoria;
+function filtrarCategoria(
+    categoria
+) {
 
-  document
-    .querySelectorAll(".category-btn")
-    .forEach(btn => {
+    categoriaActual =
+    categoria;
 
-      btn.classList.remove("active");
 
-      if (
-        normalizarCategoria(
-          btn.dataset.category
-        ) === normalizarCategoria(categoria)
-      ) {
 
-        btn.classList.add("active");
+    document
+    .querySelectorAll(
+        ".category-btn"
+    )
+    .forEach(
+    btn => {
 
-      }
+        btn.classList.remove(
+            "active"
+        );
+
+
+        if (
+            normalizarCategoria(
+                btn.dataset.category
+            )
+            ===
+            normalizarCategoria(
+                categoria
+            )
+        ) {
+
+            btn.classList.add(
+                "active"
+            );
+
+        }
 
     });
 
 
-  mostrarProductos();
+
+    mostrarProductos();
 
 
-  document
-    .getElementById("productos")
+
+    document
+    .getElementById(
+        "productos"
+    )
     .scrollIntoView({
-      behavior: "smooth"
+        behavior: "smooth"
     });
 
 }
 
 
-/* =========================================================
+
+/* =====================================================
    BUSCAR
-========================================================= */
+===================================================== */
 
 function buscarProductos() {
 
-  mostrarProductos();
+    mostrarProductos();
 
 }
 
 
-/* =========================================================
+
+/* =====================================================
    AGREGAR AL CARRITO
-========================================================= */
+===================================================== */
 
-function agregarAlCarrito(id) {
+function agregarAlCarrito(
+    id
+) {
 
-  const producto =
+    const producto =
     productos.find(
-      p => Number(p.id) === Number(id)
+        p =>
+        Number(p.id)
+        ===
+        Number(id)
     );
 
 
-  if (!producto) return;
+    if (!producto) {
+
+        return;
+
+    }
 
 
-  const existente =
+
+    const existente =
     carrito.find(
-      item => Number(item.id) === Number(id)
+        item =>
+        Number(item.id)
+        ===
+        Number(id)
     );
 
 
-  if (existente) {
 
-    existente.cantidad++;
+    if (existente) {
 
-  } else {
+        existente.cantidad++;
 
-    carrito.push({
-      id: producto.id,
-      nombre: producto.Nombre,
-      precio: Number(producto.Precio || 0),
-      cantidad: 1
-    });
+    }
 
-  }
+    else {
 
+        carrito.push({
 
-  guardarCarrito();
+            id:
+            producto.id,
 
-  actualizarCarrito();
+            nombre:
+            producto.Nombre,
 
+            precio:
+            Number(
+                producto.Precio || 0
+            ),
 
-  mostrarNotificacion(
-    "Producto agregado al carrito"
-  );
+            cantidad:
+            1
 
-}
+        });
 
+    }
 
-/* =========================================================
-   CARRITO
-========================================================= */
 
-function cargarCarrito() {
-
-  try {
-
-    carrito =
-      JSON.parse(
-        localStorage.getItem("tiendaYuriCarrito")
-      ) || [];
-
-  } catch {
-
-    carrito = [];
-
-  }
-
-}
-
-
-function guardarCarrito() {
-
-  localStorage.setItem(
-    "tiendaYuriCarrito",
-    JSON.stringify(carrito)
-  );
-
-}
-
-
-function actualizarCarrito() {
-
-  const cantidad =
-    carrito.reduce(
-      (total, item) =>
-        total + Number(item.cantidad || 0),
-      0
-    );
-
-
-  document
-    .getElementById("cartCount")
-    .textContent = cantidad;
-
-
-  const container =
-    document.getElementById("cartItems");
-
-  const totalElement =
-    document.getElementById("cartTotal");
-
-
-  if (!container) return;
-
-
-  if (!carrito.length) {
-
-    container.innerHTML = `
-
-      <div class="text-center py-10">
-
-        <i class="fa-solid fa-cart-shopping
-                  text-5xl text-gray-300"></i>
-
-        <p class="mt-4 text-gray-500">
-          Tu carrito está vacío.
-        </p>
-
-        <button onclick="cerrarCarrito();document.getElementById('productos').scrollIntoView({behavior:'smooth'})"
-                class="mt-4 bg-pink-600 text-white
-                       px-5 py-2 rounded-lg">
-
-          Ver productos
-
-        </button>
-
-      </div>
-
-    `;
-
-    totalElement.textContent = "$0";
-
-    return;
-
-  }
-
-
-  let total = 0;
-
-  container.innerHTML = "";
-
-
-  carrito.forEach((item, index) => {
-
-    const subtotal =
-      item.precio * item.cantidad;
-
-    total += subtotal;
-
-
-    const div =
-      document.createElement("div");
-
-    div.className =
-      "flex gap-4 items-center border-b py-4";
-
-
-    div.innerHTML = `
-
-      <div class="w-12 h-12 rounded-xl
-                  bg-pink-100 text-pink-600
-                  flex items-center justify-center">
-
-        <i class="fa-solid fa-bag-shopping"></i>
-
-      </div>
-
-
-      <div class="flex-1">
-
-        <h3 class="font-bold">
-          ${escapeHtml(item.nombre)}
-        </h3>
-
-        <p class="text-sm text-gray-500">
-          ${formatearPrecio(item.precio)}
-        </p>
-
-
-        <div class="flex items-center gap-2 mt-2">
-
-          <button onclick="cambiarCantidad(${index}, -1)"
-                  class="w-8 h-8 border rounded-lg">
-
-            −
-
-          </button>
-
-
-          <span class="font-bold">
-            ${item.cantidad}
-          </span>
-
-
-          <button onclick="cambiarCantidad(${index}, 1)"
-                  class="w-8 h-8 border rounded-lg">
-
-            +
-
-          </button>
-
-        </div>
-
-      </div>
-
-
-      <div class="text-right">
-
-        <p class="font-bold text-pink-600">
-          ${formatearPrecio(subtotal)}
-        </p>
-
-
-        <button onclick="eliminarProductoCarrito(${index})"
-                class="text-red-500 text-sm mt-2">
-
-          <i class="fa-solid fa-trash"></i>
-
-        </button>
-
-      </div>
-
-    `;
-
-
-    container.appendChild(div);
-
-  });
-
-
-  totalElement.textContent =
-    formatearPrecio(total);
-
-}
-
-
-/* =========================================================
-   CAMBIAR CANTIDAD
-========================================================= */
-
-function cambiarCantidad(index, cambio) {
-
-  carrito[index].cantidad += cambio;
-
-
-  if (carrito[index].cantidad <= 0) {
-
-    carrito.splice(index, 1);
-
-  }
-
-
-  guardarCarrito();
-
-  actualizarCarrito();
-
-}
-
-
-/* =========================================================
-   ELIMINAR
-========================================================= */
-
-function eliminarProductoCarrito(index) {
-
-  carrito.splice(index, 1);
-
-  guardarCarrito();
-
-  actualizarCarrito();
-
-}
-
-
-/* =========================================================
-   VACIAR
-========================================================= */
-
-function vaciarCarrito() {
-
-  if (!carrito.length) return;
-
-
-  if (
-    confirm("¿Quieres vaciar todo el carrito?")
-  ) {
-
-    carrito = [];
 
     guardarCarrito();
 
     actualizarCarrito();
 
-  }
+
+
+    mostrarNotificacion(
+        "Producto agregado al carrito"
+    );
 
 }
 
 
-/* =========================================================
+
+/* =====================================================
+   CARGAR CARRITO
+===================================================== */
+
+function cargarCarrito() {
+
+    try {
+
+        carrito =
+        JSON.parse(
+            localStorage.getItem(
+                "tiendaYuriCarrito"
+            )
+        )
+        || [];
+
+    }
+
+    catch {
+
+        carrito = [];
+
+    }
+
+}
+
+
+
+/* =====================================================
+   GUARDAR
+===================================================== */
+
+function guardarCarrito() {
+
+    localStorage.setItem(
+        "tiendaYuriCarrito",
+        JSON.stringify(
+            carrito
+        )
+    );
+
+}
+
+
+
+/* =====================================================
+   ACTUALIZAR CARRITO
+===================================================== */
+
+function actualizarCarrito() {
+
+    const cantidad =
+    carrito.reduce(
+        (total, item) =>
+        total +
+        Number(
+            item.cantidad || 0
+        ),
+        0
+    );
+
+
+
+    document
+    .getElementById(
+        "cartCount"
+    )
+    .textContent =
+    cantidad;
+
+
+
+    const container =
+    document.getElementById(
+        "cartItems"
+    );
+
+
+    const totalElement =
+    document.getElementById(
+        "cartTotal"
+    );
+
+
+
+    if (!container) {
+
+        return;
+
+    }
+
+
+
+    if (!carrito.length) {
+
+        container.innerHTML = `
+
+        <div class="
+        text-center
+        py-10
+        ">
+
+
+        <i class="
+        fa-solid
+        fa-cart-shopping
+        text-5xl
+        text-gray-300
+        "></i>
+
+
+        <p class="
+        mt-4
+        text-gray-500
+        ">
+
+        Tu carrito está vacío.
+
+        </p>
+
+
+        <button onclick="
+        cerrarCarrito();
+        document.getElementById('productos')
+        .scrollIntoView({
+            behavior:'smooth'
+        })
+        "
+        class="
+        mt-4
+        bg-pink-600
+        text-white
+        px-5
+        py-2
+        rounded-lg
+        ">
+
+        Ver productos
+
+        </button>
+
+        </div>
+
+        `;
+
+
+        totalElement.textContent =
+        "$0";
+
+
+        return;
+
+    }
+
+
+
+    let total = 0;
+
+
+
+    container.innerHTML = "";
+
+
+
+    carrito.forEach(
+    (item, index) => {
+
+
+        const subtotal =
+        item.precio *
+        item.cantidad;
+
+
+        total +=
+        subtotal;
+
+
+
+        const div =
+        document.createElement(
+            "div"
+        );
+
+
+        div.className =
+        `
+        flex
+        gap-4
+        items-center
+        border-b
+        py-4
+        `;
+
+
+
+        div.innerHTML = `
+
+        <div class="
+        w-12
+        h-12
+        rounded-xl
+        bg-pink-100
+        text-pink-600
+        flex
+        items-center
+        justify-center
+        ">
+
+        <i class="
+        fa-solid
+        fa-bag-shopping
+        "></i>
+
+        </div>
+
+
+
+        <div class="flex-1">
+
+
+        <h3 class="font-bold">
+
+        ${escapeHtml(
+            item.nombre
+        )}
+
+        </h3>
+
+
+
+        <p class="
+        text-sm
+        text-gray-500
+        ">
+
+        ${formatearPrecio(
+            item.precio
+        )}
+
+        </p>
+
+
+
+        <div class="
+        flex
+        items-center
+        gap-2
+        mt-2
+        ">
+
+
+        <button onclick="
+        cambiarCantidad(
+            ${index},
+            -1
+        )
+        "
+        class="
+        w-8
+        h-8
+        border
+        rounded-lg
+        ">
+
+        −
+
+        </button>
+
+
+
+        <span class="font-bold">
+
+        ${item.cantidad}
+
+        </span>
+
+
+
+        <button onclick="
+        cambiarCantidad(
+            ${index},
+            1
+        )
+        "
+        class="
+        w-8
+        h-8
+        border
+        rounded-lg
+        ">
+
+        +
+
+        </button>
+
+        </div>
+
+        </div>
+
+
+
+        <div class="text-right">
+
+
+        <p class="
+        font-bold
+        text-pink-600
+        ">
+
+        ${formatearPrecio(
+            subtotal
+        )}
+
+        </p>
+
+
+
+        <button onclick="
+        eliminarProductoCarrito(
+            ${index}
+        )
+        "
+        class="
+        text-red-500
+        text-sm
+        mt-2
+        ">
+
+        <i class="
+        fa-solid
+        fa-trash
+        "></i>
+
+        </button>
+
+        </div>
+
+        `;
+
+
+
+        container.appendChild(
+            div
+        );
+
+    });
+
+
+
+    totalElement.textContent =
+    formatearPrecio(
+        total
+    );
+
+}
+
+
+
+/* =====================================================
+   CANTIDAD
+===================================================== */
+
+function cambiarCantidad(
+    index,
+    cambio
+) {
+
+    carrito[index].cantidad +=
+    cambio;
+
+
+
+    if (
+        carrito[index].cantidad
+        <= 0
+    ) {
+
+        carrito.splice(
+            index,
+            1
+        );
+
+    }
+
+
+
+    guardarCarrito();
+
+    actualizarCarrito();
+
+}
+
+
+
+/* =====================================================
+   ELIMINAR
+===================================================== */
+
+function eliminarProductoCarrito(
+    index
+) {
+
+    carrito.splice(
+        index,
+        1
+    );
+
+
+    guardarCarrito();
+
+    actualizarCarrito();
+
+}
+
+
+
+/* =====================================================
+   VACIAR
+===================================================== */
+
+function vaciarCarrito() {
+
+    if (!carrito.length) {
+
+        return;
+
+    }
+
+
+
+    if (
+        confirm(
+            "¿Quieres vaciar todo el carrito?"
+        )
+    ) {
+
+        carrito = [];
+
+        guardarCarrito();
+
+        actualizarCarrito();
+
+    }
+
+}
+
+
+
+/* =====================================================
    ABRIR CARRITO
-========================================================= */
+===================================================== */
 
 function abrirCarrito() {
 
-  actualizarCarrito();
+    actualizarCarrito();
 
-  document
-    .getElementById("cartModal")
-    .classList.remove("hidden");
 
-  document.body.style.overflow =
+    document
+    .getElementById(
+        "cartModal"
+    )
+    .classList.remove(
+        "hidden"
+    );
+
+
+    document.body.style.overflow =
     "hidden";
 
 }
 
 
+
+/* =====================================================
+   CERRAR CARRITO
+===================================================== */
+
 function cerrarCarrito() {
 
-  document
-    .getElementById("cartModal")
-    .classList.add("hidden");
+    document
+    .getElementById(
+        "cartModal"
+    )
+    .classList.add(
+        "hidden"
+    );
 
-  document.body.style.overflow =
+
+    document.body.style.overflow =
     "";
 
 }
 
 
-/* =========================================================
-   ENVIAR PEDIDO POR WHATSAPP
-========================================================= */
+
+/* =====================================================
+   ENVIAR PEDIDO
+===================================================== */
 
 function enviarPedidoWhatsApp() {
 
-  if (!carrito.length) {
+    if (!carrito.length) {
 
-    alert("El carrito está vacío.");
+        alert(
+            "El carrito está vacío."
+        );
 
-    return;
+        return;
 
-  }
+    }
 
 
-  let mensaje =
+
+    let mensaje =
+
     "Hola Yuri 👋%0A%0A" +
-    "Quiero realizar el siguiente pedido:%0A%0A";
+
+    "📦 PRODUCTOS A ENTREGAR%0A%0A";
 
 
-  let total = 0;
+
+    let total = 0;
 
 
-  carrito.forEach(item => {
 
-    const subtotal =
-      item.precio * item.cantidad;
+    carrito.forEach(
+    item => {
 
-    total += subtotal;
+
+        const subtotal =
+        item.precio *
+        item.cantidad;
+
+
+        total +=
+        subtotal;
+
+
+
+        mensaje +=
+
+        `🛍️ ${item.nombre}%0A` +
+
+        `Cantidad: ${item.cantidad}%0A` +
+
+        `Precio: ${formatearPrecio(item.precio)}%0A` +
+
+        `Subtotal: ${formatearPrecio(subtotal)}%0A%0A`;
+
+    });
+
 
 
     mensaje +=
-      `🛍️ ${item.nombre}%0A` +
-      `Cantidad: ${item.cantidad}%0A` +
-      `Precio: ${formatearPrecio(item.precio)}%0A` +
-      `Subtotal: ${formatearPrecio(subtotal)}%0A%0A`;
 
-  });
-
-
-  mensaje +=
     `💰 TOTAL: ${formatearPrecio(total)}%0A%0A` +
-    "Mi pedido es de Tienda Yuri en Palermo.";
+
+    "🚚 Solicito entrega a domicilio.%0A%0A" +
+
+    "📍 Por favor, confirmar disponibilidad y coordinar la entrega.%0A%0A" +
+
+    "Pedido realizado desde Tienda Yuri en Palermo.";
 
 
-  window.open(
-    `https://wa.me/${WHATSAPP}?text=${mensaje}`,
-    "_blank"
-  );
+
+    window.open(
+        `https://wa.me/${WHATSAPP}?text=${mensaje}`,
+        "_blank"
+    );
 
 }
 
 
-/* =========================================================
+
+/* =====================================================
    LOGIN
-========================================================= */
+===================================================== */
 
 function abrirLogin() {
 
-  document
-    .getElementById("loginModal")
-    .classList.remove("hidden");
+    document
+    .getElementById(
+        "loginModal"
+    )
+    .classList.remove(
+        "hidden"
+    );
 
 }
+
 
 
 function cerrarLogin() {
 
-  document
-    .getElementById("loginModal")
-    .classList.add("hidden");
+    document
+    .getElementById(
+        "loginModal"
+    )
+    .classList.add(
+        "hidden"
+    );
 
 }
+
 
 
 async function iniciarSesion() {
 
-  const email =
-    document.getElementById("emailLogin")
-      .value
-      .trim();
-
-  const password =
-    document.getElementById("passwordLogin")
-      .value;
-
-
-  const message =
-    document.getElementById("loginMessage");
+    const email =
+    document
+    .getElementById(
+        "emailLogin"
+    )
+    .value
+    .trim();
 
 
-  if (!email || !password) {
+    const password =
+    document
+    .getElementById(
+        "passwordLogin"
+    )
+    .value;
+
+
+    const message =
+    document
+    .getElementById(
+        "loginMessage"
+    );
+
+
+
+    if (
+        !email ||
+        !password
+    ) {
+
+        message.textContent =
+        "Completa todos los campos.";
+
+
+        message.className =
+        `
+        text-center
+        text-sm
+        mt-4
+        text-red-500
+        `;
+
+
+        return;
+
+    }
+
+
 
     message.textContent =
-      "Completa todos los campos.";
-
-    message.className =
-      "text-center text-sm mt-4 text-red-500";
-
-    return;
-
-  }
-
-
-  message.textContent =
     "Iniciando sesión...";
 
 
-  const {
-    data,
-    error
-  } =
-    await supabaseClient.auth.signInWithPassword({
-      email,
-      password
+
+    const {
+        data,
+        error
+    } =
+    await supabaseClient.auth
+    .signInWithPassword({
+
+        email,
+        password
+
     });
 
 
-  if (error) {
+
+    if (error) {
+
+        message.textContent =
+        error.message;
+
+
+        message.className =
+        `
+        text-center
+        text-sm
+        mt-4
+        text-red-500
+        `;
+
+
+        return;
+
+    }
+
+
 
     message.textContent =
-      error.message;
-
-    message.className =
-      "text-center text-sm mt-4 text-red-500";
-
-    return;
-
-  }
-
-
-  message.textContent =
     "Sesión iniciada correctamente.";
 
-  message.className =
-    "text-center text-sm mt-4 text-green-600";
+
+    message.className =
+    `
+    text-center
+    text-sm
+    mt-4
+    text-green-600
+    `;
 
 
-  setTimeout(() => {
 
-    cerrarLogin();
+    setTimeout(
+    () => {
 
-  }, 1000);
+        cerrarLogin();
+
+    },
+    1000
+    );
 
 }
 
 
-/* =========================================================
-   UTILIDADES
-========================================================= */
 
-function formatearPrecio(valor) {
+/* =====================================================
+   PRECIO
+===================================================== */
 
-  return new Intl.NumberFormat(
-    "es-CO",
-    {
-      style: "currency",
-      currency: "COP",
-      maximumFractionDigits: 0
+function formatearPrecio(
+    valor
+) {
+
+    return new Intl.NumberFormat(
+        "es-CO",
+        {
+            style:
+            "currency",
+
+            currency:
+            "COP",
+
+            maximumFractionDigits:
+            0
+        }
+    )
+    .format(
+        valor || 0
+    );
+
+}
+
+
+
+/* =====================================================
+   SEGURIDAD HTML
+===================================================== */
+
+function escapeHtml(
+    text
+) {
+
+    return String(
+        text || ""
+    )
+    .replace(
+        /&/g,
+        "&amp;"
+    )
+    .replace(
+        /</g,
+        "&lt;"
+    )
+    .replace(
+        />/g,
+        "&gt;"
+    )
+    .replace(
+        /"/g,
+        "&quot;"
+    )
+    .replace(
+        /'/g,
+        "&#039;"
+    );
+
+}
+
+
+
+/* =====================================================
+   NOTIFICACIÓN
+===================================================== */
+
+function mostrarNotificacion(
+    texto
+) {
+
+    const div =
+    document.createElement(
+        "div"
+    );
+
+
+    div.className =
+    `
+    fixed
+    bottom-5
+    right-5
+    z-[200]
+    bg-gray-900
+    text-white
+    px-5
+    py-3
+    rounded-xl
+    shadow-xl
+    `;
+
+
+
+    div.innerHTML = `
+
+    <i class="
+    fa-solid
+    fa-check
+    text-green-400
+    mr-2
+    "></i>
+
+    ${escapeHtml(
+        texto
+    )}
+
+    `;
+
+
+
+    document.body.appendChild(
+        div
+    );
+
+
+
+    setTimeout(
+    () => {
+
+        div.remove();
+
+    },
+    2500
+    );
+
+}
+
+
+
+/* =====================================================
+   BOTÓN VOLVER ARRIBA
+===================================================== */
+
+window.addEventListener(
+"scroll",
+actualizarBotonArriba
+);
+
+
+
+function actualizarBotonArriba() {
+
+    const boton =
+    document.getElementById(
+        "btnArriba"
+    );
+
+
+    if (
+        window.scrollY
+        > 400
+    ) {
+
+        boton.style.display =
+        "flex";
+
     }
-  ).format(valor || 0);
+
+    else {
+
+        boton.style.display =
+        "none";
+
+    }
 
 }
 
 
-function escapeHtml(text) {
 
-  return String(text || "")
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
+function subirArriba() {
 
-}
+    window.scrollTo({
 
+        top: 0,
 
-function mostrarNotificacion(texto) {
+        behavior: "smooth"
 
-  const div =
-    document.createElement("div");
-
-  div.className =
-    "fixed bottom-5 right-5 z-[200] bg-gray-900 text-white px-5 py-3 rounded-xl shadow-xl";
-
-
-  div.innerHTML =
-    `<i class="fa-solid fa-check text-green-400 mr-2"></i>
-     ${escapeHtml(texto)}`;
-
-
-  document.body.appendChild(div);
-
-
-  setTimeout(() => {
-
-    div.remove();
-
-  }, 2500);
+    });
 
 }
 
 
-/* =========================================================
-   CERRAR MODALES AL HACER CLICK AFUERA
-========================================================= */
+
+/* =====================================================
+   CERRAR MODALES
+===================================================== */
 
 document
-  .getElementById("cartModal")
-  .addEventListener("click", function(e) {
+.getElementById(
+    "cartModal"
+)
+.addEventListener(
+"click",
+function(e) {
 
-    if (e.target === this) {
+    if (
+        e.target === this
+    ) {
 
-      cerrarCarrito();
+        cerrarCarrito();
 
     }
 
-  });
+});
+
 
 
 document
-  .getElementById("loginModal")
-  .addEventListener("click", function(e) {
+.getElementById(
+    "loginModal"
+)
+.addEventListener(
+"click",
+function(e) {
 
-    if (e.target === this) {
+    if (
+        e.target === this
+    ) {
 
-      cerrarLogin();
+        cerrarLogin();
 
     }
 
-  });
+);
 
 </script>
+
 
 </body>
 </html>
